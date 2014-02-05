@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>CSS Reset Demo | Borderleft Labs</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Toucan CSS Reset: HTML elements demo page.">
+	<link rel="stylesheet" href="../reset.css">
+	<style type="text/css">
+	html{padding:1em;text-align:center;}
+	body{max-width:760px;margin:30px auto;text-align:left;}
+	@media (max-width:480px){body{max-width:100%;}input[type=file]{display:none;}.github_button{display:none;}}
+	</style>
+</head>
+
+<body>
+
+<!-- Sample HTML begins -->
+<h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6><hr><h2>Typography</h2><p>The <a href="#">a element</a> example<br> The <abbr>abbr element</abbr> and <abbr title="Title text">abbr element with title</abbr> examples<br> The <b>b element</b> example<br> The <cite>cite element</cite> example<br> The <code>code element</code> example<br> The <del>del element</del> example<br> The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn> examples<br> The <em>em element</em> example<br> The <i>i element</i> example<br> The <ins>ins element</ins> example<br> The <kbd>kbd element</kbd> example<br> The <mark>mark element</mark> example<br> The <q>q element <q>inside</q> a q element</q> example<br> The <s>s element</s> example<br> The <samp>samp element</samp> example<br> The <small>small element</small> example<br> The <span>span element</span> example<br> The <strong>strong element</strong> example<br> The <sub>sub element</sub> example<br> The <sup>sup element</sup> example<br> The <u>u element</u> example<br> The <var>var element</var> example</p><hr><h2>List</h2><h3>Definition List</h3><dl><dt>Title</dt><dd>This is a definition list division.</dd><dt>Definition</dt><dd>An exact statement or description of the nature, scope, or meaning of something: <em>our definition of what constitutes poetry.</em></dd></dl><h3>Ordered List</h3><ol><li>List Item 1</li><li>List Item 2<ol><li>Nested list item A</li><li>Nested list item B</li></ol></li><li>List Item 3</li></ol><h3>Unordered List</h3><ul><li>List Item 1</li><li>List Item 2<ul><li>Nested list item A</li><li>Nested list item B<ul><li>Nested list item one</li><li>Nested list item two</li><li>Nested list item three</li></ul></li><li>Nested list item C</li></ul></li><li>List Item 3</li></ul><hr><h2>Preformatted</h2><p>Typographically, preformatted text is not the same thing as code. Sometimes, a faithful execution of the text requires preformatted text that may not have anything to do with code. Most browsers use Courier and that&#8217;s a good default &#8212; with one slight adjustment, Courier 10 Pitch over regular Courier for Linux users. For example:</p> <pre>Beware the Jabberwock, my son!
+The jaws that bite, the claws that catch!
+Beware the Jubjub bird, and shun
+The frumious Bandersnatch!”</pre><h3>Code</h3><p>Code can be presented inline, like <code>&lt;?php bloginfo('stylesheet_url'); ?&gt;</code>, or within a <code>&lt;pre&gt;</code> block. Because we have more specific typographic needs for code, we&#8217;ll specify Consolas and Monaco ahead of the browser-defined monospace font.</p> <pre><code>#container {
+float: left;
+margin: 0 -240px 0 0;
+width: 100%;
+}</code></pre><h3>Blockquote</h3><p>Let&#8217;s keep it simple. Italics are good to help set it off from the body text (and italic Georgia is lovely at this size). Be sure to style the citation.</p><blockquote><p>Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you&#8217;d like to hear it I can sing it for you.</p><p><cite>— <a href="http://en.wikipedia.org/wiki/HAL_9000">HAL 9000</a></cite></p></blockquote><p>And here&#8217;s a bit of trailing text.</p><hr><h2>Table</h2><table><caption>The caption tag defines a table caption</caption><tr><th>Table Header 1</th><th>Table Header 2</th><th>Table Header 3</th></tr><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr></table><hr><h2>Form</h2><form method="post" action="#"><fieldset><legend>Label</legend> <label for="i">Label</label> <input id="i" type="text"> <span>*</span></fieldset><fieldset><legend>Select</legend> <select><optgroup label="Cats"><option>Tiger</option><option>Leopard</option><option>Lynx</option></optgroup><optgroup label="Dogs"><option>Grey Wolf</option><option>Red Fox</option><option>Fennec</option></optgroup> </select></fieldset><fieldset><legend>Input</legend><p><input type="text" value="Sample"></p><p><input type="password" value="Password"></p><p><input type="checkbox" checked="checked"><span>1</span > <input type="checkbox"><span>2</span></p><p><input type="radio" name="n" value="a" checked="checked"><span>1</span> <input type="radio" name="n" value="b"><span>2</span></p><p><input type="submit" value="Submit"></p><p><input type="reset" value="Reset"></p><p><input type="hidden" value="Hidden"></p><p><input type="image" alt="Image"></p><p><input type="file"></p><p><input type="button" value="Button"></p><p><input type="text" disabled="disabled" value="Disabled"></p><p><input type="text" readonly="readonly" value="Read only"></p></fieldset><fieldset><legend>Textarea</legend> <textarea>Sample</textarea></fieldset><fieldset><legend>Button</legend><p><button type="button">Button</button></p><p><button type="submit">Submit</button></p><p><button type="reset">Reset</button></p><p><button disabled="disabled">Disabled</button></p></fieldset></form>
+<!-- Sample HTML ends -->
+
+<a href="https://github.com/borderleft/toucan-css-reset"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-10292366-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+
+</html>

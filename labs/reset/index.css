@@ -1,0 +1,33 @@
+/* RESET INDEX | 2012-09 */
+
+/* MAIN
+---------------------------------------- */
+body{color:#555;font-size:93.75%;text-align:center;font-family:sans-serif;line-height:1.5;;margin:0;}
+p{margin:0 0 2em;}
+code{display:block;margin-bottom:.5em;font-family:menlo,monaco,consolas,courier,sans-serif;}
+h1,h2{color:#333;font-family:lobster,georgia,serif;letter-spacing:1px;font-weight:normal;}
+.reset{width:760px;text-align:left;margin:0 auto;padding:2em 0 0;}
+.reset h1{float:left;line-height:3.5;font-size:3em;margin:0 .5em 0 0;}
+.reset h2{line-height:1.15;font-size:1.25em;margin:0 0 .357em;}
+.reset h2 em{font-style:normal;}
+.reset .main{clear:left;position:relative;top:-2em;padding:1em 0 1em 8em;}
+.reset .main a{color:#333;text-decoration:none;border-bottom:1px dotted;}
+.reset .main a:hover{color:#f40;-webkit-transition:color .2s ease-in;-moz-transition:color .2s ease-in;transition:color .2s ease-in;}
+.reset .intro{padding-right:5em;}
+.reset .open,.reset .close{color:#333;font-size:8em;line-height:1.25;display:block;font-family:georgia,serif;margin:0;}
+.reset .close{margin:-1em 0 .5em .25em;}
+.reset small{font-style:italic;}
+.reset code{font-size:.85em;}
+.addthis_button{cursor:pointer;left:8em;position:relative;top:-8em;}
+
+/* MOBILE
+---------------------------------------- */
+@media handheld, screen and (max-width:800px) {
+html{border:0;}
+body{padding:10px 20px;}
+.reset{width:100%;margin:0;padding:20px 0 0;}
+.reset h1{line-height:1;font-size:2.25em;margin-bottom:20px;}
+.reset .main{clear:both;width:100%;position:static;top:0;margin:0;padding:0;}
+.reset .intro{padding-right:0;}
+.reset .open,.reset .close,.addthis_button,.github_button{display:none;}
+}
