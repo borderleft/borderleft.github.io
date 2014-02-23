@@ -1,4 +1,4 @@
-/* TOUCAN CSS RESET | 2.01 */
+/* TOUCAN CSS RESET | 2.02 */
 
 /* HTML5
 ---------------------------------------- */
@@ -11,7 +11,7 @@ audio, canvas, details, figure, video {
 	margin: 0 0 1.25em;
 }
 
-audio, canvas, video {
+audio, canvas, progress, video {
 	display: inline-block;
 }
 

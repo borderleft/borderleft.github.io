@@ -1,4 +1,4 @@
-/* TOUCAN CSS RESET | 2.01 */
+/* TOUCAN CSS RESET | 2.02 */
 
 /* HTML5
 ---------------------------------------- */
@@ -11,7 +11,7 @@ audio, canvas, details, figure, video {
 	margin: 0 0 20px;
 }
 
-audio, canvas, video {
+audio, canvas, progress, video {
 	display: inline-block;
 }
 
@@ -21,6 +21,10 @@ summary {
 
 /* STRUCTURE
 ---------------------------------------- */
+
+html {
+	font-size: 16px;
+}
 
 body {
 	font-family: "georgia", serif;
@@ -73,8 +77,8 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: none;
 	content: "";
+	content: none;
 }
 
 pre {
