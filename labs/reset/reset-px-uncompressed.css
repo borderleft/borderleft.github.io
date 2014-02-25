@@ -1,4 +1,4 @@
-/* TOUCAN CSS RESET | 2.02 */
+/* TOUCAN CSS RESET | 2.1 */
 
 /* HTML5
 ---------------------------------------- */
@@ -7,16 +7,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 	display: block;
 }
 
-audio, canvas, details, figure, video {
-	margin: 0 0 20px;
-}
-
 audio, canvas, progress, video {
 	display: inline-block;
-}
-
-summary {
-	margin: 0 0 12px;
 }
 
 /* STRUCTURE

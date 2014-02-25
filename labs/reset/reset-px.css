@@ -1,9 +1,7 @@
-/* TOUCAN CSS RESET | 2.02 */
+/* TOUCAN CSS RESET | 2.1 */
 
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
-audio,canvas,details,figure,video{margin:0 0 20px;}
 audio,canvas,progress,video{display:inline-block;}
-summary{margin:0 0 12px;}
 html{font-size:16px;}
 body{font-family:"georgia",serif;line-height:1.5;margin:0;}
 address,blockquote,dd,dl,fieldset,form,hr,menu,ol,p,pre,q,table,ul{margin:0 0 20px;}
