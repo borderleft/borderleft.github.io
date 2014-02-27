@@ -19,7 +19,7 @@ body {
 	line-height: 1.6;
 	text-align: left;
 	color: #3e2f2f;
-	max-width: 960px;
+	max-width: 900px;
 	margin: 0 auto;
 }
 
@@ -192,7 +192,7 @@ table {
 }
 
 .hero {
-	padding: 40px 0 90px;
+	padding: 45px 0 90px;
 }
 
 .hero h1 {
@@ -253,7 +253,7 @@ table {
 
 .projects .info {
 	float: left;
-	width: 290px;
+	width: 280px;
 }
 
 .projects .year {
@@ -317,12 +317,11 @@ table {
 
 .skills img {
 	float: right;
-	margin-right: 30px;
-	margin-left: 5px;
+	margin-right: 20px;
 }
 
 .skills p {
-	padding-right: 70px;
+	padding-right: 60px;
 	margin-bottom: 40px;
 }
 
