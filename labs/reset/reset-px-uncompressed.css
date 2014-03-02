@@ -1,4 +1,4 @@
-/* TOUCAN CSS RESET | 2.1 */
+/* TOUCAN CSS RESET | 2.2 */
 
 /* HTML5
 ---------------------------------------- */
@@ -36,6 +36,7 @@ address, blockquote, dd, dl, fieldset, form, hr, menu, ol, p, pre, q, table, ul 
 ---------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
+	line-height: 1.25;
 	margin: 0 0 12px;
 }
 
