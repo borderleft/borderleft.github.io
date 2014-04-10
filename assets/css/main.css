@@ -45,7 +45,7 @@ p a {
 }
 
 h1, h2, h3 {
-	line-height: 1;
+	line-height: 1.25;
 }
 
 h1 {
@@ -245,6 +245,10 @@ table {
 
 .projects h2 {
 	margin-bottom: 0;
+}
+
+.projects h2 span {
+	font-size: 18px;
 }
 
 .projects p {
