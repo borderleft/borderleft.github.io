@@ -41,19 +41,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 200%;
+	font-size: 32px;
 }
 
 h2 {
-	font-size: 150%;
+	font-size: 24px;
 }
 
 h3 {
-	font-size: 125%;
+	font-size: 20px;
 }
 
 h4, h5, h6 {
-	font-size: 100%;
+	font-size: 16px;
 }
 
 b, strong {
@@ -140,11 +140,11 @@ hr {
 }
 
 big {
-	font-size: 125%;
+	font-size: 20px;
 }
 
 small, sub, sup {
-	font-size: 87.5%;
+	font-size: 14px;
 }
 
 sub, sup {
@@ -192,7 +192,7 @@ legend {
 
 input, textarea, select, button {
 	font-family: inherit;
-	font-size: 100%;
+	font-size: 16px;
 	line-height: normal;
 }
 
