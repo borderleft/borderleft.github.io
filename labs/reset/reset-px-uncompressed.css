@@ -200,11 +200,6 @@ button[type=button], button[type=reset], button[type=submit] {
 	cursor: pointer;
 }
 
-button[disabled],
-html input[disabled] {
-	cursor: default;
-}
-
 textarea {
 	text-align: left;
 	vertical-align: top;
