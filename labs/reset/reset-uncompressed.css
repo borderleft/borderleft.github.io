@@ -192,7 +192,6 @@ legend {
 }
 
 input, textarea, select, button {
-	color: inherit;
 	font-family: inherit;
 	font-size: 1em;
 	line-height: normal;
