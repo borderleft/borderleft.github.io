@@ -1,4 +1,4 @@
-/* TOUCAN CSS RESET | 2.2 */
+/*! TOUCAN CSS RESET | 2.3 */
 
 /* HTML5
 ---------------------------------------- */
@@ -15,7 +15,7 @@ audio, canvas, progress, video {
 ---------------------------------------- */
 
 html {
-	font-size: 100%;
+	font-size: 1em;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
 /* GENERAL
 ---------------------------------------- */
 
-address, blockquote, dd, dl, fieldset, form, hr, menu, ol, p, pre, q, table, ul {
+address, blockquote, dd, dl, fieldset, figure, form, hr, menu, ol, p, pre, q, table, ul {
 	margin: 0 0 1.25em;
 }
 
@@ -77,16 +77,14 @@ q:before, q:after {
 	content: none;
 }
 
-pre {
-	white-space: pre;
-	white-space: pre-wrap;
-	word-wrap: break-word;
-}
-
 code, kbd, pre, samp, tt, var {
 	font-family: "menlo", "monaco", "consolas", "courier new", monospace;
 	font-style: normal;
 	line-height: normal;
+}
+
+pre {
+	overflow: auto;
 }
 
 abbr, acronym, dfn {
@@ -194,6 +192,7 @@ legend {
 }
 
 input, textarea, select, button {
+	color: inherit;
 	font-family: inherit;
 	font-size: 1em;
 	line-height: normal;
@@ -204,9 +203,15 @@ button[type=button], button[type=reset], button[type=submit] {
 	cursor: pointer;
 }
 
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
 textarea {
 	text-align: left;
 	vertical-align: top;
+	overflow: auto;
 }
 
 /* TABLE
