@@ -1,5 +1,5 @@
 title: Borderleft
 url: borderleft.com
-highlighter: rouge
+highlighter: pygments
 markdown: redcarpet
 permalink: /:year/:month/:day/:title
