@@ -52,7 +52,7 @@
 @media screen and (max-width:400px) {
 	.main {line-height:1.4;}
 	.nav{padding-left:20px;padding-right:20px;}
-	.nav li{text-align:left;width:auto;margin-right:9px;letter-spacing:0;}
+	.nav li{text-align:left;width:auto;margin-right:20px;letter-spacing:0;}
 	.nav li:last-child{margin-right:0;}
 	.nav .active{background:none;color:#3e2f2f;}
 	.nav .active a{color:#a34103;}
