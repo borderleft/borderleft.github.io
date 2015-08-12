@@ -413,6 +413,7 @@ table {
 
 .introduce .third li {
 	display: inline;
+	display: inline-block;
 	font-size: 13px;
 	margin: 5px 20px 5px 0;
 }
