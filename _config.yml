@@ -1,5 +1,6 @@
 title: Borderleft
-url: borderleft.com
-highlighter: pygments
+url: http://borderleft.com
+
 markdown: redcarpet
-permalink: /:year/:month/:day/:title
+highlighter: pygments
+permalink: pretty

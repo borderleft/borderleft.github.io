@@ -4,454 +4,454 @@
 -------------------------------------------------- */
 
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {
-	display: block;
+    display: block;
 }
 
 html {
-	border-top: 6px solid #ded9ce;
-	background-color: #f9fbf4;
-	text-align: center;
+    border-top: 6px solid #ded9ce;
+    background-color: #f9fbf4;
+    text-align: center;
 }
 
 body {
-	font-family: "georgia", serif;
-	font-size: 14px;
-	line-height: 1.6;
-	text-align: left;
-	color: #3e2f2f;
-	max-width: 900px;
-	margin: 0 auto;
+    font-family: "georgia", serif;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    color: #3e2f2f;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 a {
-	text-decoration: none;
-	color: #a34103;
+    text-decoration: none;
+    color: #a34103;
 }
 
 a:hover {
-	color: #c9662a;
+    color: #c9662a;
 }
 
 a:focus {
-	outline: 0;
+    outline: 0;
 }
 
 p {
-	margin: 0 0 20px;
+    margin: 0 0 20px;
 }
 
 p a {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 h1, h2, h3 {
-	line-height: 1.25;
+    line-height: 1.25;
 }
 
 h1 {
-	font-size: 36px;
-	margin: 0 0 30px;
+    font-size: 36px;
+    margin: 0 0 30px;
 }
 
 h1 em {
-	font-family: "baskerville", "georgia", serif;
-	font-style: italic;
-	color: #dec1a5;
+    font-family: "baskerville", "georgia", serif;
+    font-style: italic;
+    color: #dec1a5;
 }
 
 h2, h3 {
-	font-weight: normal;
-	margin: 0 0 12px;
+    font-weight: normal;
+    margin: 0 0 12px;
 }
 
 h2 {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 h3 {
-	font-size: 14px;
+    font-size: 14px;
 }
 
 img {
-	border: 0;
+    border: 0;
 }
 
 ol, ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 abbr {
-	border-bottom: 1px dotted #3e2f2f;
-	cursor: help;
-	padding: 0 1px;
+    border-bottom: 1px dotted #3e2f2f;
+    cursor: help;
+    padding: 0 1px;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /* Layout
 -------------------------------------------------- */
 
 .header {
-	border-bottom: 2px solid #ded9ce;
-	padding: 70px 0 50px;
+    border-bottom: 2px solid #ded9ce;
+    padding: 70px 0 50px;
 }
 
 .main {
-	position: relative;
-	padding: 40px 0 60px;
-	overflow: hidden;
+    position: relative;
+    padding: 40px 0 60px;
+    overflow: hidden;
 }
 
 .footer {
-	border-top: 1px solid #ded9ce;
-	padding: 10px 0 30px;
-	clear: both;
+    border-top: 1px solid #ded9ce;
+    padding: 10px 0 30px;
+    clear: both;
 }
 
 /* Header
 -------------------------------------------------- */
 
 .logo {
-	background: url(../img/logo.gif) 0 0 no-repeat;
-	text-indent: -9999px;
-	display: block;
-	margin-top: -4px;
-	float: left;
-	width: 228px;
-	height: 24px;
+    background: url(../img/logo.gif) 0 0 no-repeat;
+    text-indent: -9999px;
+    display: block;
+    margin-top: -4px;
+    float: left;
+    width: 228px;
+    height: 24px;
 }
 
 .logo:hover {
-	background-position: 0 -24px;
+    background-position: 0 -24px;
 }
 
 .nav {
-	float: right;
-	width: 60%;
+    float: right;
+    width: 60%;
 }
 
 .nav li {
-	display: block;
-	float: left;
-	width: 25%;
-	font-size: 13px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	text-align: center;
+    display: block;
+    float: left;
+    width: 25%;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .nav a {
-	display: block;
-	color: #3e2f2f;
+    display: block;
+    color: #3e2f2f;
 }
 
 .nav a:hover {
-	color: #a34103;
+    color: #a34103;
 }
 
 .nav .active {
-	background: url(../img/nav.gif) center top no-repeat;
+    background: url(../img/nav.gif) center top no-repeat;
 }
 
 .nav .active a:hover {
-	color: #3e2f2f;
+    color: #3e2f2f;
 }
 
 /* Footer
 -------------------------------------------------- */
 
 .footer a {
-	font-weight: normal;
+    font-weight: normal;
 }
 
 .footer .meta {
-	float: right;
-	font-size: 11px;
+    float: right;
+    font-size: 11px;
 }
 
 .footer .info {
-	font-size: 13px;
+    font-size: 13px;
 }
 
 .footer .info a {
-	background: url(../img/bubble.gif) 4px 0 no-repeat;
-	padding-left: 18px;
-	margin-left: 4px;
+    background: url(../img/bubble.gif) 4px 0 no-repeat;
+    padding-left: 18px;
+    margin-left: 4px;
 }
 
 /* Home
 -------------------------------------------------- */
 
 .page-home .main {
-	background: url(../img/paint.jpg) right 30px no-repeat;
+    background: url(../img/paint.jpg) right 30px no-repeat;
 }
 
 .hero {
-	padding: 45px 0 90px;
+    padding: 45px 0 90px;
 }
 
 .hero h1 {
-	font-family: "baskerville", "georgia", serif;
-	font-size: 46px;
-	margin: 0 0 10px;
+    font-family: "baskerville", "georgia", serif;
+    font-size: 46px;
+    margin: 0 0 10px;
 }
 
 .hero h1 em {
-	font-weight: normal;
-	color: #c38e5a;
+    font-weight: normal;
+    color: #c38e5a;
 }
 
 .hero p {
-	font-size: 18px;
-	font-style: italic;
-	margin: 0;
+    font-size: 18px;
+    font-style: italic;
+    margin: 0;
 }
 
 .teaser {
-	clear: both;
-	margin-bottom: 40px;
-	overflow: hidden;
+    clear: both;
+    margin-bottom: 40px;
+    overflow: hidden;
 }
 
 .teaser li {
-	width: 33.33%;
-	float: left;
+    width: 33.33%;
+    float: left;
 }
 
 .teaser p {
-	padding-right: 20px;
+    padding-right: 20px;
 }
 
 /* Work
 -------------------------------------------------- */
 
 .page-work h1 {
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .projects li {
-	position: relative;
-	clear: both;
-	overflow: hidden;
-	border-bottom: 2px solid #ded9ce;
-	padding: 0;
-	margin: 0 0 50px;
+    position: relative;
+    clear: both;
+    overflow: hidden;
+    border-bottom: 2px solid #ded9ce;
+    padding: 0;
+    margin: 0 0 50px;
 }
 
 .projects h2 {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .projects h2 span {
-	font-size: 18px;
+    font-size: 18px;
 }
 
 .projects p {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .projects .info {
-	float: left;
-	width: 280px;
+    float: left;
+    width: 280px;
 }
 
 .projects .year {
-	font-family: "georgia", serif;
-	font-size: 18px;
-	font-weight: bold;
-	color: #dec1a5;
+    font-family: "georgia", serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #dec1a5;
 }
 
 .projects .meta {
-	font-style: italic;
+    font-style: italic;
 }
 
 .projects .link {
-	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 
 .projects .link a {
-	float: left;
-	display: block;
-	background: #ece8db;
-	font-size: 13px;
-	font-weight: normal;
-	font-style: italic;
-	padding: 2px 10px;
-	border-radius: 20px;
+    float: left;
+    display: block;
+    background: #ece8db;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: italic;
+    padding: 2px 10px;
+    border-radius: 20px;
 }
 
 .projects .link a:hover {
-	background: #eedecf;
+    background: #eedecf;
 }
 
 .projects .image {
-	float: right;
-	width: 550px;
-	height: 190px;
-	overflow: hidden;
-	border: 10px solid #ece8db;
-	border-bottom: 0;
-	border-radius: 10px 10px 0 0;
+    float: right;
+    width: 550px;
+    height: 190px;
+    overflow: hidden;
+    border: 10px solid #ece8db;
+    border-bottom: 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .projects .image:hover {
-	border-color: #eedecf;
+    border-color: #eedecf;
 }
 
 .projects .image img {
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .projects .vicky img {
-	margin-top: -175px;
+    margin-top: -175px;
 }
 
 /* Services
 -------------------------------------------------- */
 
 .skills img {
-	float: right;
-	margin-right: 20px;
+    float: right;
+    margin-right: 20px;
 }
 
 .skills p {
-	padding-right: 60px;
-	margin-bottom: 40px;
+    padding-right: 60px;
+    margin-bottom: 40px;
 }
 
 .skills li {
-	float: left;
-	min-height: 140px;
+    float: left;
+    min-height: 140px;
 }
 
 .skills .single {
-	width: 33.33%;
+    width: 33.33%;
 }
 
 .skills .double {
-	width: 66.66%;
+    width: 66.66%;
 }
 
 .skills .break {
-	clear: both;
+    clear: both;
 }
 
 .skills .fancy {
-	padding-top: 15px;
+    padding-top: 15px;
 }
 
 .skills .fancy h2 {
-	background: #3e2f2f url(../img/arrow.gif) right 0 no-repeat;
-	color: white;
-	width: 90%;
-	height: 80px;
-	line-height: 80px;
-	font-size: 20px;
-	font-weight: bold;
-	text-align: center;
-	padding-right: 20px;
+    background: #3e2f2f url(../img/arrow.gif) right 0 no-repeat;
+    color: white;
+    width: 90%;
+    height: 80px;
+    line-height: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 20px;
 }
 
 .skills .fancy h2 span {
-	padding: 0 2px;
+    padding: 0 2px;
 }
 
 .skills .last p {
-	padding-top: 10px;
+    padding-top: 10px;
 }
 
 /* About
 -------------------------------------------------- */
 
 .page-about .main {
-	background: url(../img/me.jpg) 100% 50px no-repeat;
+    background: url(../img/me.jpg) 100% 50px no-repeat;
 }
 
 .introduce .session {
-	width: 550px;
-	margin-bottom: 40px;
+    width: 550px;
+    margin-bottom: 40px;
 }
 
 .introduce .session ul {
-	border-left: 5px solid #ded9ce;
-	padding-left: 10px;
-	margin-left: 25px;
-	overflow: hidden;
+    border-left: 5px solid #ded9ce;
+    padding-left: 10px;
+    margin-left: 25px;
+    overflow: hidden;
 }
 
 .introduce .first {
-	font-size: 16px;
-	line-height: 1.4;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 .introduce .first .row {
-	text-transform: uppercase;
-	letter-spacing: 1px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .introduce .first .chr {
-	float: left;
-	font-size: 50px;
-	font-weight: normal;
-	line-height: 1;
-	margin: -4px 5px 10px 0;
+    float: left;
+    font-size: 50px;
+    font-weight: normal;
+    line-height: 1;
+    margin: -4px 5px 10px 0;
 }
 
 .introduce .second li {
-	font-style: italic;
+    font-style: italic;
 }
 
 .introduce .third li {
-	display: inline;
-	display: inline-block;
-	font-size: 13px;
-	margin: 5px 20px 5px 0;
+    display: inline;
+    display: inline-block;
+    font-size: 13px;
+    margin: 5px 20px 5px 0;
 }
 
 /* Contact
 -------------------------------------------------- */
 
 .communicate {
-	width: 600px;
-	margin-top: -10px;
-	overflow: hidden;
+    width: 600px;
+    margin-top: -10px;
+    overflow: hidden;
 }
 
 .communicate .wufoo {
-	margin-top: -40px;
+    margin-top: -40px;
 }
 
 /* Labs
 -------------------------------------------------- */
 
 .goodies {
-	min-height: 250px;
+    min-height: 250px;
 }
 
 .goodies li {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 /* 404
 -------------------------------------------------- */
 
 .notfound {
-	width: 600px;
-	margin-bottom: 90px;
+    width: 600px;
+    margin-bottom: 90px;
 }
 
 .notfound li {
-	padding-left: 20px;
-	background: url(../img/bullet.gif) 5px 8px no-repeat;
-	margin: 10px 0;
+    padding-left: 20px;
+    background: url(../img/bullet.gif) 5px 8px no-repeat;
+    margin: 10px 0;
 }
