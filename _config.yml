@@ -1,6 +1,6 @@
 name: Borderleft
 url: http://borderleft.com
 
-markdown: redcarpet
+markdown: kramdown
 highlighter: rouge
 permalink: pretty
