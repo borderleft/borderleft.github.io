@@ -2,5 +2,5 @@ name: Borderleft
 url: http://borderleft.com
 
 markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
