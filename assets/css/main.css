@@ -407,15 +407,8 @@ table {
     margin: -4px 5px 10px 0;
 }
 
-.introduce .second li {
-    font-style: italic;
-}
-
 .introduce .third li {
-    display: inline;
-    display: inline-block;
-    font-size: 13px;
-    margin: 5px 20px 5px 0;
+    font-style: italic;
 }
 
 /* Contact
