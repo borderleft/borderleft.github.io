@@ -117,17 +117,17 @@ table {
 -------------------------------------------------- */
 
 .logo {
-    background: url(../img/logo.gif) 0 0 no-repeat;
+    background: url(../img/logo.png) 0 0 no-repeat;
     text-indent: -9999px;
     display: block;
     margin-top: -4px;
     float: left;
-    width: 228px;
-    height: 24px;
+    width: 204px;
+    height: 23px;
 }
 
 .logo:hover {
-    background-position: 0 -24px;
+    background-position: 0 -23px;
 }
 
 .nav {

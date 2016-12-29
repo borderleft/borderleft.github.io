@@ -67,3 +67,7 @@
     .nav{padding-bottom:20px;}
     .footer .meta{display:none;}
 }
+
+@media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi) {
+    .logo {background:url(../img/logo2x.png) 0 0 no-repeat;background-size:100%;}
+}
