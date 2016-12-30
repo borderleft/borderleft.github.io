@@ -1,9 +1,5 @@
 /* ADAPT | 2011-07 */
 
-@media screen {
-    body{-webkit-text-size-adjust:none;}
-}
-
 @media screen and (max-width:960px) {
     .logo{margin-left:20px;}
     .main{padding-left:20px;}
@@ -19,12 +15,13 @@
 }
 
 @media screen and (max-width:640px) {
-    .main{min-height:380px;padding-bottom:0;}
+    .main{min-height:380px;padding-bottom:0;margin-bottom:20px;}
     .header{padding:30px 0 40px;}
     .logo{float:none;margin-bottom:20px;}
     .nav{float:none;clear:both;width:auto;}
     .hero{padding:10px 0 40px;}
     .hero h1{font-size:40px;}
+    .teaser {margin-bottom:0;}
     .skills .fancy,.skills .last{display:none;}
     .communicate{width:auto;}
     .notfound{width:95%;}
@@ -34,7 +31,7 @@
 @media screen and (max-width:600px) {
     .main{padding-top:20px;}
     .main h1{font-size:28px;}
-    .page-home .main{background-position:center top;background-size:100%;}
+    .page-home .main{background-position:center 20%;background-size:100%;}
     .teaser li{width:auto;float:none;padding-right:20px;margin-bottom:30px;}
     .projects .info,.projects .image{width:auto;float:none;}
     .projects li{margin-bottom:40px;border-bottom:0;}
@@ -56,6 +53,7 @@
     .nav li:last-child{margin-right:0;}
     .nav .active{background:none;color:#3e2f2f;}
     .nav .active a{color:#a34103;}
+    .main h1{margin-right:10px;}
     .hero h1{font-size:30px;}
     .introduce .session ul{margin-left:5px;}
     .projects .image{border:5px solid #ece8db;border-radius:5px;margin-bottom:20px;}

@@ -3,7 +3,8 @@
 /* HTML
 -------------------------------------------------- */
 
-article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {
+article, aside, details, figcaption, figure, footer,
+header, hgroup, main, nav, section, summary {
     display: block;
 }
 
@@ -21,6 +22,9 @@ body {
     color: #3e2f2f;
     max-width: 900px;
     margin: 0 auto;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    text-size-adjust: none;
 }
 
 a {
@@ -126,6 +130,13 @@ table {
     height: 23px;
 }
 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo {
+        background: url(../img/logo2x.png) 0 0 no-repeat;
+        background-size: 100%;
+    }
+}
+
 .logo:hover {
     background-position: 0 -23px;
 }
@@ -178,17 +189,11 @@ table {
     font-size: 13px;
 }
 
-.footer .info a {
-    background: url(../img/bubble.gif) 4px 0 no-repeat;
-    padding-left: 18px;
-    margin-left: 4px;
-}
-
 /* Home
 -------------------------------------------------- */
 
 .page-home .main {
-    background: url(../img/paint.jpg) right 30px no-repeat;
+    background: url(../img/paint.jpg) right 20% no-repeat;
 }
 
 .hero {
@@ -352,19 +357,31 @@ table {
 }
 
 .skills .fancy h2 {
-    background: #3e2f2f url(../img/arrow.gif) right 0 no-repeat;
+    position: relative;
     color: white;
-    width: 90%;
+    width: 85%;
     height: 80px;
     line-height: 80px;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    padding-right: 20px;
+    background: #3e2f2f;
+}
+
+.skills .fancy h2:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 40px 0 40px 40px;
+    border-color: transparent transparent transparent #3e2f2f;
 }
 
 .skills .fancy h2 span {
-    padding: 0 2px;
+    padding: 0 4px;
 }
 
 .skills .last p {
@@ -440,8 +457,11 @@ table {
     margin-bottom: 90px;
 }
 
+.notfound ul {
+    list-style: circle;
+    margin-left: 30px;
+}
+
 .notfound li {
-    padding-left: 20px;
-    background: url(../img/bullet.gif) 5px 8px no-repeat;
     margin: 10px 0;
 }
