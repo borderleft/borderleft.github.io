@@ -176,17 +176,16 @@ table {
 /* Footer
 -------------------------------------------------- */
 
+.footer {
+    font-size: 13px;
+}
+
 .footer a {
     font-weight: normal;
 }
 
 .footer .meta {
     float: right;
-    font-size: 11px;
-}
-
-.footer .info {
-    font-size: 13px;
 }
 
 /* Home
