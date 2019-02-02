@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>#RRGGBBAA Calculator</title>
+    <style>
+        body {
+            font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>#RRGGBBAA Calculator</h1>
+    <table id="chart">
+        <thead>
+            <tr>
+                <th>Alpha %</th>
+                <th>Hex</th>
+                <th>Num</th>
+            </tr>
+        </thead>
+    </table>
+
+    <script>
+        for(var text=document.getElementById("chart"),tableguts="",i=1;i>=0;i-=.01){i=Math.round(100*i)/100;var alpha=Math.round(255*i),hex=(alpha+65536).toString(16).substr(-2).toUpperCase(),perc=Math.round(100*i);tableguts+="<tr><td>"+perc+"%</td><td> "+hex+"</td><td>"+alpha+"</td></tr>"}text.innerHTML+=tableguts;
+    </script>
+
+</body>
+</html>

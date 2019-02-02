@@ -437,15 +437,13 @@ table {
     margin-top: -40px;
 }
 
-/* Labs
+/* Toolbox
 -------------------------------------------------- */
 
-.goodies {
-    min-height: 250px;
-}
-
-.goodies li {
-    margin-bottom: 30px;
+.toolbox li:before {
+    content: "\2022";
+    padding-left: 10px;
+    padding-right: 5px;
 }
 
 /* 404
