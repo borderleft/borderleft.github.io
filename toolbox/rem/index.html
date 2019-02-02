@@ -31,5 +31,13 @@
         !function(i){var a=i("#result"),l=i("#base"),c=i("#list");i("#calc").click(function(){var t=l.val(),e=c.val().split(","),n=[];i.each(e,function(i,a){var l=parseInt(a),c=parseFloat((l/parseInt(t,10)).toPrecision(4)),e=1===c?" <i>(base)</i>":"";n.push("<li>"+a+"px = "+c+"rem"+e+"</li>")}),a.html(n.join(""))}).click()}(jQuery);
     </script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10292366-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-10292366-1');
+    </script>
+
 </body>
 </html>
