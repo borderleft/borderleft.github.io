@@ -182,6 +182,7 @@ table {
 
 .footer a {
     font-weight: normal;
+    color: inherit;
 }
 
 .footer .meta {
