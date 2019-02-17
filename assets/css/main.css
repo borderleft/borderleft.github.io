@@ -185,6 +185,10 @@ table {
     color: inherit;
 }
 
+.footer a:hover {
+    color: #a34103;
+}
+
 .footer .meta {
     float: right;
 }
