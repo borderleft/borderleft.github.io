@@ -4,3 +4,5 @@ url: http://borderleft.com
 markdown: kramdown
 highlighter: rouge
 permalink: pretty
+plugins:
+  - jekyll-redirect-from
