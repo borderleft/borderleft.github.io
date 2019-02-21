@@ -13,12 +13,6 @@ main {
     margin: auto;
 }
 
-[rel="home"] {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-}
-
-[rel="home"]:before {
-    content: "← toobox";
+a {
+    color: inherit;
 }
