@@ -21,7 +21,7 @@
         </thead>
     </table>
 
-    <p><a href="/toolbox/">← toolbox</a></p>
+    <p><a href="/toolbox/">&lt; toolbox</a></p>
 
     <script>
         for(var text=document.getElementById("chart"),tableguts="",i=1;i>=0;i-=.01){i=Math.round(100*i)/100;var alpha=Math.round(255*i),hex=(alpha+65536).toString(16).substr(-2).toUpperCase(),perc=Math.round(100*i);tableguts+="<tr><td>"+perc+"%</td><td> "+hex+"</td><td>"+alpha+"</td></tr>"}text.innerHTML+=tableguts;
