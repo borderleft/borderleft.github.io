@@ -13,17 +13,16 @@ main {
     margin: auto;
 }
 
-/*a {
-    display: inline-block;
-    margin-top: 8px;
-    border: 1px solid;
-    padding: 3px 6px;
-    color: inherit;
-    text-decoration: none;
-}*/
-
 a {
-    text-decoration: none;
-    box-shadow: 0 8px 0 -2px gold;
+    background-color: transparent;
     color: inherit;
+    text-decoration: none;
+    overflow-wrap: break-word;
+    transition: background .15s cubic-bezier(0.33, 0.66, 0.66, 1);
+    border-bottom: 3px solid #b4e7f8;
+    box-shadow: inset 0 -4px 0 #b4e7f8;
+}
+
+a:hover {
+    background-color: #b4e7f8;
 }
