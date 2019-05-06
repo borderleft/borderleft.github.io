@@ -6,22 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>#RRGGBBAA table - Borderleft</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        :root {
+            --color1: #f1f3f5;
+            --color2: #ced4da;
+        }
+        pre {
+            max-width: max-content;
+            background-color: var(--color1);
+            border: 1px solid var(--color2);
+            border-width: 1px 0;
+            padding: 1rem;
+        }
+        table {
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 18rem;
+        }
+        th, td {
+            padding: 0 1rem;
+            text-align: left;
+        }
+        td {
+            border-top: 1px solid var(--color2);
+        }
+        tr:nth-child(1) td,
+        tr:nth-child(11) td,
+        tr:nth-child(21) td,
+        tr:nth-child(31) td,
+        tr:nth-child(41) td,
+        tr:nth-child(51) td,
+        tr:nth-child(61) td,
+        tr:nth-child(71) td,
+        tr:nth-child(81) td,
+        tr:nth-child(91) td,
+        tr:nth-child(101) td {
+            background-color: var(--color1);
+        }
+    </style>
 </head>
 <body>
 
-    <h1>#RRGGBBAA table</h1>
-
-    <table id="chart">
-        <thead>
-            <tr>
-                <th>Alpha %</th>
-                <th>Hex</th>
-                <th>Num</th>
-            </tr>
-        </thead>
-    </table>
-
-    <p><a href="/toolbox/">&lt; toolbox</a></p>
+    <main>
+        <h1>#RRGGBBAA table</h1>
+        <p>The <a href="https://drafts.csswg.org/css-color/#hex-notation">CSS Color Module Level 4</a> defines new 4 & 8 character <b>hex</b> notation for color to include the <b>opacity</b> level.</p>
+<pre>background: rgba(255,255,255,0.8); // rgba() format
+background: #ffffffcc; // #rrggbbaa format
+background: #fffc; // #rgba format</pre>
+        <table id="chart">
+            <thead>
+                <tr>
+                    <th>Alpha %</th>
+                    <th>Hex</th>
+                    <th>Num</th>
+                </tr>
+            </thead>
+        </table>
+        <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://stackoverflow.com/a/25170174">source</a></p>
+    </main>
 
     <script>
         for(var text=document.getElementById("chart"),tableguts="",i=1;i>=0;i-=.01){i=Math.round(100*i)/100;var alpha=Math.round(255*i),hex=(alpha+65536).toString(16).substr(-2).toUpperCase(),perc=Math.round(100*i);tableguts+="<tr><td>"+perc+"%</td><td> "+hex+"</td><td>"+alpha+"</td></tr>"}text.innerHTML+=tableguts;

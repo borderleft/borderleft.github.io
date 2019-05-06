@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RGBA to RGB converter - Borderleft</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .row {
+            display: flex;
+            padding: 1rem;
+            background-image: url("data:image/gif;base64,R0lGODlhEAAQAPEAAAAAAICAgMzMzAAAACH5BAEAAAIALAAAAAAQABAAAAIfjG+iq4jM3IFLJipswNly/XkcBpIiVaInlLJr9FZWAQA7");
+            color: rgb(255,255,255);
+            text-shadow: 1px 1px 1px rgb(0,0,0);
+        }
+        .column {
+            flex: 1;
+            height: 8rem;
+            padding: .5rem;
+        }
+        .column-1 {
+            background-color: rgba(0,0,255,.5);
+            margin-right: 1rem;
+        }
+        .column-2 {
+            background-color: rgb(0,0,128);
+        }
+        .sample {
+            border: 0;
+            width: 4rem;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+
+</head>
+<body>
+
+    <main>
+        <h1>RGBA to RGB converter</h1>
+        <p>Alpha value is attenuated by both the background color and color value</p>
+        <table>
+            <tr>
+                <td><code>RGB background</code></td>
+                <td><code>=</code></td>
+                <td><input id="colorpicker_bg"></td>
+                <td><code id="bg_text">N/A</code></td>
+            </tr>
+            <tr>
+                <td><code>RGBA color</code></td>
+                <td><code>=</code></td>
+                <td><input id="colorpicker_rgba"></td>
+                <td><code id="rgba_text">N/A</code></td>
+            </tr>
+        </table>
+        <h3>Result color</h3>
+        <p><input class="sample" id="rgb_result" readonly> <code id="result_text">N/A</code></p>
+        <div class="row">
+            <div class="column column-1" id="left_area">
+                <code>RGBA color</code>
+            </div>
+            <div class="column column-2" id="right_area">
+                <code>RGBA color on RGB background</code>
+            </div>
+        </div>
+        <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://stackoverflow.com/a/21576659">source</a></p>
+    </main>
+
+    <script>
+        function Color(r, g, b, a) {
+            this.r = r;
+            this.b = b;
+            this.g = g;
+            this.a = typeof a == "number" ? a : 1;
+        }
+
+        Color.prototype.rgba2rgb = function (color) {
+            var alpha = color.a;
+            return new Color(
+                (1 - alpha) * this.r + alpha * color.r,
+                (1 - alpha) * this.g + alpha * color.g,
+                (1 - alpha) * this.b + alpha * color.b
+            );
+        };
+
+        function recalculate() {
+            var rgba = $("#colorpicker_rgba").spectrum("get");
+            var background = $("#colorpicker_bg").spectrum("get");
+            var rgba_color = new Color(rgba.toRgb().r, rgba.toRgb().g, rgba.toRgb().b, rgba.toRgb().a);
+            var background_color = new Color(background.toRgb().r, background.toRgb().g, background.toRgb().b);
+            var result_rgb = background_color.rgba2rgb(rgba_color);
+            $("#left_area").css("background-color", "rgba(" + rgba.toRgb().r + "," +
+                                                            rgba.toRgb().g + "," +
+                                                            rgba.toRgb().b + "," +
+                                                            rgba.toRgb().a + ")"  );
+            var result_rgb_str = "rgb(" + Math.round(result_rgb.r) + "," +
+                                          Math.round(result_rgb.g) + "," +
+                                          Math.round(result_rgb.b) + ")";
+            $("#right_area").css("background-color", result_rgb_str);
+            $("#bg_text").text(background.toHexString() + " / " + background.toRgbString());
+            $("#rgba_text").text(rgba.toHexString() + " / " + rgba.toRgbString());
+            $("#rgb_result").css("background-color", result_rgb_str);
+            $("#result_text").text(new tinycolor(result_rgb_str).toHexString() + " / " + result_rgb_str);
+        }
+
+        $("#colorpicker_bg").spectrum({
+            color: "rgb(0,0,0)",
+            showAlpha: false,
+            preferredFormat: "rgb",
+            showInput: true,
+            change: function(color) {
+                recalculate();
+            }
+        });
+
+        $("#colorpicker_rgba").spectrum({
+            color: "rgba(0,0,255,.5)",
+            showAlpha: true,
+            preferredFormat: "rgb",
+            showInput: true,
+            change: function(color) {
+                recalculate();
+            }
+        });
+
+        recalculate();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10292366-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "UA-10292366-1");
+    </script>
+
+</body>
+</html>
