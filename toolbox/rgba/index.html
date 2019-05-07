@@ -28,11 +28,18 @@
         .column-2 {
             background-color: rgb(0,0,128);
         }
+        .color-cell {
+            padding: 0 .25rem;
+        }
         .result-color,
         .sp-preview {
             width: 24px;
             height: 16px;
             border: 0;
+        }
+        .result-color {
+            position: relative;
+            top: -.0625rem;
         }
     </style>
 
@@ -49,13 +56,13 @@
             <tr>
                 <td><code>RGB background</code></td>
                 <td><code>=</code></td>
-                <td><input id="colorpicker_bg"></td>
+                <td class="color-cell"><input id="colorpicker_bg"></td>
                 <td><code id="bg_text">N/A</code></td>
             </tr>
             <tr>
                 <td><code>RGBA color</code></td>
                 <td><code>=</code></td>
-                <td><input id="colorpicker_rgba"></td>
+                <td class="color-cell"><input id="colorpicker_rgba"></td>
                 <td><code id="rgba_text">N/A</code></td>
             </tr>
         </table>
@@ -103,10 +110,10 @@
                                           Math.round(result_rgb.g) + "," +
                                           Math.round(result_rgb.b) + ")";
             $("#right_area").css("background-color", result_rgb_str);
-            $("#bg_text").text(background.toHexString() + " / " + background.toRgbString());
-            $("#rgba_text").text(rgba.toHexString() + " / " + rgba.toRgbString());
+            $("#bg_text").text(background.toHexString() + " " + background.toRgbString());
+            $("#rgba_text").text(rgba.toHexString() + " " + rgba.toRgbString());
             $("#rgb_result").css("background-color", result_rgb_str);
-            $("#result_text").text(new tinycolor(result_rgb_str).toHexString() + " / " + result_rgb_str);
+            $("#result_text").text(new tinycolor(result_rgb_str).toHexString() + " " + result_rgb_str);
         }
 
         $("#colorpicker_bg").spectrum({
