@@ -24,7 +24,7 @@
         <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://gist.github.com/daniellmb/3c8003550ccff7dd72aa">source</a></p>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script>
         !function(i){var a=i("#result"),l=i("#base"),c=i("#list");i("#calc").click(function(){var t=l.val(),e=c.val().split(","),n=[];i.each(e,function(i,a){var l=parseInt(a),c=parseFloat((l/parseInt(t,10)).toPrecision(4)),e=1===c?" <i>(base)</i>":"";n.push("<li>"+a+"px = "+c+"rem"+e+"</li>")}),a.html(n.join(""))}).click()}(jQuery);
     </script>
