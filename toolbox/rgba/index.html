@@ -27,9 +27,11 @@
         .column-2 {
             background-color: rgb(0,0,128);
         }
-        .sample {
+        .result-color,
+        .sp-replacer .sp-preview {
+            width: 24px;
+            height: 16px;
             border: 0;
-            width: 4rem;
         }
     </style>
 
@@ -58,7 +60,7 @@
             </tr>
         </table>
         <h3>Result color</h3>
-        <p><input class="sample" id="rgb_result" readonly> <code id="result_text">N/A</code></p>
+        <p><input class="result-color" id="rgb_result" readonly> <code id="result_text">N/A</code></p>
         <div class="row">
             <div class="column column-1" id="left_area">
                 <code>RGBA color</code>

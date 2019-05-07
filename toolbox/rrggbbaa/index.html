@@ -16,6 +16,11 @@
             background-color: var(--color1);
             border: 1px solid var(--color2);
             border-width: 1px 0;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        pre code {
+            display: table;
             padding: 1rem;
         }
         table {
@@ -50,9 +55,9 @@
     <main>
         <h1>#RRGGBBAA table</h1>
         <p>The <a href="https://drafts.csswg.org/css-color/#hex-notation">CSS Color Module Level 4</a> introduces new 8 (<code>#rrggbbaa</code>) &amp; 4 (shortened <code>#rgba</code>) character <b>hex</b> notation for color to include the <b>opacity</b> level.</p>
-<pre>background: rgba(255,255,255,0.8); // rgba() format
+<pre><code>background: rgba(255,255,255,0.8); // rgba() format
 background: #ffffffcc; // #rrggbbaa format
-background: #fffc; // #rgba format</pre>
+background: #fffc; // #rgba format</code></pre>
         <table id="chart">
             <thead>
                 <tr>
