@@ -11,6 +11,7 @@ body {
 }
 
 code, kbd, pre, samp {
+    font-family: Courier, monospace;
     font-size: .875rem;
 }
 
