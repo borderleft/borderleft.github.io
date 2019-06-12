@@ -15,13 +15,13 @@
     </main>
 
     <script>
-        calc();
-        window.addEventListener('resize', calc);
         function calc() {
             var x = document.documentElement.clientWidth;
             var y = document.documentElement.clientHeight;
             document.getElementById('xy').innerHTML = x + ' &times; ' + y;
         }
+        calc();
+        window.addEventListener('resize', calc);
     </script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10292366-1"></script>
