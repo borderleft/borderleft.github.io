@@ -305,8 +305,8 @@ table {
 
 .projects .image {
     float: right;
-    width: 550px;
-    height: 190px;
+    width: 560px;
+    height: 200px;
     overflow: hidden;
     border: 10px solid #ece8db;
     border-bottom: 0;
@@ -317,13 +317,13 @@ table {
     border-color: #eedecf;
 }
 
+.projects .image a {
+    display: block;
+}
+
 .projects .image img {
     max-width: 100%;
     height: auto;
-}
-
-.projects .vicky img {
-    margin-top: -175px;
 }
 
 /* Services
@@ -470,7 +470,7 @@ table {
 
 /* MOBILE | 2011-07 */
 
-@media screen and (max-width:960px) {
+@media screen and (max-width:960px){
     .logo{margin-left:20px;}
     .main{padding-left:20px;}
     .main h1{font-size:32px;}
@@ -481,24 +481,25 @@ table {
     .page-work h1,.projects li{padding-left:20px;padding-right:20px;}
     .projects .info{width:35%;}
     .projects .link{left:20px;}
-    .projects .image{width:60%;}
+    .projects .image{width:55%;}
 }
 
-@media screen and (max-width:640px) {
+@media screen and (max-width:640px){
     .main{min-height:380px;padding-bottom:0;margin-bottom:20px;}
     .header{padding:30px 0 40px;}
     .logo{float:none;margin-bottom:20px;}
     .nav{float:none;clear:both;width:auto;}
     .hero{padding:10px 0 40px;}
     .hero h1{font-size:40px;}
-    .teaser {margin-bottom:0;}
+    .teaser{margin-bottom:0;}
+    .projects .image{height:auto;}
     .skills .fancy,.skills .last{display:none;}
     .communicate{width:auto;}
     .notfound{width:95%;}
-    .wufoo-form-container {width:600px!important;}
+    .wufoo-form-container{width:600px!important;}
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:600px){
     .main{padding-top:20px;}
     .main h1{font-size:28px;}
     .page-home .main{background-position:center 20%;background-size:100%;}
@@ -507,17 +508,16 @@ table {
     .projects li{margin-bottom:40px;border-bottom:0;}
     .projects .info{width:auto;}
     .projects .image{border:10px solid #ece8db;border-radius:10px;margin-bottom:20px;}
-    .projects .vicky img {margin-top:0;}
     .projects .meta{margin-bottom:20px;}
     .projects .link{position:static;}
     .skills p{margin-bottom:30px;}
     .skills .single,.skills .double{width:100%;clear:both;float:none;min-height:0;}
     .introduce .session{width:auto;padding-right:20px;}
-    .wufoo-form-container {width:440px!important;}
+    .wufoo-form-container{width:440px!important;}
 }
 
-@media screen and (max-width:400px) {
-    .main {line-height:1.4;}
+@media screen and (max-width:400px){
+    .main{line-height:1.4;}
     .nav{padding-left:20px;padding-right:20px;}
     .nav li{text-align:left;width:auto;margin-right:20px;letter-spacing:0;}
     .nav li:last-child{margin-right:0;}
@@ -527,15 +527,15 @@ table {
     .hero h1{font-size:30px;}
     .introduce .session ul{margin-left:5px;}
     .projects .image{border:5px solid #ece8db;border-radius:5px;margin-bottom:20px;}
-    .wufoo-form-container {width:280px!important;}
+    .wufoo-form-container{width:280px!important;}
 }
 
-@media screen and (max-width:240px) {
+@media screen and (max-width:240px){
     .logo{width:auto;margin-left:5px;}
     .nav{padding-bottom:20px;}
     .footer .meta{display:none;}
 }
 
-@media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi) {
-    .logo {background:url(../img/logo2x.png) 0 0 no-repeat;background-size:100%;}
+@media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi){
+    .logo{background:url(../img/logo2x.png) 0 0 no-repeat;background-size:100%;}
 }
