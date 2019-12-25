@@ -12,6 +12,7 @@ html {
     border-top: 6px solid #ded9ce;
     background-color: #f9fbf4;
     text-align: center;
+    -webkit-text-size-adjust: none;
 }
 
 body {
@@ -22,9 +23,6 @@ body {
     color: #3e2f2f;
     max-width: 900px;
     margin: 0 auto;
-    -webkit-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-    text-size-adjust: none;
 }
 
 a {
