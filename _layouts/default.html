@@ -6,7 +6,6 @@
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">{% if page.class == 'page-home' %}
     <meta name="description" content="Design beautiful websites and build with web standards">{% endif %}
-    <!--[if lt IE 9]><script src="/assets/js/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -19,11 +18,8 @@
     <a class="logo" href="/">Borderleft</a>
 
     <nav class="nav">
-        <ul>
-            <li{% if page.class == 'page-work' %} class="active"{% endif %}><a href="/work/">Work</a></li>
-            <li{% if page.class == 'page-services' %} class="active"{% endif %}><a href="/services/">Services</a></li>
-            <li{% if page.class == 'page-about' %} class="active"{% endif %}><a href="/about/">About</a></li>
-            <li{% if page.class == 'page-contact' %} class="active"{% endif %}><a href="/contact/">Contact</a></li>
+        <ul>{% for item in site.data.navigation %}
+            <li{% if item.url == page.url %} class="active"{% endif %}><a href="{{ item.url }}">{{ item.text }}</a></li>{% endfor %}
         </ul>
     </nav>
 
