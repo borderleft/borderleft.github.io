@@ -11,13 +11,12 @@
             margin-bottom: 2rem;
         }
         td[title] {
+            font-size: .75rem;
             line-height: 1;
+            text-align: center;
             text-shadow: -1px 0 1px white;
             width: 2.5rem;
             height: 2.5rem;
-        }
-        td.selected {
-            outline: 4px ridge gray;
         }
     </style>
     <link rel="shortcut icon" href="/favicon.ico">
@@ -350,10 +349,10 @@
     for (const el of els) {
         el.onclick = function() {
             if (el.textContent === '') {
-                el.classList.add('selected');
+                // el.style.outline = '4px ridge gray';
                 el.textContent = el.getAttribute('title').substring(0, 4);
             } else {
-                el.classList.remove('selected');
+                // el.style.outline = '';
                 el.textContent = '';
             }
         }
