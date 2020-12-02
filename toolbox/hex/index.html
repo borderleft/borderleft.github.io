@@ -12,10 +12,14 @@
         }
         td[title] {
             line-height: 1;
+            text-shadow: -1px 0 1px white;
             width: 2.5rem;
             height: 2.5rem;
+            text-align: left;
+            text-indent: -9999px;
         }
-        .selected {
+        td.selected {
+            text-indent: 0;
             outline: 4px ridge gray;
         }
     </style>
@@ -348,7 +352,8 @@
     var els = document.querySelectorAll('td[title]');
     for (const el of els) {
         el.onclick = function() {
-          el.classList.toggle('selected'); // el.textContent = el.getAttribute('title');
+          el.classList.toggle('selected');
+          el.textContent = el.getAttribute('title').substring(0, 4);
         }
     }
 </script>
