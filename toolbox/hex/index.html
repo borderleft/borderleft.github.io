@@ -25,6 +25,8 @@
 
 <body>
 
+<main>
+
 <h1>Three-digit hex colors</h1>
 
 <p>This page demonstrates all 4096 three-digit hexadecimal representation of color form #RGB.</p>
@@ -344,16 +346,16 @@
 
 <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://www.december.com/html/spec/color3hex1.html">source</a></p>
 
+</main>
+
 <script>
-    var els = document.querySelectorAll('td[title]');
-    for (const el of els) {
-        el.onclick = function() {
-            if (el.textContent === '') {
-                // el.style.outline = '4px ridge gray';
-                el.textContent = el.getAttribute('title').substring(0, 4);
+    var el = document.querySelectorAll('td[title]');
+    for (var i = 0; i < el.length; i++) {
+        el[i].onclick = function() {
+            if (this.textContent.trim() === '') {
+                this.textContent = this.getAttribute('title').substring(0, 4);
             } else {
-                // el.style.outline = '';
-                el.textContent = '';
+                this.textContent = '';
             }
         }
     }
