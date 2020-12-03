@@ -9,16 +9,6 @@ body {
     margin: 1.5rem;
 }
 
-code, kbd, pre, samp {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: .875rem;
-}
-
-main {
-    display: block;
-    max-width: 50rem;
-}
-
 a {
     background-color: transparent;
     color: inherit;
@@ -31,4 +21,18 @@ a {
 
 a:hover {
     background-color: #feff02;
+}
+
+code, kbd, pre, samp {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: .875rem;
+}
+
+h1 {
+    line-height: 1.2;
+}
+
+main {
+    display: block;
+    max-width: 50rem;
 }
