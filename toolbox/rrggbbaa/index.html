@@ -9,8 +9,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <style>
         :root {
-            --color1: #efefef;
-            --color2: #dedede;
+            --color1: #eee;
+            --color2: #ddd;
         }
         pre {
             max-width: max-content;
@@ -20,15 +20,16 @@
         }
         pre code {
             display: table;
-            padding: 1rem;
+            padding: 10px;
         }
         table {
             border-collapse: collapse;
             table-layout: fixed;
-            width: 18rem;
+            width: 300px;
+            font-size: 14px;
         }
         th, td {
-            padding: 0 1rem;
+            padding: 2px 10px;
             text-align: left;
         }
         td {
@@ -51,7 +52,7 @@
 </head>
 <body>
 
-    <main>
+    <article>
         <h1>#RRGGBBAA table</h1>
         <p>The <a href="https://drafts.csswg.org/css-color/">CSS Color Module Level 4</a> introduces new 8 (<code>#rrggbbaa</code>) &amp; 4 (shortened <code>#rgba</code>) character <b>hex</b> notation for color to include the <b>opacity</b> level.</p>
 <pre><code>background: rgba(255,255,255,0.8); // rgba() format
@@ -67,7 +68,7 @@ background: #fffc; // #rgba format</code></pre>
             </thead>
         </table>
         <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://stackoverflow.com/a/25170174">source</a></p>
-    </main>
+    </article>
 
     <script>
         for(var text=document.getElementById("chart"),tableguts="",i=1;i>=0;i-=.01){i=Math.round(100*i)/100;var alpha=Math.round(255*i),hex=(alpha+65536).toString(16).substr(-2).toUpperCase(),perc=Math.round(100*i);tableguts+="<tr><td>"+perc+"%</td><td> "+hex+"</td><td>"+alpha+"</td></tr>"}text.innerHTML+=tableguts;

@@ -7,80 +7,86 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
-
     <style>
-        .row {
-            display: flex;
-            padding: 1rem;
+        .table {
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .input td {
+            padding-right: 8px;
+            padding-bottom: 4px;
+        }
+        .view {
+            table-layout: fixed;
+            width: 710px;
+            height: 160px;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Crect width='10' height='10' fill='%23666'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23666'/%3E%3C/svg%3E");
             color: rgb(255,255,255);
             text-shadow: 1px 1px 1px rgb(0,0,0);
         }
-        .column {
-            flex: 1;
-            height: 8rem;
-            padding: .5rem;
-        }
-        .column-1 {
-            background-color: rgba(0,0,255,.5);
-            margin-right: 1rem;
-        }
-        .column-2 {
-            background-color: rgb(0,0,128);
-        }
-        .color-cell {
-            min-width: 4rem;
-            padding: 0 .25rem;
-            text-align: center;
-        }
-        .result-color,
-        .sp-preview {
-            width: 24px;
-            height: 16px;
-            border: 0;
-        }
-        .result-color {
+        .view td {
             position: relative;
-            top: -.0625rem;
+            padding: 0;
+        }
+        .view span {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: 10px;
+            margin: 10px;
+        }
+        .view td:first-child span {
+            margin-right: 5px;
+        }
+        .view td:last-child span {
+            margin-left: 5px;
+        }
+        .sp-replacer {
+            min-width: 48px;
         }
     </style>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
-
 </head>
 <body>
 
-    <main>
+    <article>
         <h1>RGBA to RGB converter</h1>
-        <p>Alpha value is attenuated by both the background color and color value</p>
-        <table>
+        <p>Convert a RGBA color like <code>rgba(0,0,255,0.5)</code> to a RGB hex value that takes the alpha channel into account.</p>
+
+        <table class="table input">
             <tr>
-                <td><code>RGB background</code></td>
-                <td><code>=</code></td>
-                <td class="color-cell"><input id="colorpicker_bg"></td>
-                <td><code id="bg_text">N/A</code></td>
+                <td>RGB background</td>
+                <td><input id="bg_colorpicker"></td>
+                <td><code id="bg_value">N/A</code></td>
             </tr>
             <tr>
-                <td><code>RGBA foreground</code></td>
-                <td><code>=</code></td>
-                <td class="color-cell"><input id="colorpicker_rgba"></td>
-                <td><code id="rgba_text">N/A</code></td>
+                <td>RGBA color</td>
+                <td><input id="rgba_colorpicker"></td>
+                <td><code id="rgba_value">N/A</code></td>
             </tr>
         </table>
-        <h3>Result color</h3>
-        <p><input class="result-color" id="rgb_result" readonly> <code id="result_text">N/A</code></p>
-        <div class="row">
-            <div class="column column-1" id="left_area">
-                <code>RGBA color</code>
-            </div>
-            <div class="column column-2" id="right_area">
-                <code>RGBA color on RGB background</code>
-            </div>
-        </div>
+
+        <h2>Output</h2>
+
+        <p>
+            <span id="output_block"></span>
+            <code id="output_value">N/A</code>
+        </p>
+
+        <table class="table view">
+            <tr>
+                <td><span id="rgba_view">RGBA color</span></td>
+                <td><span id="join_view">RGBA color on RGB background </span></td>
+            </tr>
+        </table>
+
         <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://stackoverflow.com/a/21576659">source</a></p>
-    </main>
+    </article>
 
     <script>
         function Color(r, g, b, a) {
@@ -90,7 +96,7 @@
             this.a = typeof a == "number" ? a : 1;
         }
 
-        Color.prototype.rgba2rgb = function (color) {
+        Color.prototype.rgba2rgb = function(color) {
             var alpha = color.a;
             return new Color(
                 (1 - alpha) * this.r + alpha * color.r,
@@ -100,26 +106,38 @@
         };
 
         function recalculate() {
-            var rgba = $("#colorpicker_rgba").spectrum("get");
-            var background = $("#colorpicker_bg").spectrum("get");
+            var rgba = $("#rgba_colorpicker").spectrum("get");
+            var bg = $("#bg_colorpicker").spectrum("get");
             var rgba_color = new Color(rgba.toRgb().r, rgba.toRgb().g, rgba.toRgb().b, rgba.toRgb().a);
-            var background_color = new Color(background.toRgb().r, background.toRgb().g, background.toRgb().b);
-            var result_rgb = background_color.rgba2rgb(rgba_color);
-            $("#left_area").css("background-color", "rgba(" + rgba.toRgb().r + "," +
-                                                            rgba.toRgb().g + "," +
-                                                            rgba.toRgb().b + "," +
-                                                            rgba.toRgb().a + ")"  );
+            var bg_color = new Color(bg.toRgb().r, bg.toRgb().g, bg.toRgb().b);
+            var result_rgb = bg_color.rgba2rgb(rgba_color);
+
             var result_rgb_str = "rgb(" + Math.round(result_rgb.r) + "," +
-                                          Math.round(result_rgb.g) + "," +
-                                          Math.round(result_rgb.b) + ")";
-            $("#right_area").css("background-color", result_rgb_str);
-            $("#bg_text").text(background.toHexString() + " " + background.toRgbString());
-            $("#rgba_text").text(rgba.toHexString() + " " + rgba.toRgbString());
-            $("#rgb_result").css("background-color", result_rgb_str);
-            $("#result_text").text(new tinycolor(result_rgb_str).toHexString() + " " + result_rgb_str);
+                Math.round(result_rgb.g) + "," +
+                Math.round(result_rgb.b) + ")";
+
+            $("#bg_value").text(bg.toHexString() + " " + bg.toRgbString().replace(/\s/g, ""));
+            $("#rgba_value").text(rgba.toHexString() + " " + rgba.toRgbString().replace(/\s/g, ""));
+
+            $("#output_block").css({
+                "background-color": result_rgb_str,
+                "display": "inline-block",
+                "vertical-align": "middle",
+                "margin": "-2px 4px 0 0",
+                "width": "30px",
+                "height": "20px"
+            });
+            $("#output_value").text(new tinycolor(result_rgb_str).toHexString() + " " + result_rgb_str);
+
+            $("#rgba_view").css("background-color", "rgba(" + rgba.toRgb().r + "," +
+                rgba.toRgb().g + "," +
+                rgba.toRgb().b + "," +
+                rgba.toRgb().a + ")");
+
+            $("#join_view").css("background-color", result_rgb_str);
         }
 
-        $("#colorpicker_bg").spectrum({
+        $("#bg_colorpicker").spectrum({
             color: "rgb(0,0,0)",
             showAlpha: false,
             preferredFormat: "rgb",
@@ -129,7 +147,7 @@
             }
         });
 
-        $("#colorpicker_rgba").spectrum({
+        $("#rgba_colorpicker").spectrum({
             color: "rgba(0,0,255,.5)",
             showAlpha: true,
             preferredFormat: "rgb",
