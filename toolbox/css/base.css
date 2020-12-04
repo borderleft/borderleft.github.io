@@ -15,8 +15,8 @@ a {
     text-decoration: none;
     overflow-wrap: break-word;
     transition: background .15s cubic-bezier(0.33, 0.66, 0.66, 1);
-    border-bottom: 3px solid #feff02;
-    box-shadow: inset 0 -4px 0 #feff02;
+    border-bottom: 3px solid gold;
+    box-shadow: inset 0 -4px 0 gold;
 }
 
 a:hover {
