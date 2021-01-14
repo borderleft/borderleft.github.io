@@ -8,13 +8,9 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <style>
-        :root {
-            --color1: #eee;
-            --color2: #ddd;
-        }
         pre {
             max-width: max-content;
-            background-color: var(--color1);
+            background-color: #eee;
             overflow: auto;
             -webkit-overflow-scrolling: touch;
         }
@@ -23,8 +19,8 @@
             padding: 10px;
         }
         table {
-            border-collapse: collapse;
             table-layout: fixed;
+            border-collapse: collapse;
             width: 300px;
             font-size: 14px;
         }
@@ -33,13 +29,21 @@
             text-align: left;
         }
         td {
-            border-top: 1px solid var(--color2);
+            border: 1px solid #ddd;
+        }
+        td:nth-child(1),
+        td:nth-child(2) {
+            border-right: 0;
+        }
+        td:nth-child(2),
+        td:nth-child(3) {
+            border-left: 0;
         }
         tr:nth-child(10n+1) td {
-            background-color: var(--color1);
+            background-color: #eee;
         }
-        table tr:hover td {
-            background-color: pink;
+        table tr:focus {
+            outline: 1px dotted;
         }
     </style>
 </head>
@@ -64,7 +68,7 @@ background: #fffc; // #rgba format</code></pre>
     </article>
 
     <script>
-        for(var text=document.getElementById("chart"),tableguts="",i=1;i>=0;i-=.01){i=Math.round(100*i)/100;var alpha=Math.round(255*i),hex=(alpha+65536).toString(16).substr(-2).toUpperCase(),perc=Math.round(100*i);tableguts+="<tr><td>"+perc+"%</td><td> "+hex+"</td><td>"+alpha+"</td></tr>"}text.innerHTML+=tableguts;
+        for(var text=document.getElementById("chart"),tableguts="",i=1;i>=0;i-=.01){i=Math.round(100*i)/100;var alpha=Math.round(255*i),hex=(alpha+65536).toString(16).substr(-2).toUpperCase(),perc=Math.round(100*i);tableguts+="<tr tabindex='-1'><td>"+perc+"%</td><td> "+hex+"</td><td>"+alpha+"</td></tr>"}text.innerHTML+=tableguts;
     </script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10292366-1"></script>

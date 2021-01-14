@@ -18,31 +18,21 @@
             padding-bottom: 4px;
         }
         .view {
-            table-layout: fixed;
-            width: 710px;
-            height: 160px;
+            max-width: 100%;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Crect width='10' height='10' fill='%23666'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23666'/%3E%3C/svg%3E");
             color: rgb(255,255,255);
             text-shadow: 1px 1px 1px rgb(0,0,0);
         }
         .view td {
-            position: relative;
+            width: 300px;
+            height: 150px;
             padding: 0;
         }
-        .view span {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
+        .view div {
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
             padding: 10px;
             margin: 10px;
-        }
-        .view td:first-child span {
-            margin-right: 5px;
-        }
-        .view td:last-child span {
-            margin-left: 5px;
         }
         .sp-replacer {
             min-width: 48px;
@@ -59,16 +49,18 @@
         <p>Convert a RGBA color like <code>rgba(0,0,255,0.5)</code> to a RGB hex value that takes the alpha channel into account.</p>
 
         <table class="table input">
-            <tr>
-                <td>RGB background</td>
-                <td><input id="bg_colorpicker"></td>
-                <td><code id="bg_value">N/A</code></td>
-            </tr>
-            <tr>
-                <td>RGBA color</td>
-                <td><input id="rgba_colorpicker"></td>
-                <td><code id="rgba_value">N/A</code></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>RGB background</td>
+                    <td><input id="bg_colorpicker"></td>
+                    <td><code id="bg_value">N/A</code></td>
+                </tr>
+                <tr>
+                    <td>RGBA color</td>
+                    <td><input id="rgba_colorpicker"></td>
+                    <td><code id="rgba_value">N/A</code></td>
+                </tr>
+            </tbody>
         </table>
 
         <h2>Output</h2>
@@ -80,8 +72,8 @@
 
         <table class="table view">
             <tr>
-                <td><span id="rgba_view">RGBA color</span></td>
-                <td><span id="join_view">RGBA color on RGB background </span></td>
+                <td><div id="rgba_view">RGBA color</div></td>
+                <td><div id="join_view">RGBA color on RGB background </div></td>
             </tr>
         </table>
 
