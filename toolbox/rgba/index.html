@@ -4,11 +4,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RGBA to RGB converter - Borderleft</title>
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <style>
-        .table {
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Jost", sans-serif;
+            font-size: 17px;
+            line-height: 1.4;
+            color: #222;
+            margin: 32px 24px;
+        }
+        h1, h2, h3, b, strong {
+            font-weight: 600;
+        }
+        a {
+            color: #e34;
+            text-decoration: none;
+            transition: border-width .1s;
+        }
+        a:hover {
+            border-bottom: 1px solid;
+        }
+        article {
+            max-width: 800px;
+            margin: auto;
+        }
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 14px;
+        }
+        p {
+            max-width: 560px;
+        }
+        table {
             border-collapse: collapse;
             font-size: 14px;
             margin-bottom: 20px;
@@ -35,7 +64,25 @@
             margin: 10px;
         }
         .sp-replacer {
-            min-width: 48px;
+            min-width: 50px;
+        }
+        .sp-preview {
+            max-width: 24px;
+            max-height: 18px;
+        }
+        @font-face {
+            font-family: "Jost";
+            src: url("../../assets/fonts/Jost-Regular.woff2") format("woff2"),
+                 url("../../assets/fonts/Jost-Regular.woff") format("woff");
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: "Jost";
+            src: url("../../assets/fonts/Jost-SemiBold.woff2") format("woff2"),
+                 url("../../assets/fonts/Jost-SemiBold.woff") format("woff");
+            font-weight: 600;
+            font-style: normal;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
@@ -48,7 +95,7 @@
         <h1>RGBA to RGB converter</h1>
         <p>Convert a RGBA color like <code>rgba(0,0,255,0.5)</code> to a RGB hex value that takes the alpha channel into account.</p>
 
-        <table class="table input">
+        <table class="input">
             <tbody>
                 <tr>
                     <td>RGB background</td>
@@ -70,7 +117,7 @@
             <code id="output_value">N/A</code>
         </p>
 
-        <table class="table view">
+        <table class="view">
             <tr>
                 <td><div id="rgba_view">RGBA color</div></td>
                 <td><div id="join_view">RGBA color on RGB background </div></td>
@@ -156,8 +203,8 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "UA-10292366-1");
+      gtag('js', new Date());
+      gtag('config', 'UA-10292366-1', { 'anonymize_ip': true });
     </script>
 
 </body>

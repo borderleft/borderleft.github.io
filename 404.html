@@ -1,18 +1,41 @@
----
-layout: page
-title: 404
-class: page-404
-permalink: /404.html
----
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 - Borderleft</title>
+    <link rel="stylesheet" href="/assets/css/base.css">
+</head>
+<body class="error">
+    <header class="header">
+        <p class="logo">
+            <a href="/"><img src="/assets/img/common/logo.png" width="180" height="45" alt="Borderleft"></a>
+        </p>
+        <nav class="nav">
+            <ul>
+                <li><a href="/work/">Work</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<h1>That page doesn't exist!</h1>
+    <main class="main">
+        <h1>404</h1>
+        <p>The requested URL was not found on this server.</p>
+    </main>
 
-<div class="notfound">
+    <footer class="footer">
+        <p>&copy; 2021 Rui Zhang. Dev too? You might find my <a href="/toolbox/">&lt;toolbox&gt;</a> handy.</p>
+    </footer>
 
-    <h2>Suggestions:</h2>
-    <ul>
-        <li>Please check the spelling of the address you typed.</li>
-        <li>If you followed a link from somewhere, please <a href="/contact/">let me know</a>. Be sure to tell me where you came from and what you were looking for, and I will do my best to fix it.</li>
-    </ul>
-
-</div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10292366-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-10292366-1', { 'anonymize_ip': true });
+    </script>
+</body>
+</html>
