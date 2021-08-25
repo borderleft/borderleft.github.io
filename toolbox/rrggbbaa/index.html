@@ -4,45 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>#RRGGBBAA table</title>
+    <link rel="stylesheet" href="../../assets/css/toolbox.css">
     <style>
-        *, *:before, *:after {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: "Jost", sans-serif;
-            font-size: 17px;
-            line-height: 1.4;
-            color: #222;
-            margin: 32px 24px;
-        }
-        h1, h2, h3, b, strong {
-            font-weight: 600;
-        }
-        a {
-            color: #e34;
-            text-decoration: none;
-            transition: border-width .1s;
-        }
-        a:hover {
-            border-bottom: 1px solid;
-        }
-        article {
-            max-width: 800px;
-            margin: auto;
-        }
-        code {
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 14px;
-        }
-        p {
+        div {
             max-width: 480px;
         }
         pre {
-            max-width: 100%;
-            margin-bottom: 20px;
-            line-height: 1.3;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
+            max-width: max-content;
         }
         table {
             table-layout: fixed;
@@ -71,33 +39,21 @@
         tr:nth-child(10n+1) td {
             background-color: #eee;
         }
-        table tr:focus {
+        tr:focus {
             outline: 2px dotted;
-        }
-        @font-face {
-            font-family: "Jost";
-            src: url("../../assets/fonts/Jost-Regular.woff2") format("woff2"),
-                 url("../../assets/fonts/Jost-Regular.woff") format("woff");
-            font-weight: 400;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: "Jost";
-            src: url("../../assets/fonts/Jost-SemiBold.woff2") format("woff2"),
-                 url("../../assets/fonts/Jost-SemiBold.woff") format("woff");
-            font-weight: 600;
-            font-style: normal;
         }
     </style>
 </head>
 <body>
 
     <article>
-        <h1>#RRGGBBAA table</h1>
-        <p><a href="https://drafts.csswg.org/css-color/">CSS Color Module Level 4</a> introduces new 8 (<code>#rrggbbaa</code>) and 4 (shortened <code>#rgba</code>) character <b>hex</b> notation for color to include the <b>opacity</b> level.</p>
-<pre><code>background: rgba(0,0,0,.2); // rgba()
+        <div>
+            <h1>#RRGGBBAA table</h1>
+            <p><a href="https://drafts.csswg.org/css-color/">CSS Color Module Level 4</a> introduces new 8 <code>#rrggbbaa</code> and 4 shortened <code>#rgba</code> character <b>hex</b> notation for color to include the <b>opacity</b> level.</p>
+<pre>background: rgba(0,0,0,.2); // rgba()
 background: #00000033;      // #rrggbbaa
-background: #0003;          // #rgba</code></pre>
+background: #0003;          // #rgba</pre>
+        </div>
         <table id="chart">
             <thead>
                 <tr>

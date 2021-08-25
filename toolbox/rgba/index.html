@@ -4,40 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RGBA to RGB converter</title>
+    <link rel="stylesheet" href="../../assets/css/toolbox.css">
     <style>
-        *, *:before, *:after {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: "Jost", sans-serif;
-            font-size: 17px;
-            line-height: 1.4;
-            color: #222;
-            margin: 32px 24px;
-        }
-        h1, h2, h3, b, strong {
-            font-weight: 600;
-        }
-        a {
-            color: #e34;
-            text-decoration: none;
-            transition: border-width .1s;
-        }
-        a:hover {
-            border-bottom: 1px solid;
-        }
-        article {
-            max-width: 800px;
-            margin: auto;
-        }
-        code {
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 14px;
-        }
-        p {
+        .header {
             max-width: 560px;
         }
-        table {
+        .input,
+        .output {
             border-collapse: collapse;
             font-size: 14px;
             margin-bottom: 20px;
@@ -46,18 +19,22 @@
             padding-right: 8px;
             padding-bottom: 4px;
         }
-        .view {
+        .input code {
+            white-space: nowrap;
+            padding-right: 0;
+        }
+        .output {
             max-width: 100%;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Crect width='10' height='10' fill='%23666'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23666'/%3E%3C/svg%3E");
             color: rgb(255,255,255);
             text-shadow: 1px 1px 1px rgb(0,0,0);
         }
-        .view td {
+        .output td {
             width: 300px;
             height: 150px;
             padding: 0;
         }
-        .view div {
+        .output div {
             width: calc(100% - 20px);
             height: calc(100% - 20px);
             padding: 10px;
@@ -70,30 +47,18 @@
             max-width: 24px;
             max-height: 18px;
         }
-        @font-face {
-            font-family: "Jost";
-            src: url("../../assets/fonts/Jost-Regular.woff2") format("woff2"),
-                 url("../../assets/fonts/Jost-Regular.woff") format("woff");
-            font-weight: 400;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: "Jost";
-            src: url("../../assets/fonts/Jost-SemiBold.woff2") format("woff2"),
-                 url("../../assets/fonts/Jost-SemiBold.woff") format("woff");
-            font-weight: 600;
-            font-style: normal;
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
 </head>
 <body>
 
     <article>
-        <h1>RGBA to RGB converter</h1>
-        <p>Convert a RGBA color like <code>rgba(0,0,255,0.5)</code> to a RGB hex value that takes the alpha channel into account.</p>
+        <div class="header">
+            <h1>RGBA to RGB converter</h1>
+            <p>Convert a RGBA color like <code>rgba(0,0,255,0.5)</code> to a RGB hex value that takes the alpha channel into account.</p>
+        </div>
 
         <table class="input">
             <tbody>
@@ -103,7 +68,7 @@
                     <td><code id="bg_value">N/A</code></td>
                 </tr>
                 <tr>
-                    <td>RGBA color</td>
+                    <td>RGBA foreground</td>
                     <td><input id="rgba_colorpicker"></td>
                     <td><code id="rgba_value">N/A</code></td>
                 </tr>
@@ -117,10 +82,10 @@
             <code id="output_value">N/A</code>
         </p>
 
-        <table class="view">
+        <table class="output">
             <tr>
                 <td><div id="rgba_view">RGBA color</div></td>
-                <td><div id="join_view">RGBA color on RGB background </div></td>
+                <td><div id="join_view">RGBA foreground on RGB background </div></td>
             </tr>
         </table>
 
