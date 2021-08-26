@@ -91,9 +91,23 @@ code {
 }
 
 .logo a {
-    display: inline-block;
-    vertical-align: middle;
+    position: relative;
+    display: block;
+    width: 11.25rem;
     border: 0;
+    background: transparent url("../img/common/logo.png") center / contain no-repeat;
+}
+
+.logo a b {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+.logo a:before {
+    content: "";
+    display: block;
+    padding-bottom: 25%;
 }
 
 .nav ul {
@@ -149,6 +163,7 @@ code {
 
 .contact .form {
     max-width: 560px;
+    margin-left: -.3125rem;
 }
 
 .sr-only {
