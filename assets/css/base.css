@@ -57,11 +57,6 @@ img {
     height: auto;
 }
 
-code {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: .875rem;
-}
-
 .header,
 .main,
 .footer {
