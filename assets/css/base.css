@@ -99,7 +99,7 @@ img {
     display: block;
     width: 11.25rem;
     border: 0;
-    background: transparent url("../img/common/logo.png") center / contain no-repeat;
+    background: transparent url("../img/common/logo.svg") 0 0 / contain no-repeat;
 }
 
 .logo a b {
@@ -111,7 +111,7 @@ img {
 .logo a:before {
     content: "";
     display: block;
-    padding-bottom: 25%;
+    padding-bottom: 20%;
 }
 
 .nav ul {
