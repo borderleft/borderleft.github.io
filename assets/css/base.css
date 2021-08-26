@@ -1,3 +1,11 @@
+:root {
+    --color-body-text: rgb(25,25,25);
+    --color-body-bg: rgb(255,255,255);
+    --color-accent: rgb(238,51,68);
+    --color-border: rgba(0,0,0,.15);
+    --color-bg: rgba(0,0,0,.05);
+}
+
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -8,7 +16,8 @@ body {
     font-weight: 400;
     line-height: 1.4;
     margin: 2rem 1.5rem;
-    color: #222;
+    background-color: var(--color-body-bg);
+    color: var(--color-body-text);
 }
 
 h1, h2, h3, b, strong {
@@ -42,7 +51,7 @@ p, ul {
 }
 
 a {
-    color: #e34;
+    color: var(--color-accent);
     text-decoration: none;
     transition: border-width .1s;
 }
@@ -132,7 +141,7 @@ img {
 
 .work .item {
     margin-bottom: 3rem;
-    box-shadow: 0 0 0 1px #ddd;
+    box-shadow: 0 0 0 1px var(--color-border);
 }
 
 .work .item p:last-child {
@@ -140,8 +149,8 @@ img {
 }
 
 .work .info {
+    border-color: var(--color-border);
     border-style: solid;
-    border-color: #ddd;
     border-width: 1px 0 0 0;
     padding: 20px 20px 22px;
 }

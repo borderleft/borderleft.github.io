@@ -1,3 +1,11 @@
+:root {
+    --color-body-text: rgb(25,25,25);
+    --color-body-bg: rgb(255,255,255);
+    --color-accent: rgb(238,51,68);
+    --color-border: rgba(0,0,0,.25);
+    --color-bg: rgba(0,0,0,.05);
+}
+
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -6,8 +14,8 @@ body {
     font-family: "Jost", sans-serif;
     font-size: 17px;
     line-height: 1.4;
-    background-color: #fff;
-    color: #222;
+    background-color: var(--color-body-bg);
+    color: var(--color-body-text);
     margin: 32px 24px;
 }
 
@@ -16,7 +24,7 @@ h1, h2, h3, b, strong {
 }
 
 a {
-    color: #e34;
+    color: var(--color-accent);
     text-decoration: none;
     transition: border-width .1s;
 }
@@ -29,7 +37,7 @@ code, pre {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     font-size: 14px;
     word-wrap: break-word;
-    background-color: rgba(0,0,0,.06);
+    background-color: var(--color-bg);
 }
 
 code {
