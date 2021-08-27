@@ -30,24 +30,24 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.8125rem;
 }
 
 h2 {
-    font-size: 1.375rem;
+    font-size: 1.4375rem;
 }
 
 h3 {
+    font-size: 1.25rem;
+}
+
+h4, h5, h6 {
     font-size: inherit;
 }
 
 h2:not(:first-child),
 h3:not(:first-child) {
     margin-top: 2rem;
-}
-
-p, ul {
-    margin: 0 0 1.25rem;
 }
 
 a {
@@ -60,10 +60,59 @@ a:hover {
     border-bottom: 1px solid;
 }
 
-img {
+article {
+    max-width: 800px;
+    margin: auto;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+address, blockquote, details, dl, fieldset, figure, form, ol, p, pre, table, ul {
+    margin: 0 0 1.25rem;
+}
+
+blockquote {
+    border-left: .25rem solid rgba(0,0,0,.2);
+    padding: 0 1rem;
+}
+
+code, pre {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: .875rem;
+    word-wrap: break-word;
+    background-color: var(--color-bg);
+}
+
+code {
+    padding: .25rem;
+}
+
+pre {
+    white-space: pre-wrap;
+    padding: .5rem;
+}
+
+iframe, img, svg, video {
     vertical-align: middle;
     max-width: 100%;
+    border: 0;
+}
+
+img, svg, video {
     height: auto;
+}
+
+ol, ul {
+    padding-left: 2rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+    margin-bottom: 0;
 }
 
 .header,
@@ -100,6 +149,10 @@ img {
     width: 11.25rem;
     border: 0;
     background: transparent url("../img/common/logo.svg") 0 0 / contain no-repeat;
+}
+
+[data-theme="dark"] .logo a {
+    filter: var(--color-invert);
 }
 
 .logo a b {
@@ -168,6 +221,10 @@ img {
 .contact .form {
     max-width: 560px;
     margin-left: -.3125rem;
+}
+
+[data-theme="dark"] .contact .form {
+    filter: var(--color-invert);
 }
 
 .sr-only {

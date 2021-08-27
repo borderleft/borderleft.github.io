@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PX to REM calculator</title>
-    <link rel="stylesheet" href="../../assets/css/toolbox.css?v=3">
+    <link rel="stylesheet" href="../../assets/css/base.css?v=3">
     <style>
         [type="text"] {
             resize: horizontal;
@@ -25,7 +25,7 @@
                 <label for="list">PX sizes to convert</label>
             </div>
             <div>
-                <input id="calc" type="button" value="Calculate">
+                <p><input id="calc" type="button" value="Calculate"></p>
             </div>
             <ul id="result"></ul>
         </form>
@@ -34,7 +34,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script>
-        !function(i){var a=i("#result"),l=i("#base"),c=i("#list");i("#calc").click(function(){var t=l.val(),e=c.val().split(","),n=[];i.each(e,function(i,a){var l=parseInt(a),c=parseFloat((l/parseInt(t,10)).toPrecision(4)),e=1===c?" <i>(base)</i>":"";n.push("<li>"+a+"px = "+c+"rem"+e+"</li>")}),a.html(n.join(""))}).click()}(jQuery);
+        !function(i){var a=i("#result"),l=i("#base"),c=i("#list");i("#calc").click(function(){var t=l.val(),e=c.val().split(","),n=[];i.each(e,function(i,a){var l=parseInt(a),c=parseFloat((l/parseInt(t,10)).toPrecision(5)),e=1===c?" <i>(base)</i>":"";n.push("<li>"+a+"px = "+c+"rem"+e+"</li>")}),a.html(n.join(""))}).click()}(jQuery);
     </script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10292366-1"></script>
