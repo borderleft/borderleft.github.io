@@ -1,9 +1,9 @@
 :root {
-    --color-body-text: rgb(25,25,25);
+    --color-body-text: rgb(0,0,68);
     --color-body-bg: rgb(255,255,255);
     --color-accent: rgb(238,51,68);
-    --color-border: rgba(0,0,0,.15);
-    --color-bg: rgba(0,0,0,.05);
+    --color-border: rgba(0,0,68,.15);
+    --color-bg: rgba(0,0,68,.05);
 }
 
 *, *:before, *:after {
@@ -74,7 +74,7 @@ address, blockquote, details, dl, fieldset, figure, form, ol, p, pre, table, ul 
 }
 
 blockquote {
-    border-left: .25rem solid rgba(0,0,0,.2);
+    border-left: .25rem solid var(--color-border);
     padding: 0 1rem;
 }
 
@@ -148,7 +148,7 @@ ul ol {
     display: block;
     width: 11.25rem;
     border: 0;
-    background: transparent url("../img/common/logo.svg") 0 0 / contain no-repeat;
+    background: transparent url("../img/common/logo.png") 0 0 / contain no-repeat;
 }
 
 [data-theme="dark"] .logo a {
@@ -164,7 +164,7 @@ ul ol {
 .logo a:before {
     content: "";
     display: block;
-    padding-bottom: 20%;
+    padding-bottom: 25%;
 }
 
 .nav ul {
