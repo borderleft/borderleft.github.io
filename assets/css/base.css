@@ -151,10 +151,6 @@ ul ol {
     background: transparent url("../img/common/logo.png") 0 0 / contain no-repeat;
 }
 
-[data-theme="dark"] .logo a {
-    filter: var(--color-invert);
-}
-
 .logo a b {
     position: absolute;
     left: -9999px;
@@ -229,10 +225,16 @@ ul ol {
 .contact .form {
     max-width: 560px;
     margin-left: -.3125rem;
+    animation: show .5s step-end forwards;
 }
 
-[data-theme="dark"] .contact .form {
-    filter: var(--color-invert);
+@keyframes show {
+    0% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
 }
 
 .sr-only {
