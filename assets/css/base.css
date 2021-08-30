@@ -2,7 +2,7 @@
     --color-body-text: rgb(0,0,68);
     --color-body-bg: rgb(255,255,255);
     --color-accent: rgb(238,51,68);
-    --color-border: rgba(0,0,68,.15);
+    --color-light-border: rgba(0,0,68,.15);
     --color-light-bg: rgba(0,0,68,.05);
 }
 
@@ -74,7 +74,7 @@ address, blockquote, details, dl, fieldset, figure, form, ol, p, pre, table, ul 
 }
 
 blockquote {
-    border-left: .25rem solid var(--color-border);
+    border-left: .25rem solid var(--color-light-border);
     padding: 0 1rem;
 }
 
@@ -198,7 +198,7 @@ ul ol {
 
 .work .item {
     margin-bottom: 3rem;
-    box-shadow: 0 0 0 1px var(--color-border);
+    box-shadow: 0 0 0 1px var(--color-light-border);
 }
 
 .work .item p:last-child {
@@ -206,7 +206,7 @@ ul ol {
 }
 
 .work .info {
-    border-color: var(--color-border);
+    border-color: var(--color-light-border);
     border-style: solid;
     border-width: 1px 0 0 0;
     padding: 20px 20px 22px;
