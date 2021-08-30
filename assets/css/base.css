@@ -3,7 +3,7 @@
     --color-body-bg: rgb(255,255,255);
     --color-accent: rgb(238,51,68);
     --color-border: rgba(0,0,68,.15);
-    --color-bg: rgba(0,0,68,.05);
+    --color-light-bg: rgba(0,0,68,.05);
 }
 
 *, *:before, *:after {
@@ -82,7 +82,7 @@ code, pre {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     font-size: .875rem;
     word-wrap: break-word;
-    background-color: var(--color-bg);
+    background-color: var(--color-light-bg);
 }
 
 code {
