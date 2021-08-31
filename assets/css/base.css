@@ -226,39 +226,8 @@ ul ol {
     max-width: 560px;
 }
 
-.contact .loader {
-    animation: hide .8s step-end forwards;
-}
-
-.contact .loader:before {
-    content: "Loading...";
-}
-
-@keyframes hide {
-    0% {
-        visibility: visible;
-        height: auto;
-    }
-    100% {
-        visibility: hidden;
-        height: 0;
-    }
-}
-
-.contact .wufoo {
+.contact iframe {
     margin-left: -.3125rem;
-    animation: show .8s step-end forwards;
-}
-
-@keyframes show {
-    0% {
-        visibility: hidden;
-        height: 0;
-    }
-    100% {
-        visibility: visible;
-        height: auto;
-    }
 }
 
 .sr-only {
