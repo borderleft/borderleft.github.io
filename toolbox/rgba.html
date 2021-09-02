@@ -1,0 +1,114 @@
+---
+layout: toolbox
+slug: rgba
+permalink: /toolbox/rgba/
+title: RGBA to RGB converter
+---
+
+<div class="title">
+    <h1>RGBA to RGB converter</h1>
+    <p>Convert a RGBA color like <code>rgba(0,0,255,0.5)</code> to a RGB hex value that takes the alpha channel into account.</p>
+</div>
+
+<table class="input">
+    <tbody>
+        <tr>
+            <td>RGB background</td>
+            <td><input id="bg_colorpicker"></td>
+            <td><code id="bg_value">N/A</code></td>
+        </tr>
+        <tr>
+            <td>RGBA foreground</td>
+            <td><input id="rgba_colorpicker"></td>
+            <td><code id="rgba_value">N/A</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Output</h2>
+
+<p>
+    <span id="output_block"></span>
+    <code id="output_value">N/A</code>
+</p>
+
+<table class="output">
+    <tr>
+        <td><div id="rgba_view">RGBA color</div></td>
+        <td><div id="join_view">RGBA foreground on RGB background </div></td>
+    </tr>
+</table>
+
+<script>
+    function Color(r, g, b, a) {
+        this.r = r;
+        this.b = b;
+        this.g = g;
+        this.a = typeof a == "number" ? a : 1;
+    }
+
+    Color.prototype.rgba2rgb = function(color) {
+        var alpha = color.a;
+        return new Color(
+            (1 - alpha) * this.r + alpha * color.r,
+            (1 - alpha) * this.g + alpha * color.g,
+            (1 - alpha) * this.b + alpha * color.b
+        );
+    };
+
+    function recalculate() {
+        var rgba = $("#rgba_colorpicker").spectrum("get");
+        var bg = $("#bg_colorpicker").spectrum("get");
+        var rgba_color = new Color(rgba.toRgb().r, rgba.toRgb().g, rgba.toRgb().b, rgba.toRgb().a);
+        var bg_color = new Color(bg.toRgb().r, bg.toRgb().g, bg.toRgb().b);
+        var result_rgb = bg_color.rgba2rgb(rgba_color);
+
+        var result_rgb_str = "rgb(" + Math.round(result_rgb.r) + "," +
+            Math.round(result_rgb.g) + "," +
+            Math.round(result_rgb.b) + ")";
+
+        $("#bg_value").text(bg.toHexString() + " " + bg.toRgbString().replace(/\s/g, ""));
+        $("#rgba_value").text(rgba.toHexString() + " " + rgba.toRgbString().replace(/\s/g, ""));
+
+        $("#output_block").css({
+            "background-color": result_rgb_str,
+            "display": "inline-block",
+            "vertical-align": "middle",
+            "margin": "-2px 4px 0 0",
+            "width": "30px",
+            "height": "20px"
+        });
+        $("#output_value").text(new tinycolor(result_rgb_str).toHexString() + " " + result_rgb_str);
+
+        $("#rgba_view").css("background-color", "rgba(" + rgba.toRgb().r + "," +
+            rgba.toRgb().g + "," +
+            rgba.toRgb().b + "," +
+            rgba.toRgb().a + ")");
+
+        $("#join_view").css("background-color", result_rgb_str);
+    }
+
+    $("#bg_colorpicker").spectrum({
+        color: "rgb(0,0,0)",
+        showAlpha: false,
+        preferredFormat: "rgb",
+        showInput: true,
+        change: function(color) {
+            recalculate();
+        }
+    });
+
+    $("#rgba_colorpicker").spectrum({
+        color: "rgba(0,0,255,.5)",
+        showAlpha: true,
+        preferredFormat: "rgb",
+        showInput: true,
+        change: function(color) {
+            recalculate();
+        }
+    });
+
+    recalculate();
+</script>
+
+<p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://stackoverflow.com/a/21576659">source</a></p>

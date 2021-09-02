@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- if page.slug == 'home' %}
+    <meta name="description" content="{{ site.description }}">
+    {%- endif %}
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
+</head>
+
+<body{% if page.slug %} class="{{ page.slug }}"{% endif %}>
+
+    <header class="header">
+        <p class="logo">
+            <a href="/"><b>Borderleft</b></a>
+        </p>
+        <nav class="nav">
+            <ul>{% for item in site.data.navigation %}
+                <li><a href="{{ item.url }}"{% if item.url == page.url %} class="current"{% endif %}>{{ item.text }}</a></li>{% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+
+{{ content }}
+    </main>
+
+    <footer class="footer">
+        <p>&copy; {{ site.time | date: '%Y' }} Rui Zhang. {% if page.slug != 'toolbox' %}Dev too? You might find my <a href="/toolbox/">&lt;toolbox&gt;</a> handy. {% else %}Aha! you’ve found it. {% endif %}</p>
+    </footer>
+
+{% include analytics.html %}
+</body>
+</html>

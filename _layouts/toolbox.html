@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
+{%-    if page.slug == 'farfaraway' %}
+{%- elsif page.slug == 'gray' %}
+{%- elsif page.slug == 'hex' %}
+    <style>
+        div {
+            max-width: 640px;
+            overflow-x: auto;
+        }
+        table {
+            font-size: 14px;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        td {
+            border: 1px solid var(--color-light-border);
+        }
+        td[title] {
+            font-size: 12px;
+            line-height: 1;
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 1px black;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            min-height: 36px;
+        }
+    </style>
+{%- elsif page.slug == 'html' %}
+{%- elsif page.slug == 'ipsum' %}
+{%- elsif page.slug == 'rem' %}
+    <style>
+        [type="text"] {
+            resize: horizontal;
+        }
+    </style>
+{%- elsif page.slug == 'rgba' %}
+    <style>
+        .title {
+            max-width: 560px;
+        }
+        .input,
+        .output {
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .input td {
+            padding-right: 8px;
+            padding-bottom: 4px;
+        }
+        .input code {
+            white-space: nowrap;
+            padding-right: 0;
+        }
+        .output {
+            max-width: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Crect width='10' height='10' fill='%23666'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23666'/%3E%3C/svg%3E");
+            color: rgb(255,255,255);
+            text-shadow: 1px 1px 1px rgb(0,0,0);
+        }
+        .output td {
+            width: 300px;
+            height: 150px;
+            padding: 0;
+        }
+        .output div {
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px;
+        }
+        .sp-replacer {
+            min-width: 50px;
+        }
+        .sp-preview {
+            max-width: 24px;
+            max-height: 18px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
+{%- elsif page.slug == 'rrggbbaa' %}
+    <style>
+        div {
+            max-width: 480px;
+        }
+        pre {
+            max-width: max-content;
+        }
+        table {
+            table-layout: fixed;
+            border-collapse: collapse;
+            width: 320px;
+            max-width: 100%;
+            font-size: 15px;
+        }
+        th, td {
+            padding: 2px 10px;
+            text-align: left;
+        }
+        td {
+            border: 1px solid var(--color-light-border);
+        }
+        td:nth-child(1),
+        td:nth-child(2) {
+            border-right: 0;
+        }
+        td:nth-child(2),
+        td:nth-child(3) {
+            border-left: 0;
+        }
+        tr:nth-child(10n+1) td {
+            background-color: var(--color-light-bg);
+        }
+        tr:focus {
+            outline: 2px dotted;
+        }
+    </style>
+{%- elsif page.slug == 'viewport' %}
+    <style>
+        article {
+            margin: 0;
+        }
+    </style>
+{%- endif %}
+</head>
+
+<body>
+
+<article>
+
+{{ content }}
+</article>
+
+{% include analytics.html %}
+
+</body>
+</html>

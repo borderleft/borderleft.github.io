@@ -174,7 +174,7 @@ ul ol {
     margin-right: 1.25rem;
 }
 
-.nav a[class] {
+.nav .current {
     border-bottom: 1px solid;
     color: inherit;
 }

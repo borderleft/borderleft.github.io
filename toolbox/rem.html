@@ -1,0 +1,30 @@
+---
+layout: toolbox
+slug: rem
+permalink: /toolbox/rem/
+title: PX to REM calculator
+---
+
+<h1>PX to REM calculator</h1>
+
+<form>
+    <div>
+        <input id="base" type="text" value="16">
+        <label for="base">Base &lt;html&gt; font-size (in px)</label>
+    </div>
+    <div>
+        <input id="list" type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24,26,28,30,32,34,36,38,40,50,60,70,80,90,100">
+        <label for="list">PX sizes to convert</label>
+    </div>
+    <div>
+        <p><input id="calc" type="button" value="Calculate"></p>
+    </div>
+    <ul id="result"></ul>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script>
+    !function(i){var a=i("#result"),l=i("#base"),c=i("#list");i("#calc").click(function(){var t=l.val(),e=c.val().split(","),n=[];i.each(e,function(i,a){var l=parseInt(a),c=parseFloat((l/parseInt(t,10)).toPrecision(5)),e=1===c?" <i>(base)</i>":"";n.push("<li>"+a+"px = "+c+"rem"+e+"</li>")}),a.html(n.join(""))}).click()}(jQuery);
+</script>
+
+<p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://gist.github.com/daniellmb/3c8003550ccff7dd72aa">source</a></p>
