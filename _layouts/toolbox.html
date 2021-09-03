@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
-{%-    if page.slug == 'farfaraway' %}
-{%- elsif page.slug == 'gray' %}
-{%- elsif page.slug == 'hex' %}
+{%- case page.slug %}
+{% when 'farfaraway' %}
+{% when 'gray' %}
+{% when 'hex' %}
     <style>
         div {
             max-width: 640px;
@@ -34,15 +35,15 @@
             min-height: 36px;
         }
     </style>
-{%- elsif page.slug == 'html' %}
-{%- elsif page.slug == 'ipsum' %}
-{%- elsif page.slug == 'rem' %}
+{% when 'html' %}
+{% when 'loremipsum' %}
+{% when 'rem' %}
     <style>
         [type="text"] {
             resize: horizontal;
         }
     </style>
-{%- elsif page.slug == 'rgba' %}
+{% when 'rgba' %}
     <style>
         .title {
             max-width: 560px;
@@ -88,7 +89,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
-{%- elsif page.slug == 'rrggbbaa' %}
+{% when 'rrggbbaa' %}
     <style>
         div {
             max-width: 480px;
@@ -125,13 +126,13 @@
             outline: 2px dotted;
         }
     </style>
-{%- elsif page.slug == 'viewport' %}
+{% when 'viewport' %}
     <style>
         article {
             margin: 0;
         }
     </style>
-{%- endif %}
+{% endcase -%}
 </head>
 
 <body>
