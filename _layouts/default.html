@@ -3,22 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {%- if page.slug == 'home' %}
+{%- if page.slug == 'home' %}
     <meta name="description" content="{{ site.description }}">
-    {%- endif %}
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}</title>
+    <title>{{ site.name }}</title>
+{%- else %}
+    <title>{{ page.title }} - {{ site.name }}</title>
+{%- endif %}
     <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
 </head>
 
-<body{% if page.slug %} class="{{ page.slug }}"{% endif %}>
+<body {%- if page.slug %} class="{{ page.slug }}" {%- endif %}>
 
     <header class="header">
         <p class="logo">
             <a href="/"><b>Borderleft</b></a>
         </p>
         <nav class="nav">
-            <ul>{% for item in site.data.navigation %}
-                <li><a href="{{ item.url }}"{% if item.url == page.url %} class="current"{% endif %}>{{ item.text }}</a></li>{% endfor %}
+            <ul>
+            {%- for item in site.data.navigation %}
+                <li><a href="{{ item.url }}" {%- if item.url == page.url %} class="current" {%- endif %}>{{ item.text }}</a></li>
+            {%- endfor %}
             </ul>
         </nav>
     </header>
