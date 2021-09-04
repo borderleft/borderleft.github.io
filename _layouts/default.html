@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
 </head>
 
-<body class="{% if page.url == '/' %}home{% endif -%} {{ page.url | replace: '/', '' }}">
+<body class="{% if page.url == '/' %}home{% else %}{{ page.url | replace: '/', '' }}{% endif %}">
 
     <header class="header">
         <p class="logo">
