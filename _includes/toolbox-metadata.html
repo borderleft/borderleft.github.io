@@ -9,32 +9,41 @@
             overflow-x: auto;
         }
         table {
-            font-size: 14px;
+            font-size: .875rem;
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
         }
         td {
             border: 1px solid var(--color-light-border);
         }
         td[title] {
-            font-size: 12px;
+            font-size: .75rem;
             line-height: 1;
             text-align: center;
             color: white;
             text-shadow: 1px 1px 1px black;
-            width: 36px;
-            height: 36px;
-            min-width: 36px;
-            min-height: 36px;
+            width: 2.25rem;
+            height: 2.25rem;
+            min-width: 2.25rem;
+            min-height: 2.25rem;
         }
     </style>
 {% when "/html/" %}
 {% when "/loremipsum/" %}
 {% when "/rem/" %}
     <style>
-        [type="text"] {
+        div {
+            margin-bottom: .5rem;
+        }
+        input[type="text"] {
             resize: horizontal;
+        }
+        label {
+            display: inline-block;
+        }
+        ul {
+            font-size: 1rem;
         }
     </style>
 {% when "/rgba/" %}
@@ -45,11 +54,11 @@
         .input,
         .output {
             border-collapse: collapse;
-            font-size: 14px;
+            font-size: .875rem;
         }
         .input td {
-            padding-right: 8px;
-            padding-bottom: 4px;
+            padding-right: .5rem;
+            padding-bottom: .25rem;
         }
         .input code {
             white-space: nowrap;
@@ -62,22 +71,22 @@
             text-shadow: 1px 1px 1px rgb(0,0,0);
         }
         .output td {
-            width: 300px;
-            height: 150px;
+            width: 18.75rem;
+            height: 9.375rem;
             padding: 0;
         }
         .output div {
-            width: calc(100% - 20px);
-            height: calc(100% - 20px);
-            padding: 10px;
-            margin: 10px;
+            width: calc(100% - 1.25rem);
+            height: calc(100% - 1.25rem);
+            padding: .625rem;
+            margin: .625rem;
         }
         .sp-replacer {
-            min-width: 50px;
+            min-width: 3.125rem;
         }
         .sp-preview {
-            max-width: 24px;
-            max-height: 18px;
+            max-width: 1.5rem;
+            max-height: 1.125rem;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
@@ -88,18 +97,18 @@
         div {
             max-width: 480px;
         }
-        pre {
-            max-width: max-content;
+        pre,
+        table {
+            width: 22.5rem;
+            max-width: 100%;
         }
         table {
             table-layout: fixed;
             border-collapse: collapse;
-            width: 320px;
-            max-width: 100%;
-            font-size: 14px;
+            font-size: .875rem;
         }
         th, td {
-            padding: 2px 10px;
+            padding: .25rem .625rem;
             text-align: left;
         }
         td {
@@ -126,13 +135,13 @@
             margin: 0;
         }
         h1 {
-            font-size: 20px;
+            font-size: 1.25rem;
         }
         h1:after {
             content: ":";
         }
         h1 + p {
-            font-size: 30px;
+            font-size: 1.875rem;
         }
     </style>
 {% endcase -%}
