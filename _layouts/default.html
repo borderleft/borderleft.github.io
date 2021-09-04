@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{%- if page.slug == 'home' %}
+{%- if page.url == "/" %}
     <meta name="description" content="{{ site.description }}">
     <title>{{ site.name }}</title>
 {%- else %}
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
 </head>
 
-<body {%- if page.slug %} class="{{ page.slug }}" {%- endif %}>
+<body class='{{ page.url | replace: "/", "" }}'>
 
     <header class="header">
         <p class="logo">
@@ -29,14 +29,21 @@
 
     <main class="main">
 
+<h1>{{ page.title }}</h1>
 {{ content }}
     </main>
 
     <footer class="footer">
-        <p>&copy; {{ site.time | date: '%Y' }} Rui Zhang. {% if page.slug != 'toolbox' %}Dev too? You might find my <a href="/toolbox/">&lt;toolbox&gt;</a> handy. {% else %}Aha! you’ve found it. {% endif %}</p>
+        <p>
+            {%- if page.url != "/toolbox/" -%}
+                Are you a developer too? You might find my <a href="/toolbox/">&lt;toolbox&gt;</a> handy.
+            {%- else -%}
+                ... Aha! you’ve found it.
+            {%- endif -%}
+        </p>
     </footer>
 
-{% if page.slug == 'work' %}{% include vanilla-lazyload.html %}{% endif %}
+{% if page.url == "/work/" %}{% include vanilla-lazyload.html %}{% endif %}
 {% include css-vars-ponyfill.html %}
 {% include google-analytics.html %}
 </body>

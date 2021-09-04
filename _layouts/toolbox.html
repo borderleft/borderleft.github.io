@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
-{%- case page.slug %}
-{% when 'farfaraway' %}
-{% when 'gray' %}
-{% when 'hex' %}
+{%- case page.url %}
+{% when "/toolbox/farfaraway/" %}
+{% when "/toolbox/gray/" %}
+{% when "/toolbox/hex/" %}
     <style>
         div {
             max-width: 640px;
@@ -35,17 +35,17 @@
             min-height: 36px;
         }
     </style>
-{% when 'html' %}
-{% when 'loremipsum' %}
-{% when 'rem' %}
+{% when "/toolbox/html/" %}
+{% when "/toolbox/loremipsum/" %}
+{% when "/toolbox/rem/" %}
     <style>
         [type="text"] {
             resize: horizontal;
         }
     </style>
-{% when 'rgba' %}
+{% when "/toolbox/rgba/" %}
     <style>
-        .title {
+        .intro {
             max-width: 560px;
         }
         .input,
@@ -89,7 +89,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
-{% when 'rrggbbaa' %}
+{% when "/toolbox/rrggbbaa/" %}
     <style>
         div {
             max-width: 480px;
@@ -126,10 +126,13 @@
             outline: 2px dotted;
         }
     </style>
-{% when 'viewport' %}
+{% when "/toolbox/viewport/" %}
     <style>
         article {
             margin: 0;
+        }
+        h1 {
+            font-size: 24px;
         }
     </style>
 {% endcase -%}
@@ -139,6 +142,7 @@
 
 <article>
 
+<h1>{{ page.title }} {%- if page.url == "/toolbox/viewport/" -%} : <span id="xy">N/A</span> {%- endif -%}</h1>
 {{ content }}
 </article>
 

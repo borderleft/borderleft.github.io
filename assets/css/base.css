@@ -188,6 +188,15 @@ ul ol {
     margin-bottom: 3rem;
 }
 
+.work h1,
+.work h1 + p {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
 .work .list {
     max-width: 560px;
 }
