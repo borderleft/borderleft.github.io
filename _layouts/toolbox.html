@@ -102,7 +102,7 @@
             border-collapse: collapse;
             width: 320px;
             max-width: 100%;
-            font-size: 15px;
+            font-size: 14px;
         }
         th, td {
             padding: 2px 10px;
@@ -132,7 +132,13 @@
             margin: 0;
         }
         h1 {
-            font-size: 24px;
+            font-size: 20px;
+        }
+        h1:after {
+            content: ":";
+        }
+        h1 + p {
+            font-size: 30px;
         }
     </style>
 {% endcase -%}
@@ -142,7 +148,7 @@
 
 <article>
 
-<h1>{{ page.title }} {%- if page.url == "/toolbox/viewport/" -%} : <span id="xy">N/A</span> {%- endif -%}</h1>
+<h1>{{ page.title }}</h1>
 {{ content }}
 </article>
 
