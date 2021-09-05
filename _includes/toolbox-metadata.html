@@ -51,8 +51,8 @@
         .intro {
             max-width: 560px;
         }
-        .input,
-        .output {
+        .input table,
+        .output table {
             border-collapse: collapse;
             font-size: .875rem;
         }
@@ -62,24 +62,31 @@
         }
         .input code {
             white-space: nowrap;
-            padding-right: 0;
         }
-        .output {
+        .output p {
+            display: flex;
+            align-items: center;
+        }
+        .output table {
             max-width: 100%;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Crect width='10' height='10' fill='%23666'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23666'/%3E%3C/svg%3E");
             color: rgb(255,255,255);
             text-shadow: 1px 1px 1px rgb(0,0,0);
+            height: 9.375rem;
         }
         .output td {
             width: 18.75rem;
             height: 9.375rem;
             padding: 0;
         }
-        .output div {
+        .output td div {
             width: calc(100% - 1.25rem);
             height: calc(100% - 1.25rem);
-            padding: .625rem;
             margin: .625rem;
+        }
+        .output td div span {
+            display: block;
+            padding: .625rem;
         }
         .sp-replacer {
             min-width: 3.125rem;

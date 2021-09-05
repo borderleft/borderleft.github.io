@@ -7,34 +7,36 @@ title: RGBA to RGB converter
     <p>Convert a RGBA color like <code>rgba(0,0,255,0.5)</code> to a RGB hex value that takes the alpha channel into account.</p>
 </div>
 
-<table class="input">
-    <tbody>
+<div class="input">
+    <table>
+        <tbody>
+            <tr>
+                <td>RGB background</td>
+                <td><input id="bg_colorpicker"></td>
+                <td><code id="bg_value">N/A</code></td>
+            </tr>
+            <tr>
+                <td>RGBA foreground</td>
+                <td><input id="rgba_colorpicker"></td>
+                <td><code id="rgba_value">N/A</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="output">
+    <h2>Output</h2>
+    <p>
+        <span id="output_block"></span>
+        <code id="output_value">N/A</code>
+    </p>
+    <table>
         <tr>
-            <td>RGB background</td>
-            <td><input id="bg_colorpicker"></td>
-            <td><code id="bg_value">N/A</code></td>
+            <td><div id="rgba_view"><span>RGBA color</span></div></td>
+            <td><div id="join_view"><span>RGBA foreground on RGB background<span></div></td>
         </tr>
-        <tr>
-            <td>RGBA foreground</td>
-            <td><input id="rgba_colorpicker"></td>
-            <td><code id="rgba_value">N/A</code></td>
-        </tr>
-    </tbody>
-</table>
-
-<h2>Output</h2>
-
-<p>
-    <span id="output_block"></span>
-    <code id="output_value">N/A</code>
-</p>
-
-<table class="output">
-    <tr>
-        <td><div id="rgba_view">RGBA color</div></td>
-        <td><div id="join_view">RGBA foreground on RGB background </div></td>
-    </tr>
-</table>
+    </table>
+</div>
 
 <script>
     function Color(r, g, b, a) {
@@ -71,9 +73,9 @@ title: RGBA to RGB converter
             "background-color": result_rgb_str,
             "display": "inline-block",
             "vertical-align": "middle",
-            "margin": "-2px 4px 0 0",
-            "width": "30px",
-            "height": "20px"
+            "margin-right": ".5rem",
+            "width": "2rem",
+            "height": "1.25rem"
         });
         $("#output_value").text(new tinycolor(result_rgb_str).toHexString() + " " + result_rgb_str);
 
