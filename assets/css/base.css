@@ -18,6 +18,7 @@ body {
     margin: 2rem 1.5rem;
     background-color: var(--color-body-bg);
     color: var(--color-body-text);
+    -webkit-text-size-adjust: 100%;
 }
 
 h1, h2, h3, b, strong {
