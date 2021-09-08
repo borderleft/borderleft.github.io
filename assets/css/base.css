@@ -21,7 +21,7 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
-h1, h2, h3, b, strong {
+h1, h2, h3, h4, h5, h6, b, strong {
     font-weight: 600;
 }
 
@@ -46,6 +46,7 @@ h4, h5, h6 {
     font-size: inherit;
 }
 
+h1:not(:first-child),
 h2:not(:first-child),
 h3:not(:first-child) {
     margin-top: 2rem;
@@ -125,11 +126,13 @@ ul ol {
 }
 
 @media (min-width: 1024px) {
+
     .header,
     .main,
     .footer {
         max-width: 800px;
     }
+
 }
 
 .header {
@@ -236,18 +239,6 @@ ul ol {
 
 .contact iframe {
     margin-left: -.3125rem;
-}
-
-.sr-only {
-    border: 0;
-    clip: rect(0,0,0,0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
 }
 
 @media (min-width: 1024px) {
