@@ -179,7 +179,7 @@ ol ol, ul ul, ol ul, ul ol {
 
 .home h1 + p {
     font-size: var(--font-size-xl);
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .work h1, .work h1 + p {
