@@ -9,7 +9,7 @@
             overflow-x: auto;
         }
         table {
-            font-size: .875rem;
+            font-size: var(--font-size-xs);
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 1.5rem;
@@ -18,7 +18,7 @@
             border: 1px solid var(--color-light-border);
         }
         td[title] {
-            font-size: .75rem;
+            font-size: var(--font-size-xxs);
             line-height: 1;
             text-align: center;
             color: white;
@@ -43,7 +43,7 @@
             display: inline-block;
         }
         ul {
-            font-size: 1rem;
+            font-size: var(--font-size-sm);
         }
     </style>
 {% when "/rgba/" %}
@@ -54,7 +54,7 @@
         .input table,
         .output table {
             border-collapse: collapse;
-            font-size: .875rem;
+            font-size: var(--font-size-xs);
         }
         .input td {
             padding-right: .5rem;
@@ -112,7 +112,7 @@
         table {
             table-layout: fixed;
             border-collapse: collapse;
-            font-size: .875rem;
+            font-size: var(--font-size-xs);
         }
         th, td {
             padding: .25rem .625rem;
@@ -142,13 +142,28 @@
             margin: 0;
         }
         h1 {
-            font-size: 1.25rem;
+            font-size: var(--font-size-base);
         }
         h1:after {
             content: ":";
         }
         h1 + p {
-            font-size: 1.875rem;
+            font-size: var(--font-size-xxl);
         }
+        /* b {
+            display: inline-block;
+            padding: .5rem 1rem;
+            background:
+                linear-gradient(to right, black 2px, transparent 2px) 0 0,
+                linear-gradient(to right, black 2px, transparent 2px) 0 100%,
+                linear-gradient(to left, black 2px, transparent 2px) 100% 0,
+                linear-gradient(to left, black 2px, transparent 2px) 100% 100%,
+                linear-gradient(to bottom, black 2px, transparent 2px) 0 0,
+                linear-gradient(to bottom, black 2px, transparent 2px) 100% 0,
+                linear-gradient(to top, black 2px, transparent 2px) 0 100%,
+                linear-gradient(to top, black 2px, transparent 2px) 100% 100%;
+            background-repeat: no-repeat;
+            background-size: .75rem .75rem;
+        } */
     </style>
 {% endcase -%}

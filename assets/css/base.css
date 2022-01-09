@@ -4,6 +4,13 @@
     --color-accent: rgb(238,51,68);
     --color-light-border: rgba(0,0,68,.15);
     --color-light-bg: rgba(0,0,68,.05);
+    --font-size-xxl: 2rem;
+    --font-size-xl: 1.5rem;
+    --font-size-lg: 1.25rem;
+    --font-size-base: 1.125rem;
+    --font-size-sm: 1rem;
+    --font-size-xs: .875rem;
+    --font-size-xxs: .75rem;
 }
 
 *, *:before, *:after {
@@ -12,10 +19,10 @@
 
 body {
     font-family: "Jost", sans-serif;
-    font-size: 1.0625rem;
+    font-size: var(--font-size-base);
     font-weight: 400;
     line-height: 1.4;
-    margin: 2rem 1.5rem;
+    margin: 2rem 1.5rem 3rem;
     background-color: var(--color-body-bg);
     color: var(--color-body-text);
     -webkit-text-size-adjust: 100%;
@@ -27,28 +34,22 @@ h1, h2, h3, h4, h5, h6, b, strong {
 
 h1, h2, h3 {
     line-height: 1.2;
-    margin: 0 0 .75rem;
+    margin: 0 0 1rem;
 }
 
 h1 {
-    font-size: 1.8125rem;
+    font-size: var(--font-size-xxl);
 }
 
 h2 {
-    font-size: 1.4375rem;
+    font-size: var(--font-size-xl);
 }
 
 h3 {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
 }
 
-h4, h5, h6 {
-    font-size: inherit;
-}
-
-h1:not(:first-child),
-h2:not(:first-child),
-h3:not(:first-child) {
+h1:not(:first-child), h2:not(:first-child), h3:not(:first-child) {
     margin-top: 2rem;
 }
 
@@ -82,7 +83,7 @@ blockquote {
 
 code, pre {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: .875rem;
+    font-size: var(--font-size-xs);
     word-wrap: break-word;
     background-color: var(--color-light-bg);
 }
@@ -110,16 +111,11 @@ ol, ul {
     padding-left: 2rem;
 }
 
-ol ol,
-ul ul,
-ol ul,
-ul ol {
+ol ol, ul ul, ol ul, ul ol {
     margin-bottom: 0;
 }
 
-.header,
-.main,
-.footer {
+.header, .main, .footer {
     display: block;
     max-width: 640px;
     margin: 0 auto;
@@ -127,9 +123,7 @@ ul ol {
 
 @media (min-width: 1024px) {
 
-    .header,
-    .main,
-    .footer {
+    .header, .main, .footer {
         max-width: 800px;
     }
 
@@ -144,7 +138,7 @@ ul ol {
 }
 
 .footer {
-    font-size: .9375rem;
+    font-size: var(--font-size-sm);
 }
 
 .logo a {
@@ -183,18 +177,14 @@ ul ol {
     color: inherit;
 }
 
-.home h1 {
-    font-size: 2rem;
-}
-
 .home h1 + p {
-    font-size: 1.375rem;
+    font-size: var(--font-size-xl);
     margin-bottom: 3rem;
 }
 
-.work h1,
-.work h1 + p {
+.work h1, .work h1 + p {
     opacity: 0;
+    width: 0;
     height: 0;
     padding: 0;
     margin: 0;
@@ -216,11 +206,11 @@ ul ol {
 
 .work .info {
     box-shadow: inset 0 1px 0 0 var(--color-light-border);
-    padding: 20px 20px 22px;
+    padding: 20px;
 }
 
 .work .info h2 span {
-    font-size: 1.125rem;
+    font-size: var(--font-size-base);
 }
 
 .work .media a {
@@ -244,7 +234,7 @@ ul ol {
 @media (min-width: 1024px) {
 
     .work .main {
-        max-width: 960px;
+        max-width: none;
     }
 
     .work .list {
