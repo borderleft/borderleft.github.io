@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
-{%- include toolbox-metadata.html -%}
+{%- assign slug = page.url | replace: "toolbox", "" | replace: "/", "" %}
+{%- if slug == "rgba" %}
+    {% include spectrum-colorpicker.html %}
+{% endif %}
 </head>
 
 <body>
 
-<article>
+<article class="tool {{ slug }}">
 
 <h1>{{ page.title }}</h1>
 {{ content }}
