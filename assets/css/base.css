@@ -4,13 +4,24 @@
     --color-accent: rgb(238,51,68);
     --color-light-border: rgba(0,0,68,.15);
     --color-light-bg: rgba(0,0,68,.05);
-    --font-size-xxl: 2rem;
-    --font-size-xl: 1.5rem;
-    --font-size-lg: 1.25rem;
+
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
     --font-size-base: 1.125rem;
     --font-size-sm: 1rem;
     --font-size-xs: .875rem;
     --font-size-xxs: .75rem;
+
+    --layout-4: 320px;
+    --layout-5: 400px;
+    --layout-6: 480px;
+    --layout-7: 560px;
+    --layout-8: 640px;
+    --layout-9: 720px;
+    --layout-10: 800px;
+    --layout-11: 880px;
+    --layout-12: 960px;
 }
 
 *, *:before, *:after {
@@ -28,25 +39,25 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, b, strong {
+h1, h2, h3, b, strong {
     font-weight: 600;
 }
 
 h1, h2, h3 {
     line-height: 1.2;
-    margin: 0 0 1rem;
+    margin: 0 0 .625rem;
 }
 
 h1 {
-    font-size: var(--font-size-xxl);
+    font-size: var(--font-size-h1);
 }
 
 h2 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-h2);
 }
 
 h3 {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-h3);
 }
 
 h1:not(:first-child), h2:not(:first-child), h3:not(:first-child) {
@@ -63,17 +74,13 @@ a:hover {
     border-bottom: 1px solid;
 }
 
-article {
-    max-width: 800px;
-    margin: auto;
-}
-
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-    display: block;
-}
-
 address, blockquote, details, dl, fieldset, figure, form, ol, p, pre, table, ul {
     margin: 0 0 1.25rem;
+}
+
+article {
+    max-width: var(--layout-10);
+    margin: auto;
 }
 
 blockquote {
@@ -90,6 +97,10 @@ code, pre {
 
 code {
     padding: .25rem;
+}
+
+header, main, footer {
+    display: block;
 }
 
 pre {
@@ -111,22 +122,20 @@ ol, ul {
     padding-left: 2rem;
 }
 
-ol ol, ul ul, ol ul, ul ol {
+ol ol, ol ul, ul ol, ul ul {
     margin-bottom: 0;
 }
 
-.header, .main, .footer {
+.container {
     display: block;
-    max-width: 640px;
+    max-width: var(--layout-8);
     margin: 0 auto;
 }
 
 @media (min-width: 1024px) {
-
-    .header, .main, .footer {
-        max-width: 800px;
+    .container {
+        max-width: var(--layout-10);
     }
-
 }
 
 .header {
@@ -149,16 +158,16 @@ ol ol, ul ul, ol ul, ul ol {
     background: transparent url("../img/common/logo.png") 0 0 / contain no-repeat;
 }
 
-.logo a b {
-    position: absolute;
-    left: -9999px;
-    top: -9999px;
-}
-
 .logo a:before {
     content: "";
     display: block;
     padding-bottom: 25%;
+}
+
+.logo a b {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
 }
 
 .nav ul {
@@ -169,30 +178,17 @@ ol ol, ul ul, ol ul, ul ol {
 }
 
 .nav li:not(:last-child) {
-    margin-right: 1.25rem;
+    margin-right: 1.5rem;
 }
 
-.nav .current {
+.current {
     border-bottom: 1px solid;
     color: inherit;
 }
 
 .home h1 + p {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-h2);
     margin-bottom: 2.5rem;
-}
-
-.work h1, .work h1 + p {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-}
-
-.work .list {
-    max-width: 560px;
 }
 
 .work .item {
@@ -214,50 +210,53 @@ ol ol, ul ul, ol ul, ul ol {
 }
 
 .work .media a {
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
     border: 0;
 }
 
+.work .media img {
+    width: 100%;
+}
+
 .about p {
-    max-width: 640px;
+    max-width: var(--layout-8);
 }
 
 .contact .form {
-    max-width: 560px;
+    max-width: var(--layout-7);
 }
 
 .contact iframe {
     margin-left: -.3125rem;
 }
 
+.hidden {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
 @media (min-width: 1024px) {
-
-    .work .main {
-        max-width: none;
+    .work .main .container {
+        max-width: var(--layout-11);
     }
-
-    .work .list {
-        max-width: 880px;
-        margin: 0 auto;
-    }
-
     .work .item {
         display: flex;
         flex-direction: row-reverse;
     }
-
     .work .media {
-        flex: 0 0 560px;
-        max-width: 560px;
+        flex: 0 0 var(--layout-7);
+        max-width: var(--layout-7);
     }
-
     .work .info {
         flex: 1;
-        padding: 40px;
+        padding: 30px 40px;
         box-shadow: inset -1px 0 0 0 var(--color-light-border);
     }
-
 }
 
 @font-face {

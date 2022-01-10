@@ -15,32 +15,37 @@
 <body class="{% if page.url == '/' %}home{% elsif page.url == '/404.html' %}huh{% else %}{{ page.url | replace: '/', '' }}{% endif %}">
 
     <header class="header">
-        <p class="logo">
-            <a href="/"><b>Borderleft</b></a>
-        </p>
-        <nav class="nav">
-            <ul>
-            {%- for item in site.data.navigation %}
-                <li><a href="{{ item.url }}" {%- if item.url == page.url %} class="current" {%- endif %}>{{ item.text }}</a></li>
-            {%- endfor %}
-            </ul>
-        </nav>
+        <div class="container">
+            <p class="logo">
+                <a href="/"><b>Borderleft</b></a>
+            </p>
+            <nav class="nav">
+                <ul>
+                {%- for item in site.data.navigation %}
+                    <li><a href="{{ item.url }}" {%- if item.url == page.url %} class="current" {%- endif %}>{{ item.text }}</a></li>
+                {%- endfor %}
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="main">
+        <div class="container">
 
-<h1>{{ page.title }}</h1>
 {{ content }}
+        </div>
     </main>
 
     <footer class="footer">
-        <p>
-            {%- if page.url != "/toolbox/" -%}
-                Developer too? You might find my <a href="/toolbox/">&lt;toolbox&gt;</a> handy.
-            {%- else -%}
-                ... Aha! you’ve found it.
-            {%- endif -%}
-        </p>
+        <div class="container">
+            <p>
+                {%- if page.url != "/toolbox/" -%}
+                    Developer too? You might find my <a href="/toolbox/">&lt;toolbox&gt;</a> handy.
+                {%- else -%}
+                    ... Aha! you’ve found it.
+                {%- endif -%}
+            </p>
+        </div>
     </footer>
 
 {% if page.url == "/work/" %}{% include vanilla-lazyload.html %}{% endif %}
