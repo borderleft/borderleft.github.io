@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
-{%- assign slug = page.url | replace: "toolbox", "" | replace: "/", "" %}
-{%- if slug == "rgba" %}
+{%- assign class = page.name | replace: ".html", "" %}
+{%- if class == "rgba" %}
     {% include spectrum-colorpicker.html %}
 {% endif %}
 </head>
 
 <body>
 
-<article class="tool {{ slug }}">
+<div class="wrap {{ class }}">
+<article>
 
 <h1>{{ page.title }}</h1>
 {{ content }}
 </article>
+</div>
 
 {% include css-vars-ponyfill.html %}
 {% include google-analytics.html %}
