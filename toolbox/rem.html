@@ -3,19 +3,25 @@ layout: toolbox
 title: PX to REM calculator
 ---
 
+<h1>{{ page.title }}</h1>
+
 <form>
-    <div>
-        <input id="base" type="text" value="16">
-        <label for="base">Base &lt;html&gt; font-size (in px)</label>
+    <div class="input">
+        <p class="base">
+            <input id="base" type="text" value="16">
+            <label for="base">Base &lt;html&gt; font-size (in px)</label>
+        </p>
+        <p class="size">
+            <input id="list" type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,24,26,28,30,32,34,36,38,40,50,60,70,80,90,100">
+            <label for="list">PX sizes to convert</label>
+        </p>
+        <p class="submit">
+            <input id="calc" type="button" value="Calculate">
+        </p>
     </div>
-    <div>
-        <input id="list" type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24,26,28,30,32,34,36,38,40,50,60,70,80,90,100">
-        <label for="list">PX sizes to convert</label>
+    <div class="output">
+        <ul id="result"></ul>
     </div>
-    <div>
-        <p><input id="calc" type="button" value="Calculate"></p>
-    </div>
-    <ul id="result"></ul>
 </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
