@@ -393,16 +393,15 @@ ol ol, ol ul, ul ol, ul ul {
 
 .rrggbbaa table {
     max-width: 100%;
-    width: var(--layout-5);
-    table-layout: fixed;
     border-collapse: collapse;
     font-size: var(--font-size-xs);
 }
 
 .rrggbbaa th,
 .rrggbbaa td {
-    padding: .25rem .625rem;
-    text-align: left;
+    width: 5rem;
+    padding: .25rem;
+    text-align: center;
 }
 
 .rrggbbaa td {
