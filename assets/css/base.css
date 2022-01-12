@@ -213,6 +213,10 @@ ol ol, ol ul, ul ol, ul ul {
     width: 100%;
 }
 
+.cell {
+    margin-top: 2rem;
+}
+
 .about {
     max-width: var(--layout-8);
 }
@@ -236,7 +240,7 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 @media (min-width: 1024px) {
-    .work {
+    .cards {
         margin: 0 -1.875rem;
     }
     .card {
@@ -250,6 +254,17 @@ ol ol, ol ul, ul ol, ul ul {
         flex: 1;
         padding: 1.875rem;
         box-shadow: inset -1px 0 0 0 var(--color-light-border);
+    }
+    @supports (display: grid) {
+        .cells {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 1rem 3rem;
+            margin-top: 2rem;
+        }
+        .cell {
+            margin-top: 0;
+        }
     }
 }
 
