@@ -1,9 +1,9 @@
 :root {
-    --color-body-text: rgb(0,0,68);
-    --color-body-bg: rgb(255,255,255);
+    --color-black: rgb(0,0,68);
+    --color-white: rgb(255,255,255);
     --color-accent: rgb(238,51,68);
-    --color-light-border: rgba(0,0,68,.15);
-    --color-light-bg: rgba(0,0,68,.05);
+    --color-gray-dark: rgba(0,0,68,.15);
+    --color-gray-light: rgba(0,0,68,.05);
 
     --font-size-h1: 2rem;
     --font-size-h2: 1.5rem;
@@ -35,8 +35,8 @@ body {
     font-weight: 400;
     line-height: 1.4;
     margin: 2rem 1.5rem 3rem;
-    background-color: var(--color-body-bg);
-    color: var(--color-body-text);
+    background-color: var(--color-white);
+    color: var(--color-black);
     -webkit-text-size-adjust: 100%;
 }
 
@@ -80,7 +80,7 @@ address, blockquote, details, dl, fieldset, figure, form, ol, p, pre, table, ul 
 }
 
 blockquote {
-    border-left: .25rem solid var(--color-light-border);
+    border-left: .25rem solid var(--color-gray-dark);
     padding: 0 1rem;
 }
 
@@ -88,7 +88,7 @@ code, pre {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     font-size: var(--font-size-xs);
     word-wrap: break-word;
-    background-color: var(--color-light-bg);
+    background-color: var(--color-gray-light);
 }
 
 code {
@@ -188,7 +188,8 @@ ol ol, ol ul, ul ol, ul ul {
 
 .card {
     margin-bottom: 3rem;
-    box-shadow: 0 0 0 1px var(--color-light-border);
+    box-shadow: 0 0 0 1px var(--color-gray-dark);
+    background-color: var(--color-white);
 }
 
 .card p:last-child {
@@ -196,7 +197,7 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 .card-body {
-    box-shadow: inset 0 1px 0 0 var(--color-light-border);
+    box-shadow: inset 0 1px 0 0 var(--color-gray-dark);
     padding: 1.5rem;
 }
 
@@ -253,7 +254,7 @@ ol ol, ol ul, ul ol, ul ul {
     .card-body {
         flex: 1;
         padding: 1.875rem;
-        box-shadow: inset -1px 0 0 0 var(--color-light-border);
+        box-shadow: inset -1px 0 0 0 var(--color-gray-dark);
     }
     @supports (display: grid) {
         .cells {
@@ -285,7 +286,7 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 .hex td {
-    border: 1px solid var(--color-light-border);
+    border: 1px solid var(--color-gray-dark);
 }
 
 .hex td[title] {
@@ -391,8 +392,8 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 .rrggbbaa table {
-    width: var(--layout-4);
     max-width: 100%;
+    width: var(--layout-5);
     table-layout: fixed;
     border-collapse: collapse;
     font-size: var(--font-size-xs);
@@ -405,7 +406,7 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 .rrggbbaa td {
-    border: 1px solid var(--color-light-border);
+    border: 1px solid var(--color-gray-dark);
 }
 
 .rrggbbaa td:nth-child(1),
@@ -419,7 +420,7 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 .rrggbbaa tr:nth-child(10n+1) td {
-    background-color: var(--color-light-bg);
+    background-color: var(--color-gray-light);
 }
 
 .rrggbbaa tr:focus {
