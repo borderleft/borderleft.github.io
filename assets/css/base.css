@@ -1,3 +1,6 @@
+/* Variables
+---------------------------------------- */
+
 :root {
     --color-black: rgb(0,0,68);
     --color-white: rgb(255,255,255);
@@ -24,6 +27,9 @@
     --layout-11: 880px;
     --layout-12: 960px;
 }
+
+/* Elements
+---------------------------------------- */
 
 *, *:before, *:after {
     box-sizing: border-box;
@@ -121,6 +127,9 @@ ol, ul {
 ol ol, ol ul, ul ol, ul ul {
     margin-bottom: 0;
 }
+
+/* Main
+---------------------------------------- */
 
 .wrap {
     max-width: var(--layout-8);
@@ -269,6 +278,9 @@ ol ol, ol ul, ul ol, ul ul {
     }
 }
 
+/* Tools
+---------------------------------------- */
+
 .tool {
     font-size: var(--font-size-alt);
 }
@@ -301,8 +313,7 @@ ol ol, ol ul, ul ol, ul ul {
     min-height: 2.25rem;
 }
 
-.rem .base,
-.rem .size {
+.rem p:not(:last-child) {
     margin-bottom: .5rem;
 }
 
@@ -315,22 +326,15 @@ ol ol, ol ul, ul ol, ul ul {
     font-size: var(--font-size-sm);
 }
 
-.rem .output {
+.rem ul {
     font-size: var(--font-size-sm);
-}
-
-@media print {
-    .rem .input {
-        display: none;
-    }
 }
 
 .rgba .intro {
     max-width: var(--layout-7);
 }
 
-.rgba .input table,
-.rgba .output table {
+.rgba table {
     border-collapse: collapse;
     font-size: var(--font-size-xs);
 }
@@ -437,6 +441,9 @@ ol ol, ol ul, ul ol, ul ul {
 .viewport h1 + p {
     font-size: var(--font-size-h1);
 }
+
+/* Fonts
+---------------------------------------- */
 
 @font-face {
     font-family: "Jost";
