@@ -81,6 +81,10 @@ a:hover {
     border-bottom: 1px solid;
 }
 
+header, main, footer {
+    display: block;
+}
+
 address, blockquote, details, dl, fieldset, figure, form, ol, p, pre, table, ul {
     margin: 0 0 1.25rem;
 }
@@ -93,7 +97,7 @@ blockquote {
 code, pre {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     font-size: var(--font-size-xs);
-    word-wrap: break-word;
+    white-space: pre-wrap;
     background-color: var(--color-gray-light);
 }
 
@@ -101,12 +105,7 @@ code {
     padding: .25rem;
 }
 
-header, main, footer {
-    display: block;
-}
-
 pre {
-    white-space: pre-wrap;
     padding: .5rem;
 }
 
