@@ -7,6 +7,7 @@ html {
     font-weight: 400;
     line-height: 1.4;
     background: none #fff;
+    color: #004;
 }
 body {
     font: inherit;
@@ -19,7 +20,7 @@ body {
     text-align: left;
     width: auto;
     padding: 0;
-    max-width: 640px;
+    max-width: 560px;
     margin: 0 auto;
     border: 0;
     background: none transparent;
@@ -48,13 +49,22 @@ body {
     font: inherit;
     color: inherit;
 }
-form li div {
+.wufoo li div {
     padding: 0;
     margin: 0;
 }
 .wufoo li label.desc,
 .wufoo li legend.desc {
     padding-bottom: 5px;
+}
+.wufoo li.focused label.desc,
+.wufoo li.focused legend.desc,
+.wufoo li.focused div,
+.wufoo li.focused span,
+.wufoo li.focused div label,
+.wufoo li.focused span label,
+.safari .wufoo li.focused input.file {
+    color: inherit;
 }
 .wufoo .info {
     display: none;
@@ -90,7 +100,7 @@ form li div {
     padding: 0;
     margin: 0;
     border: 0 !important;
-    color: #004 !important;
+    color: inherit !important;
 }
 .wufoo .section h3 {
     font-weight: 600;
@@ -107,7 +117,7 @@ form li div {
     font-style: inherit;
     font-weight: 600;
     white-space: normal;
-    color: #004 !important;
+    color: inherit !important;
     line-height: inherit;
     padding: 0;
     margin: 0;
@@ -128,6 +138,7 @@ form li div {
     position: relative;
     padding: 10px !important;
     margin: 0;
+    width: 100%;
     clear: none;
     background: none transparent;
     transition: none;
@@ -149,23 +160,27 @@ form li div {
     padding: 0;
     margin: 0;
 }
-form li.complex div {
+.wufoo input.medium,
+.wufoo select.medium {
+    width: 100%;
+}
+.wufoo li.complex div {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
 }
-form li.complex div span.left,
-form li.complex div span.right,
-form li.complex div span.full {
+.wufoo li.complex div span.left,
+.wufoo li.complex div span.right,
+.wufoo li.complex div span.full {
     display: block;
     padding: 0 0 5px !important;
     margin: 0 !important;
 }
-form li.complex div span.full {
+.wufoo li.complex div span.full {
     grid-column: 1 / -1;
 }
-form li.complex div span.left,
-form li.complex div span.right {
+.wufoo li.complex div span.left,
+.wufoo li.complex div span.right {
     width: auto;
 }
 .wufoo input.text,
