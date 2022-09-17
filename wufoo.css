@@ -19,7 +19,8 @@ body {
     text-align: left;
     width: auto;
     padding: 0;
-    margin: 0;
+    max-width: 640px;
+    margin: 0 auto;
     border: 0;
     background: none transparent;
     box-shadow: none;
@@ -39,6 +40,30 @@ body {
     padding: 0;
     margin: 0;
 }
+.wufoo li div,
+.wufoo li span,
+.wufoo li div label,
+.wufoo li span label {
+    font: inherit;
+    color: inherit;
+}
+form li div {
+    padding: 0;
+    margin: 0;
+}
+.wufoo li.focused label.desc,
+.wufoo li.focused legend.desc,
+.wufoo li.focused div,
+.wufoo li.focused span,
+.wufoo li.focused div label,
+.wufoo li.focused span label,
+.safari .wufoo li.focused input.file {
+    color: inherit;
+}
+.wufoo li label.desc,
+.wufoo li legend.desc {
+    padding-bottom: 5px;
+}
 .wufoo .info {
     display: none;
     padding: 0;
@@ -54,6 +79,49 @@ body {
 .wufoo li div::after {
     content: none;
 }
+.wufoo .section {
+    position: static;
+    padding: 10px 5px;
+    margin: 0;
+    width: auto !important;
+    clear: none;
+}
+.wufoo .section h3,
+.wufoo .section div {
+    display: block;
+    width: auto;
+    float: none;
+    font-family: inherit;
+    font-size: inherit !important;
+    font-style: inherit;
+    line-height: inherit;
+    padding: 0;
+    margin: 0;
+    border: 0 !important;
+    color: #004 !important;
+}
+.wufoo .section h3 {
+    font-weight: 600;
+}
+.wufoo .section div  {
+    font-weight: inherit;
+}
+.wufoo label.desc,
+.wufoo legend.desc,
+.likert caption {
+    display: block;
+    font-size: inherit !important;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: 600;
+    white-space: normal;
+    color: #004 !important;
+    line-height: inherit;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: auto;
+}
 .wufoo label {
     display: block;
     font: inherit;
@@ -66,7 +134,7 @@ body {
 }
 .wufoo li {
     position: relative;
-    padding: 10px 5px;
+    padding: 10px !important;
     margin: 0;
     clear: none;
     background: none transparent;
@@ -80,21 +148,78 @@ body {
     padding: 0;
     margin: 0;
 }
+.wufoo .icon {
+    vertical-align: middle;
+}
 .wufoo .req {
     font: inherit;
     color: #e34 !important;
     padding: 0;
     margin: 0;
 }
+form li.complex div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+form li.complex div span.left,
+form li.complex div span.right,
+form li.complex div span.full {
+    display: block;
+    padding: 0 0 5px !important;
+    margin: 0 !important;
+}
+form li.complex div span.full {
+    grid-column: 1 / -1;
+}
+form li.complex div span.left,
+form li.complex div span.right {
+    width: auto;
+}
 .wufoo input.text,
 .wufoo input.search,
+.wufoo input.file,
+.wufoo select.select,
 .wufoo textarea.textarea {
-    font: inherit;
-    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    color: inherit !important;
     background: none transparent;
-    border: 1px solid;
+    border: 1px solid #004;
     padding: 2px 5px;
     margin: 0;
+}
+.wufoo input.text,
+.wufoo input.search,
+.wufoo select.select,
+.wufoo textarea.textarea
+.wufoo input.file {
+    -webkit-appearance: none;
+}
+.wufoo input.file {
+    border: 0;
+}
+.wufoo input.checkbox,
+.wufoo input.radio {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    width: 16px;
+    height: 16px;
+}
+.wufoo label.choice {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: default;
+    font-size: inherit !important;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    color: inherit !important;
 }
 .wufoo input.submit {
     font: inherit;
@@ -103,6 +228,7 @@ body {
     border: 0;
     padding: 5px 10px;
     margin: 0;
+    cursor: pointer;
     -webkit-appearance: none;
 }
 .wufoo li.focused {
