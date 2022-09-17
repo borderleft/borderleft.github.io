@@ -51,15 +51,6 @@ form li div {
     padding: 0;
     margin: 0;
 }
-.wufoo li.focused label.desc,
-.wufoo li.focused legend.desc,
-.wufoo li.focused div,
-.wufoo li.focused span,
-.wufoo li.focused div label,
-.wufoo li.focused span label,
-.safari .wufoo li.focused input.file {
-    color: inherit;
-}
 .wufoo li label.desc,
 .wufoo li legend.desc {
     padding-bottom: 5px;
