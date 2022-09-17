@@ -181,15 +181,15 @@ form li.complex div span.right {
     color: inherit !important;
     background: none transparent;
     border: 1px solid #004;
-    padding: 2px 5px;
+    padding: 3px 5px;
     margin: 0;
 }
 .wufoo input.text,
 .wufoo input.search,
 .wufoo select.select,
-.wufoo textarea.textarea
+.wufoo textarea.textarea,
 .wufoo input.file {
-    border-radius: 3px;
+    border-radius: 4px;
     -webkit-appearance: none;
 }
 .wufoo input.file {
@@ -222,7 +222,7 @@ form li.complex div span.right {
     padding: 5px 10px;
     margin: 0;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 4px;
     -webkit-appearance: none;
 }
 .wufoo li.focused {
