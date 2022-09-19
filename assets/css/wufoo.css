@@ -20,7 +20,7 @@ body {
     text-align: left;
     width: auto;
     padding: 0;
-    max-width: 560px;
+    max-width: 640px;
     margin: 0 auto;
     border: 0;
     background: none transparent;
@@ -220,7 +220,7 @@ body {
     width: 320px;
     max-width: 100%;
 }
-.wufoo input.textarea {
+.wufoo textarea.textarea {
     width: 560px;
     max-width: 100%;
 }
