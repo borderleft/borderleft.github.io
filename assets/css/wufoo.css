@@ -211,8 +211,14 @@ body {
     border-radius: 0;
     -webkit-appearance: none;
 }
+.wufoo span input[class*="fn"],
+.wufoo span input[class*="ln"] {
+    width: 150px;
+    max-width: 100%;
+}
 .wufoo input.text[type="email"] {
-    max-width: 305px;
+    width: 304px;
+    max-width: 100%;
 }
 .wufoo input.file {
     border: 0;
