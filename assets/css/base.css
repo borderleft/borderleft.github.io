@@ -26,8 +26,18 @@
     --color-background: rgb(255,255,255);
     --color-gray: rgba(0,0,68,.15);
     --color-silver: rgba(0,0,68,.05);
+    --image-logo: url("../img/common/logo.png");
+}
 
-    --logo-image: url("../img/common/logo.png");
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-accent: rgb(238,51,68);
+        --color-foreground: rgb(230,230,230);
+        --color-background: rgb(0,0,0);
+        --color-gray: rgba(255,255,255,.15);
+        --color-silver: rgba(255,255,255,.05);
+        --image-logo: url("../img/common/logo-dark.png");
+    }
 }
 
 /* Elements
@@ -161,7 +171,7 @@ ol ol, ol ul, ul ol, ul ul {
     display: block;
     width: 11.25rem;
     border: 0;
-    background: transparent var(--logo-image) 0 0 / contain no-repeat;
+    background: transparent var(--image-logo) 0 0 / contain no-repeat;
 }
 
 .logo a:before {
@@ -449,6 +459,7 @@ ol ol, ol ul, ul ol, ul ul {
 
 .gray code {
     background-color: transparent;
+    border-color: transparent;
 }
 
 .viewport {
