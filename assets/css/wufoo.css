@@ -213,11 +213,15 @@ body {
 }
 .wufoo span input[class*="fn"],
 .wufoo span input[class*="ln"] {
-    width: 150px;
+    width: 158px;
     max-width: 100%;
 }
 .wufoo input.text[type="email"] {
-    width: 304px;
+    width: 320px;
+    max-width: 100%;
+}
+.wufoo input.textarea {
+    width: 560px;
     max-width: 100%;
 }
 .wufoo input.file {
