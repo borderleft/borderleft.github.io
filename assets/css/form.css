@@ -26,17 +26,23 @@ body {
     max-width: 640px;
     margin: 0 auto;
     border: 0;
-    background: none transparent;
+    background: transparent none;
     box-shadow: none;
 }
 #logo {
     position: relative;
     padding: 0;
-    margin: 0;
+    margin: 20px 0;
     min-height: 0;
-    background: none #004;
+    background: transparent none;
     text-decoration: none;
     text-indent: -9999px;
+}
+#logo a {
+    background: transparent url("https://borderleft.com/assets/img/common/logo.png") 0 0 / contain no-repeat;
+    height: 45px;
+    cursor: default;
+    pointer-events: none;
 }
 #footer {
     filter: opacity(0%);
@@ -140,7 +146,7 @@ body {
     margin: 0;
     width: 100%;
     clear: none;
-    background: none transparent;
+    background: transparent none;
     transition: none;
 }
 .wufoo li span {
@@ -190,7 +196,7 @@ body {
 .wufoo textarea.textarea {
     font: inherit !important;
     color: inherit !important;
-    background: none transparent;
+    background: transparent none;
     border: 1px solid #004;
     padding: 3px 5px;
     margin: 0;
@@ -250,7 +256,7 @@ body {
 /* Handle */
 .wufoo li.focused,
 .wufoo li.error {
-    background: none transparent !important;
+    background: transparent none !important;
 }
 .wufoo li.error label,
 .wufoo li.error span.symbol {
@@ -272,7 +278,7 @@ body {
     color: #004 !important;
 }
 #errorLi {
-    background: none transparent !important;
+    background: transparent none !important;
     border: 1px solid #e34;
     border-radius: 4px;
     padding: 10px !important;
@@ -293,7 +299,7 @@ body {
 #errorMsg b {
     font: inherit;
     padding: 0;
-    background: none transparent !important;
+    background: transparent none !important;
     border-radius: 0;
 }
 
@@ -316,6 +322,9 @@ body {
     html {
         background-color: #000 !important;
         color:#e6e6e6 !important;
+    }
+    #logo a {
+        background-image: url("https://borderleft.com/assets/img/common/logo-dark.png");
     }
     .wufoo input.text,
     .wufoo input.search,

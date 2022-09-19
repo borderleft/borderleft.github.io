@@ -251,6 +251,10 @@ ol ol, ol ul, ul ol, ul ul {
     margin: 0 -.625rem;
 }
 
+.noscript {
+    padding: 0 .625rem;
+}
+
 .hidden {
     width: 0;
     height: 0;
