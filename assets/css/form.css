@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap');
 
+/* Wufoo */
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -199,7 +200,7 @@ body {
 .wufoo select.select,
 .wufoo textarea.textarea,
 .wufoo input.file {
-    border-radius: 0;
+    border-radius: 4px;
     -webkit-appearance: none;
 }
 .wufoo span input[class*="fn"],
@@ -242,11 +243,11 @@ body {
     padding: 5px 10px;
     margin: 0;
     cursor: pointer;
-    border-radius: 0;
+    border-radius: 4px;
     -webkit-appearance: none;
 }
 
-/* Errors */
+/* Handle */
 .wufoo li.focused,
 .wufoo li.error {
     background: none transparent !important;
@@ -273,7 +274,7 @@ body {
 #errorLi {
     background: none transparent !important;
     border: 1px solid #e34;
-    border-radius: 0;
+    border-radius: 4px;
     padding: 10px !important;
     margin: 10px;
     text-align: center;
@@ -296,7 +297,7 @@ body {
     border-radius: 0;
 }
 
-/* Confirm */
+/* Message */
 .confirm .wufoo h2.freeHeading {
     padding: 20px 10px;
     margin: 0;
@@ -310,6 +311,7 @@ body {
     pointer-events: none;
 }
 
+/* Scheme */
 @media (prefers-color-scheme: dark) {
     html {
         background-color: #000 !important;
