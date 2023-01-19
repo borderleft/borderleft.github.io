@@ -143,13 +143,13 @@ ol ol, ol ul, ul ol, ul ul {
 /* Main
 ---------------------------------------- */
 
-.wrap {
+.wrapper {
     max-width: var(--layout-8);
     margin: auto;
 }
 
 @media (min-width: 1024px) {
-    .wrap {
+    .wrapper {
         max-width: var(--layout-10);
     }
 }

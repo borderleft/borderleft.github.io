@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PX to REM calculator</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=4.7">
+</head>
+
+<body>
+
+    <div class="wrapper tool rem">
+
+        <h1>PX to REM calculator</h1>
+
+        <p>
+            <input id="base" type="text" value="16">
+            <label for="base">Base font size in px</label>
+        </p>
+        <p>
+            <input id="data" type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,24,26,28,30,32,34,36,38,40,50,60,70,80,90,100">
+            <label for="data">px sizes to convert</label>
+        </p>
+        <p>
+            <input id="calc" type="button" value="Calculate">
+        </p>
+        <ul id="result"></ul>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
+        <script>
+            !function (i) { var a = i("#result"), l = i("#base"), c = i("#data"); i("#calc").click(function () { var t = l.val(), e = c.val().split(","), n = []; i.each(e, function (i, a) { var l = parseInt(a), c = parseFloat((l / parseInt(t, 10)).toPrecision(5)), e = 1 === c ? " <i>(base)</i>" : ""; n.push("<li>" + a + "px = " + c + "rem" + e + "</li>") }), a.html(n.join("")) }).click() }(jQuery);
+        </script>
+
+        <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://gist.github.com/daniellmb/3c8003550ccff7dd72aa">source</a></p>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/css-vars-ponyfill/2.4.7/css-vars-ponyfill.min.js"></script>
+    <script>cssVars();</script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10292366-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-10292366-1', { 'anonymize_ip': true });
+    </script>
+
+</body>
+
+</html>

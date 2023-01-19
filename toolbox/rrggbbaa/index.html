@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>#rrggbbaa table</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=4.7">
+</head>
+
+<body>
+
+    <div class="wrapper tool rrggbbaa">
+
+        <h1>#rrggbbaa table</h1>
+
+        <div>
+            <p><a href="https://drafts.csswg.org/css-color/">CSS Color Module Level 4</a> introduces new 8 <code>#rrggbbaa</code> and 4 shortened <code>#rgba</code> character <b>hex</b> notation for color to include the <b>opacity</b> level.</p>
+            <pre>background: rgba(0,0,0,.2); // rgba()
+background: #00000033;      // #rrggbbaa
+background: #0003;          // #rgba</pre>
+        </div>
+
+        <table id="chart">
+            <thead>
+                <tr>
+                    <th>Alpha %</th>
+                    <th>Hex</th>
+                    <th>Num</th>
+                </tr>
+            </thead>
+        </table>
+
+        <script>
+            for (var text = document.getElementById("chart"), tableguts = "", i = 1; i >= 0; i -= .01) { i = Math.round(100 * i) / 100; var alpha = Math.round(255 * i), hex = (alpha + 65536).toString(16).substr(-2).toUpperCase(), perc = Math.round(100 * i); tableguts += "<tr tabindex='-1'><td>" + perc + "%</td><td> " + hex + "</td><td>" + alpha + "</td></tr>" } text.innerHTML += tableguts;
+        </script>
+
+        <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://stackoverflow.com/a/25170174">source</a></p>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/css-vars-ponyfill/2.4.7/css-vars-ponyfill.min.js"></script>
+    <script>cssVars();</script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10292366-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-10292366-1', { 'anonymize_ip': true });
+    </script>
+
+</body>
+
+</html>
