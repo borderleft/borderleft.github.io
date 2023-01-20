@@ -11,6 +11,9 @@ html {
     background: none #fff;
     color: #004;
 }
+html.embed {
+    background-color: transparent;
+}
 body {
     font: inherit;
     text-align: center;
@@ -28,7 +31,6 @@ body {
     max-width: 640px;
     margin: 0 auto;
     border: 0;
-    background: transparent none;
     box-shadow: none;
 }
 #logo {
@@ -321,7 +323,7 @@ body {
 }
 
 .confirm .wufoo h2.freeHeading {
-    padding: 20px 10px;
+    padding: 20px 0;
     margin: 0;
     font: inherit;
     color: #004;
