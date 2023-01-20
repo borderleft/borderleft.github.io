@@ -32,6 +32,7 @@ body {
     margin: 0 auto;
     border: 0;
     box-shadow: none;
+    background-color: transparent;
 }
 #logo {
     position: relative;
