@@ -321,6 +321,28 @@ ol ol, ol ul, ul ol, ul ul {
     min-height: 2.25rem;
 }
 
+.quotes table {
+    border-collapse: collapse;
+}
+
+.quotes th,
+.quotes td {
+    padding: .25rem .5rem;
+    border: 1px solid var(--color-gray);
+}
+
+.quotes th:first-child,
+.quotes td:first-child {
+    font-family: serif;
+    font-size: 1.5rem;
+}
+
+.quotes code {
+    background-color: transparent;
+    border-color: transparent;
+    padding: 0;
+}
+
 .rem p:not(:last-child) {
     margin-bottom: .5rem;
 }
