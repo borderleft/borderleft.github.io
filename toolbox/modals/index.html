@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vanilla js animated modals</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=7.0">
+    <style>
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        .modal-dialog {
+            position: fixed;
+            z-index: 100;
+            width: 480px;
+            max-width: 100%;
+            max-width: calc(100% - 2.5rem);
+            max-height: 100%;
+            max-height: calc(100% - 2.5rem);
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 0 2px rgba(0,0,0,.2);
+            border-radius: 10px;
+            overflow: auto;
+        }
+
+        .modal-main {
+            padding: 1.5rem;
+        }
+
+        .modal-main > :first-child {
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .modal-main > :last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='%23333'%3E%3C/line%3E%3C/svg%3E") center / 1.5rem 1.5rem no-repeat;
+            display: block;
+            width: 3rem;
+            height: 3rem;
+            text-decoration: none;
+            direction: ltr;
+            text-align: left;
+            text-indent: -9999px;
+            opacity: 1;
+            transition: opacity .2s;
+        }
+
+        .modal-close:hover {
+            opacity: .6;
+        }
+
+        .modal-dialog {
+            left: 50%;
+            top: 10%;
+            transform: translate(-50%, 0);
+            display: none;
+        }
+
+        .modal-dialog.show,
+        .modal-dialog.hide {
+            display: block;
+        }
+
+        .modal-dialog.show {
+            animation: .5s forwards slidein;
+        }
+
+        .modal-dialog.hide {
+            animation: .25s forwards slideout;
+        }
+
+        @keyframes slidein {
+            0% {
+                transform: translate(-50%, -25%);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideout {
+            0% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -25%);
+                opacity: 0;
+            }
+        }
+
+        .modal-on {
+            overflow: hidden;
+        }
+
+        .modal-backdrop {
+            content: "";
+            position: fixed;
+            z-index: 90;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.4);
+        }
+
+        .modal-backdrop {
+            opacity: 0;
+            display: none;
+        }
+
+        :where(.modal-on, .modal-off) .modal-backdrop {
+            display: block;
+        }
+
+        .modal-on .modal-backdrop {
+            animation: .25s forwards fadein;
+        }
+
+        .modal-off .modal-backdrop {
+            animation: .5s forwards fadeout;
+        }
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper tool viewport">
+
+        <h1>Vanilla js animated modals</h1>
+
+        <ul>
+            <li>Using data attributes: <code>data-modal-toggle</code> + <code>data-modal-dialog</code>.</li>
+            <li>3 ways of closing a modal: click &times icon, press Esc, or click anywhere outside modal.</li>
+            <li>Smooth animations: fade in/out + slide down/up.</li>
+            <li>Adding multiple modals on the same page with ease.</li>
+            <li>Free of js/css libraries.</li>
+        </ul>
+
+        <p>
+            <!-- Modal toggle 1 -->
+            <button class="modal-toggle" data-modal-toggle="m1">Launch modal 1</button>
+            <!-- Modal toggle 2 -->
+            <button class="modal-toggle" data-modal-toggle="m2">Launch modal 2</button>
+        </p>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <!-- Modal dialog 1 -->
+    <div class="modal-dialog" data-modal-dialog="m1" hidden>
+        <div class="modal-main">
+            <h2>Far far away</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+        </div>
+        <a class="modal-close" href="javascript:;" role="button">Close</a>
+    </div>
+
+    <!-- Modal dialog 2 -->
+    <div class="modal-dialog" data-modal-dialog="m2" hidden>
+        <div class="modal-main">
+            <h2>Lorem ipsum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+        </div>
+        <a class="modal-close" href="javascript:;" role="button">Close</a>
+    </div>
+
+    <script>
+        (function() {
+            const body = document.body;
+            const toggles = document.querySelectorAll('.modal-toggle');
+            const closes = document.querySelectorAll('.modal-close');
+
+            body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop"></div>');
+            const backdrop = document.querySelector('.modal-backdrop');
+
+            if (toggles) {
+                for (const toggle of toggles) {
+                    toggle.addEventListener('click', function(e) {
+                        const modal = document.querySelector(
+                            `[data-modal-dialog="${toggle.getAttribute('data-modal-toggle')}"]`
+                        );
+                        if (modal) {
+                            modal.classList.add('show');
+                            body.classList.add('modal-on');
+                        }
+                        e.preventDefault();
+                    });
+                }
+            }
+
+            if (closes) {
+                for (const close of closes) {
+                    close.addEventListener('click', function(e) {
+                        const modal = close.closest('.modal-dialog');
+                        if (modal) {
+                            dismiss(modal);
+                        }
+                        e.preventDefault();
+                    });
+                }
+            }
+
+            if (backdrop) {
+                backdrop.addEventListener('click', function(e) {
+                    const modal = document.querySelector('.modal-dialog.show');
+                    if (modal) {
+                        dismiss(modal);
+                    }
+                    e.preventDefault();
+                });
+            }
+
+            document.addEventListener('keyup', function(e) {
+                if (e.keyCode === 27) {
+                    const modal = document.querySelector('.modal-dialog.show');
+                    if (modal) {
+                        dismiss(modal);
+                    }
+                }
+            });
+
+            const dismiss = function(modal) {
+                modal.classList.remove('show');
+                modal.classList.add('hide');
+                body.classList.remove('modal-on');
+                body.classList.add('modal-off');
+                setTimeout(function() {
+                    modal.classList.remove('hide');
+                }, 500);
+                setTimeout(function() {
+                    body.classList.remove('modal-off');
+                }, 500);
+
+            }
+        })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>

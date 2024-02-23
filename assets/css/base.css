@@ -109,6 +109,12 @@ blockquote {
     padding: 0 1rem;
 }
 
+button, input, select, textarea {
+    font: inherit;
+    font-size: var(--font-size-sm);
+    line-height: normal;
+}
+
 code, pre {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     font-size: var(--font-size-xs);
@@ -118,7 +124,7 @@ code, pre {
 }
 
 code {
-    padding: .25rem;
+    padding: .125rem .25rem;
 }
 
 pre {
