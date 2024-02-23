@@ -10,7 +10,14 @@
         .slider {
             position: relative;
             width: 400px;
-            height: 200px;
+            max-width: 100%;
+        }
+        .slider:before {
+            content: "";
+            display: block;
+            /* (ref) https://stackoverflow.com/a/10441480 */
+            /* (or:) https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio */
+            padding-bottom: 50%;
         }
         .slide {
             position: absolute;
