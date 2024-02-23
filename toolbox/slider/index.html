@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vanilla js autoplay slider</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=7.0b">
+    <style>
+        .slider {
+            position: relative;
+            width: 400px;
+            height: 200px;
+        }
+        .slide {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+        .slide.show {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper tool viewport">
+
+        <h1>Vanilla js autoplay slider</h1>
+
+        <ul>
+            <li>Using background images that can be preloaded.</li>
+            <li>Simple fade in/out when playing.</li>
+            <li>Autoplay with pause on mouseover.</li>
+            <li>Free of js/css libraries. Just view page source to grab the code.</li>
+        </ul>
+
+        <div class="slider">
+            <div class="slide show" style="background-image: url('https://picsum.photos/id/1/800/400');"></div>
+            <div class="slide" style="background-image: url('https://picsum.photos/id/2/800/400');"></div>
+            <div class="slide" style="background-image: url('https://picsum.photos/id/3/800/400');"></div>
+        </div>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script>
+        (function() {
+            let i = 0;
+            let paused = false;
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            if (slider) {
+                slider.addEventListener("mouseover", pause);
+                slider.addEventListener("mouseout", resume);
+                start();
+            }
+            function start() {
+                setTimeout(play, 5000);
+            }
+            function pause() {
+                paused = true;
+            }
+            function resume() {
+                paused = false;
+                start();
+            }
+            function play() {
+                if (!paused) {
+                    slides[i].classList.remove('show');
+                    (i < slides.length - 1) ? i++ : i = 0;
+                    slides[i].classList.add('show');
+                    start();
+                }
+            }
+        })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>
