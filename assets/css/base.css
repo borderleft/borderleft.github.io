@@ -83,13 +83,17 @@ h1:not(:first-child), h2:not(:first-child), h3:not(:first-child) {
 }
 
 a {
+    text-decoration-line: underline;
+    text-decoration-color: currentColor;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .15em;
     color: var(--color-accent);
-    text-decoration: none;
-    transition: border-width .1s;
+    transition: text-decoration-color .2s;
 }
 
-a:hover {
-    border-bottom: 1px solid;
+a:not(:hover) {
+    text-decoration-color: transparent;
 }
 
 header, main, footer {
@@ -169,7 +173,7 @@ ol ol, ol ul, ul ol, ul ul {
     position: relative;
     display: block;
     width: 11.25rem;
-    border: 0;
+    text-decoration-line: none;
     background: transparent var(--image-logo) 0 0 / contain no-repeat;
 }
 
@@ -227,7 +231,7 @@ ol ol, ol ul, ul ol, ul ul {
 
 .card-image a {
     display: block;
-    border: 0;
+    text-decoration-line: none;
 }
 
 .card-image img {
@@ -240,7 +244,7 @@ ol ol, ol ul, ul ol, ul ul {
 
 .offline.tooltip {
     cursor: default;
-    border: 0;
+    text-decoration-line: none;
 }
 
 .offline:after {
