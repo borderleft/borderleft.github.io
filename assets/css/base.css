@@ -292,6 +292,10 @@ ol ol, ol ul, ul ol, ul ul {
     max-width: var(--layout-7);
 }
 
+.tool > p:has(> a[href="/toolbox/"]) {
+    margin-top: 2rem;
+}
+
 .hidden {
     width: 0;
     height: 0;
