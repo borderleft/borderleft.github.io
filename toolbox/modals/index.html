@@ -10,7 +10,6 @@
         *, *:before, *:after {
             box-sizing: border-box;
         }
-
         .modal-dialog {
             position: fixed;
             z-index: 100;
@@ -25,21 +24,17 @@
             border-radius: 10px;
             overflow: auto;
         }
-
         .modal-main {
             padding: 1.5rem;
         }
-
         .modal-main > :first-child {
             padding-top: 0;
             margin-top: 0;
         }
-
         .modal-main > :last-child {
             padding-bottom: 0;
             margin-bottom: 0;
         }
-
         .modal-close {
             position: absolute;
             top: 0;
@@ -55,31 +50,25 @@
             opacity: 1;
             transition: opacity .2s;
         }
-
         .modal-close:hover {
             opacity: .6;
         }
-
         .modal-dialog {
             left: 50%;
             top: 10%;
             transform: translate(-50%, 0);
             display: none;
         }
-
         .modal-dialog.show,
         .modal-dialog.hide {
             display: block;
         }
-
         .modal-dialog.show {
             animation: .5s forwards slidein;
         }
-
         .modal-dialog.hide {
             animation: .25s forwards slideout;
         }
-
         @keyframes slidein {
             0% {
                 transform: translate(-50%, -25%);
@@ -90,7 +79,6 @@
                 opacity: 1;
             }
         }
-
         @keyframes slideout {
             0% {
                 transform: translate(-50%, 0);
@@ -101,11 +89,9 @@
                 opacity: 0;
             }
         }
-
         .modal-on {
             overflow: hidden;
         }
-
         .modal-backdrop {
             content: "";
             position: fixed;
@@ -116,24 +102,19 @@
             bottom: 0;
             background-color: rgba(0,0,0,.4);
         }
-
         .modal-backdrop {
             opacity: 0;
             display: none;
         }
-
         :where(.modal-on, .modal-off) .modal-backdrop {
             display: block;
         }
-
         .modal-on .modal-backdrop {
             animation: .25s forwards fadein;
         }
-
         .modal-off .modal-backdrop {
             animation: .5s forwards fadeout;
         }
-
         @keyframes fadein {
             0% {
                 opacity: 0;
@@ -142,7 +123,6 @@
                 opacity: 1;
             }
         }
-
         @keyframes fadeout {
             0% {
                 opacity: 1;
