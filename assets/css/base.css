@@ -63,7 +63,7 @@ h1, h2, h3, b, strong {
 
 h1, h2, h3 {
     line-height: 1.2;
-    margin: 0 0 .625rem;
+    margin: 0 0 .75rem;
 }
 
 h1 {
@@ -79,7 +79,7 @@ h3 {
 }
 
 h1:not(:first-child), h2:not(:first-child), h3:not(:first-child) {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 a {
