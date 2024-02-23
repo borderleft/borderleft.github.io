@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Floating labels</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=7.0">
+    <style>
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        .label {
+            position: relative;
+            display: block;
+            width: 400px;
+            max-width: 100%;
+        }
+        .text,
+        .select {
+            font: inherit;
+            line-height: normal;
+            display: block;
+            width: 100%;
+            padding: .75rem;
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #ccc;
+            box-shadow: none;
+            border-radius: .5rem;
+            -webkit-appearance: none;
+        }
+        .text:disabled,
+        .select:disabled {
+            background-color: #eee;
+            opacity: .5;
+        }
+        .select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2306c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-position: right .5rem center;
+            background-size: 1.25rem 1.25rem, 0 0;
+            background-repeat: no-repeat;
+            padding-right: 2rem;
+            color: #999;
+        }
+        .select[multiple] {
+            background: transparent none;
+        }
+        .tag {
+            position: absolute;
+            top: .15rem;
+            left: 0;
+            padding: .375rem;
+            margin: .375rem;
+            pointer-events: none;
+            background-color: transparent;
+            color: #999;
+            transition: transform .2s;
+        }
+        .text:focus,
+        .select:focus {
+            outline: 0;
+            border-color: #06c;
+        }
+        .text:focus ~ .tag,
+        .text:not(:placeholder-shown) ~ .tag,
+        .select:valid ~ .tag {
+            background-color: #fff;
+            color: #000;
+            transform: translate(0, -1.5em) scale(.75);
+        }
+        .select:focus {
+            background-size: 0 0, 1.25rem 1.25rem;
+        }
+        .select ~ .tag {
+            opacity: 0;
+        }
+        .select:valid ~ .tag {
+            opacity: 1;
+        }
+        .select:valid {
+            color: #000;
+        }
+        .select:valid option[value=""] {
+            display: none;
+        }
+        .button {
+            font: inherit;
+            line-height: normal;
+            padding: .25rem .75rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper tool html">
+
+        <h1>Floating labels</h1>
+
+        <p>Pure CSS, no JS, with support of <code>&lt;select&gt;</code> elements.</p>
+
+        <h2>Demos</h2>
+
+        <form>
+            <p>
+                <label class="label">
+                    <input class="text" type="text" placeholder=" ">
+                    <span class="tag">Name</span>
+                </label>
+            </p>
+            <p>
+                <label class="label">
+                    <input class="text" type="email" placeholder=" ">
+                    <span class="tag">Email</span>
+                </label>
+            </p>
+            <p>
+                <label class="label">
+                    <!-- <select> must be set to required -->
+                    <select class="select" required>
+                        <option value="">Number</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <span class="tag">Number</span>
+                </label>
+            </p>
+            <p>
+                <label class="label">
+                    <textarea class="text" rows="5" placeholder=" "></textarea>
+                    <span class="tag">Message</span>
+                </label>
+            </p>
+            <p>
+                <button class="button" type="button">Submit</button>
+            </p>
+        </form>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>
