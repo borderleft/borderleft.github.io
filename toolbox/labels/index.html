@@ -76,8 +76,15 @@
         .caption:has(~ .text:not(:placeholder-shown)),
         .caption:has(~ .select:valid) {
             background-color: #fff;
-            color: #000;
             transform: translate(0, -1.375em) scale(.75);
+        }
+        .caption:has(~ .text:not(:placeholder-shown)),
+        .caption:has(~ .select:valid) {
+            color: #000;
+        }
+        .caption:has(~ .text:focus),
+        .caption:has(~ .select:focus) {
+            color: #06c;
         }
         .caption:has(~ .select) {
             opacity: 0;
