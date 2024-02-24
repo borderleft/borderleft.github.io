@@ -46,17 +46,6 @@
         .select[multiple] {
             background: transparent none;
         }
-        .caption {
-            position: absolute;
-            top: .15rem;
-            left: 0;
-            padding: .375rem;
-            margin: .375rem;
-            pointer-events: none;
-            background-color: transparent;
-            color: #999;
-            transition: transform .2s;
-        }
         .text:focus,
         .select:focus {
             outline: 0;
@@ -71,12 +60,24 @@
         .select:valid option[value=""] {
             display: none;
         }
+        .caption {
+            position: absolute;
+            top: .25rem;
+            left: 0;
+            padding: .1875rem .375rem;
+            margin: .375rem;
+            pointer-events: none;
+            background-color: transparent;
+            color: #999;
+            border-radius: .5rem;
+            transition: transform .2s;
+        }
         .caption:has(~ .text:focus),
         .caption:has(~ .text:not(:placeholder-shown)),
         .caption:has(~ .select:valid) {
             background-color: #fff;
             color: #000;
-            transform: translate(0, -1.5em) scale(.75);
+            transform: translate(0, -1.375em) scale(.75);
         }
         .caption:has(~ .select) {
             opacity: 0;
