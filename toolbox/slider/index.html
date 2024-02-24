@@ -69,13 +69,8 @@
             let paused = false;
             const slider = document.querySelector('.slider');
             const slides = document.querySelectorAll('.slide');
-            if (slider) {
-                slider.addEventListener("mouseover", pause);
-                slider.addEventListener("mouseout", resume);
-                start();
-            }
             function start() {
-                setTimeout(play, 5000);
+                setTimeout(play, 3000);
             }
             function pause() {
                 paused = true;
@@ -87,10 +82,19 @@
             function play() {
                 if (!paused) {
                     slides[i].classList.remove('show');
-                    (i < slides.length - 1) ? i++ : i = 0;
+                    if (i < slides.length - 1) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
                     slides[i].classList.add('show');
                     start();
                 }
+            }
+            if (slider) {
+                slider.addEventListener("mouseover", pause);
+                slider.addEventListener("mouseout", resume);
+                start();
             }
         })();
     </script>
