@@ -502,8 +502,8 @@
         const offlines = document.querySelectorAll('.offline');
         if (offlines) {
             for (let i = 0; i < offlines.length; i++) {
-                offlines[i].dataset.title = 'This site is no longer available';
-                offlines[i].setAttribute('href', 'javascript:void(0)');
+                offlines[i].dataset.title = 'This site is currently offline';
+                offlines[i].setAttribute('href', 'javascript:;');
                 offlines[i].addEventListener('click', function(e) {
                     offlines[i].classList.add('tooltip');
                     setTimeout(function() {
