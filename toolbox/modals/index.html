@@ -22,7 +22,7 @@
             color: #333;
             outline: none;
             box-shadow: 0 0 2px rgba(0,0,0,.2);
-            border-radius: 10px;
+            border-radius: 1rem;
             overflow: auto;
         }
         .modal-main {
@@ -40,6 +40,7 @@
             position: absolute;
             top: 0;
             right: 0;
+            background-color: transparent;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='%23333'%3E%3C/line%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2306c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='%2306c'%3E%3C/line%3E%3C/svg%3E");
             background-position: center;
             background-size: 1.5rem 1.5rem, 0 0;
@@ -47,10 +48,13 @@
             display: block;
             width: 3rem;
             height: 3rem;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            box-shadow: none;
             text-decoration-line: none;
-            direction: ltr;
-            text-align: left;
-            text-indent: -9999px;
+            cursor: pointer;
+            outline-offset: -.5rem;
             opacity: 1;
             transition: background-image .2s;
         }
@@ -173,7 +177,7 @@
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
         </div>
-        <a class="modal-close" href="javascript:;" role="button">Close</a>
+        <button class="modal-close" aria-label="Close"></button>
     </div>
 
     <!-- Modal dialog 2 -->
@@ -183,7 +187,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
         </div>
-        <a class="modal-close" href="javascript:;" role="button">Close</a>
+        <button class="modal-close" aria-label="Close"></button>
     </div>
 
     <script>
