@@ -20,6 +20,7 @@
             max-height: calc(100% - 2.5rem);
             background-color: #fff;
             color: #333;
+            outline: none;
             box-shadow: 0 0 2px rgba(0,0,0,.2);
             border-radius: 10px;
             overflow: auto;
@@ -165,7 +166,7 @@
     </div>
 
     <!-- Modal dialog 1 -->
-    <div class="modal-dialog" data-modal-dialog="m1" hidden>
+    <div class="modal-dialog" data-modal-dialog="m1" tabindex="-1" hidden>
         <div class="modal-main">
             <h2>Far far away</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
@@ -175,7 +176,7 @@
     </div>
 
     <!-- Modal dialog 2 -->
-    <div class="modal-dialog" data-modal-dialog="m2" hidden>
+    <div class="modal-dialog" data-modal-dialog="m2" tabindex="-1" hidden>
         <div class="modal-main">
             <h2>Lorem ipsum</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -197,10 +198,11 @@
                 for (const toggle of toggles) {
                     toggle.addEventListener('click', function(e) {
                         const modal = document.querySelector(
-                            `[data-modal-dialog="${toggle.getAttribute('data-modal-toggle')}"]`
+                            `[data-modal-dialog="${this.getAttribute('data-modal-toggle')}"]`
                         );
                         if (modal) {
                             modal.classList.add('show');
+                            modal.focus();
                             body.classList.add('modal-on');
                         }
                         e.preventDefault();
@@ -211,7 +213,7 @@
             if (closes) {
                 for (const close of closes) {
                     close.addEventListener('click', function(e) {
-                        const modal = close.closest('.modal-dialog');
+                        const modal = this.closest('.modal-dialog');
                         if (modal) {
                             dismiss(modal);
                         }
@@ -240,6 +242,7 @@
             });
 
             const dismiss = function(modal) {
+                modal.blur();
                 modal.classList.remove('show');
                 modal.classList.add('hide');
                 body.classList.remove('modal-on');
