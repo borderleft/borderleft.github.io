@@ -242,7 +242,10 @@
             });
 
             const dismiss = function(modal) {
-                modal.blur();
+                const toggle = document.querySelector(
+                    `[data-modal-toggle="${modal.getAttribute('data-modal-dialog')}"]`
+                );
+                toggle.focus();
                 modal.classList.remove('show');
                 modal.classList.add('hide');
                 body.classList.remove('modal-on');
