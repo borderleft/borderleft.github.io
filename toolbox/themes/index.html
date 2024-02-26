@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Switch color schemes</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=7.0c">
+    <style>
+        :root {
+            --color-back: #ddd;
+            --color-forth: #222;
+            --color-border: #06c;
+            --color-focus: #0c6;
+            color-scheme: light dark;
+        }
+        [data-theme="light"] {
+            color-scheme: light;
+        }
+        [data-theme="dark"] {
+            --color-back: #222;
+            --color-forth: #ddd;
+            color-scheme: dark;
+        }
+        @media (prefers-color-scheme: dark) {
+            [data-theme="auto"] {
+                --color-back: #222;
+                --color-forth: #ddd;
+            }
+        }
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, sans-serif;
+            background-color: var(--color-back);
+            color: var(--color-forth);
+            transition: background-color .2s, color .2s;
+        }
+        .switch {
+            display: inline-flex;
+            padding: 1px;
+            border: 1px solid var(--color-border);
+            border-radius: 1rem;
+        }
+        .switch label {
+            font-size: .875rem;
+            display: inline-flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            cursor: pointer;
+        }
+        .switch span {
+            display: inline-block;
+            vertical-align: middle;
+            padding: .125rem .5rem;
+            border-radius: 1rem;
+        }
+        .switch span:has(~ input:focus-visible) {
+            outline: 2px solid var(--color-focus);
+            outline-offset: -1px;
+        }
+        .switch span:has(~ input:checked) {
+            background-color: var(--color-border);
+            color: #fff;
+        }
+        .switch input {
+            width: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            overflow: clip;
+            appearance: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper tool">
+
+        <h1>Switch color schemes</h1>
+
+        <ul>
+            <li>Select light or dark modes, or auto (system settings).</li>
+            <li>Navigate with keyboard tab + left and right arrows.</li>
+            <li>Persist selected preferences in local storage.</li>
+            <li>Free of js/css libraries, view source and grab the code.</li>
+            <li>Demos below toggle <code>#ddd</code> and <code>#222</code> for back and forth.</li>
+        </ul>
+
+        <h2>Demos</h2>
+
+        <div class="switch">
+            <label>
+                <span>Light</span>
+                <input type="radio" name="theme" value="light">
+            </label>
+            <label>
+                <span>Dark</span>
+                <input type="radio" name="theme" value="dark">
+            </label>
+            <label>
+                <span>Auto</span>
+                <input type="radio" name="theme" value="auto">
+            </label>
+        </div>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script>
+        (function() {
+            const light = document.querySelector('[name="theme"][value="light"]');
+            const dark = document.querySelector('[name="theme"][value="dark"]');
+            const auto = document.querySelector('[name="theme"][value="auto"]');
+            const radios = [light, dark, auto];
+            const theme = localStorage.getItem('color-scheme');
+
+            function setTheme(value) {
+                localStorage.setItem('color-scheme', value);
+                document.documentElement.setAttribute('data-theme', value);
+            }
+
+            function setState(input) {
+                input.checked = true;
+            }
+
+            for (const radio of radios) {
+                radio.setAttribute('autocomplete', 'off');
+                radio.addEventListener('change', function() {
+                    setTheme(radio.value);
+                });
+            }
+
+            switch (theme) {
+                case 'light':
+                    setState(light);
+                    setTheme(light.value);
+                    break;
+                case 'dark':
+                    setState(dark);
+                    setTheme(dark.value);
+                    break;
+                default:
+                    setState(auto);
+                    setTheme(auto.value);
+            }
+        })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>
