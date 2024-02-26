@@ -8,24 +8,22 @@
     <link rel="stylesheet" href="/assets/css/base.css?v=7.0c">
     <style>
         :root {
-            --color-back: #ddd;
-            --color-forth: #222;
-            --color-border: #06c;
-            --color-focus: #0c6;
+            --demo-bg: lavender;
+            --demo-text: navy;
             color-scheme: light dark;
         }
         [data-theme="light"] {
             color-scheme: light;
         }
         [data-theme="dark"] {
-            --color-back: #222;
-            --color-forth: #ddd;
+            --demo-bg: navy;
+            --demo-text: lavender;
             color-scheme: dark;
         }
         @media (prefers-color-scheme: dark) {
             [data-theme="auto"] {
-                --color-back: #222;
-                --color-forth: #ddd;
+                --demo-bg: navy;
+                --demo-text: lavender;
             }
         }
         *, *:before, *:after {
@@ -33,14 +31,14 @@
         }
         body {
             font-family: system-ui, sans-serif;
-            background-color: var(--color-back);
-            color: var(--color-forth);
+            background-color: var(--demo-bg);
+            color: var(--demo-text);
             transition: background-color .2s, color .2s;
         }
         .switch {
             display: inline-flex;
             padding: 1px;
-            border: 1px solid var(--color-border);
+            border: 1px solid #06c;
             border-radius: 1rem;
         }
         .switch label {
@@ -56,13 +54,13 @@
             padding: .125rem .5rem;
             border-radius: 1rem;
         }
-        .switch span:has(~ input:focus-visible) {
-            outline: 2px solid var(--color-focus);
-            outline-offset: -1px;
-        }
         .switch span:has(~ input:checked) {
-            background-color: var(--color-border);
+            background-color: #06c;
             color: #fff;
+        }
+        .switch span:has(~ input:focus-visible) {
+            outline: 2px solid #0c6;
+            outline-offset: -1px;
         }
         .switch input {
             width: 0;
@@ -83,11 +81,11 @@
         <h1>Switch color schemes</h1>
 
         <ul>
-            <li>Select light or dark modes, or auto (system settings).</li>
-            <li>Navigate with keyboard tab + left and right arrows.</li>
-            <li>Persist selected preferences in local storage.</li>
+            <li>Select light or dark modes or auto (system settings).</li>
+            <li>Navigate with keyboard tab + left + right arrows.</li>
+            <li>Persist selected option in local storage.</li>
             <li>Free of js/css libraries, view source and grab the code.</li>
-            <li>Demos below toggle <code>#ddd</code> and <code>#222</code> for back and forth.</li>
+            <li>Demos below toggle lavender/navy colors for bg/text.</li>
         </ul>
 
         <h2>Demos</h2>
