@@ -38,6 +38,7 @@
         .switch {
             display: inline-flex;
             padding: 1px;
+            margin-bottom: 1.25rem;
             border: 1px solid #06c;
             border-radius: 1rem;
         }
@@ -104,6 +105,25 @@
                 <input type="radio" name="theme" value="auto">
             </label>
         </div>
+
+        <p>
+            <small id="system"></small>
+            <script>
+                (function() {
+                    function systemColorScheme(data) {
+                        document.getElementById('system').textContent = 'System setting: ' + data;
+                    }
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        systemColorScheme('dark');
+                    } else {
+                        systemColorScheme('light');
+                    }
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                        e.matches ? systemColorScheme('dark') : systemColorScheme('light');
+                    });
+                })();
+            </script>
+        </p>
 
         <p><a href="/toolbox/">&lt; toolbox</a></p>
 
