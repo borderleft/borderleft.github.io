@@ -207,7 +207,6 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 .current {
-    border-bottom: 1px solid;
     color: inherit;
 }
 
