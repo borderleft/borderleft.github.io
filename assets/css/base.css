@@ -30,7 +30,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-accent: rgb(248,81,73);
+        --color-accent: rgb(255,107,107);
         --color-foreground: rgb(230,237,243);
         --color-background: rgb(13,17,23);
         --color-gray: rgba(255,255,255,.15);
