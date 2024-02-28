@@ -131,6 +131,25 @@ pre {
     padding: .5rem;
 }
 
+small {
+    font-size: .875em;
+}
+
+sub, sup {
+    position: relative;
+    font-size: .75em;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -.25em;
+}
+
+sup {
+    top: -.5em;
+}
+
 iframe, img, svg, video {
     vertical-align: middle;
     max-width: 100%;
