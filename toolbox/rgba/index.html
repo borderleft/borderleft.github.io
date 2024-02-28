@@ -55,7 +55,7 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
 </head>
 
@@ -105,75 +105,77 @@
         </div>
 
         <script>
-            function Color(r, g, b, a) {
-                this.r = r;
-                this.b = b;
-                this.g = g;
-                this.a = typeof a == "number" ? a : 1;
-            }
+            (function($) {
+                function Color(r, g, b, a) {
+                    this.r = r;
+                    this.b = b;
+                    this.g = g;
+                    this.a = typeof a == "number" ? a : 1;
+                }
 
-            Color.prototype.rgba2rgb = function (color) {
-                var alpha = color.a;
-                return new Color(
-                    (1 - alpha) * this.r + alpha * color.r,
-                    (1 - alpha) * this.g + alpha * color.g,
-                    (1 - alpha) * this.b + alpha * color.b
-                );
-            };
+                Color.prototype.rgba2rgb = function (color) {
+                    var alpha = color.a;
+                    return new Color(
+                        (1 - alpha) * this.r + alpha * color.r,
+                        (1 - alpha) * this.g + alpha * color.g,
+                        (1 - alpha) * this.b + alpha * color.b
+                    );
+                };
 
-            function recalculate() {
-                var rgba = $("#rgba_colorpicker").spectrum("get");
-                var bg = $("#bg_colorpicker").spectrum("get");
-                var rgba_color = new Color(rgba.toRgb().r, rgba.toRgb().g, rgba.toRgb().b, rgba.toRgb().a);
-                var bg_color = new Color(bg.toRgb().r, bg.toRgb().g, bg.toRgb().b);
-                var result_rgb = bg_color.rgba2rgb(rgba_color);
+                function recalculate() {
+                    var rgba = $("#rgba_colorpicker").spectrum("get");
+                    var bg = $("#bg_colorpicker").spectrum("get");
+                    var rgba_color = new Color(rgba.toRgb().r, rgba.toRgb().g, rgba.toRgb().b, rgba.toRgb().a);
+                    var bg_color = new Color(bg.toRgb().r, bg.toRgb().g, bg.toRgb().b);
+                    var result_rgb = bg_color.rgba2rgb(rgba_color);
 
-                var result_rgb_str = "rgb(" + Math.round(result_rgb.r) + "," +
-                    Math.round(result_rgb.g) + "," +
-                    Math.round(result_rgb.b) + ")";
+                    var result_rgb_str = "rgb(" + Math.round(result_rgb.r) + "," +
+                        Math.round(result_rgb.g) + "," +
+                        Math.round(result_rgb.b) + ")";
 
-                $("#bg_value").text(bg.toHexString() + " " + bg.toRgbString().replace(/\s/g, ""));
-                $("#rgba_value").text(rgba.toHexString() + " " + rgba.toRgbString().replace(/\s/g, ""));
+                    $("#bg_value").text(bg.toHexString() + " " + bg.toRgbString().replace(/\s/g, ""));
+                    $("#rgba_value").text(rgba.toHexString() + " " + rgba.toRgbString().replace(/\s/g, ""));
 
-                $("#output_block").css({
-                    "background-color": result_rgb_str,
-                    "display": "inline-block",
-                    "vertical-align": "middle",
-                    "margin-right": ".5rem",
-                    "width": "1.71875rem",
-                    "height": "1.25rem"
+                    $("#output_block").css({
+                        "background-color": result_rgb_str,
+                        "display": "inline-block",
+                        "vertical-align": "middle",
+                        "margin-right": ".5rem",
+                        "width": "1.71875rem",
+                        "height": "1.25rem"
+                    });
+                    $("#output_value").text(new tinycolor(result_rgb_str).toHexString() + " " + result_rgb_str);
+
+                    $("#rgba_view").css("background-color", "rgba(" + rgba.toRgb().r + "," +
+                        rgba.toRgb().g + "," +
+                        rgba.toRgb().b + "," +
+                        rgba.toRgb().a + ")");
+
+                    $("#join_view").css("background-color", result_rgb_str);
+                }
+
+                $("#bg_colorpicker").spectrum({
+                    color: "rgb(0,0,0)",
+                    showAlpha: false,
+                    preferredFormat: "rgb",
+                    showInput: true,
+                    change: function (color) {
+                        recalculate();
+                    }
                 });
-                $("#output_value").text(new tinycolor(result_rgb_str).toHexString() + " " + result_rgb_str);
 
-                $("#rgba_view").css("background-color", "rgba(" + rgba.toRgb().r + "," +
-                    rgba.toRgb().g + "," +
-                    rgba.toRgb().b + "," +
-                    rgba.toRgb().a + ")");
+                $("#rgba_colorpicker").spectrum({
+                    color: "rgba(0,0,255,.5)",
+                    showAlpha: true,
+                    preferredFormat: "rgb",
+                    showInput: true,
+                    change: function (color) {
+                        recalculate();
+                    }
+                });
 
-                $("#join_view").css("background-color", result_rgb_str);
-            }
-
-            $("#bg_colorpicker").spectrum({
-                color: "rgb(0,0,0)",
-                showAlpha: false,
-                preferredFormat: "rgb",
-                showInput: true,
-                change: function (color) {
-                    recalculate();
-                }
-            });
-
-            $("#rgba_colorpicker").spectrum({
-                color: "rgba(0,0,255,.5)",
-                showAlpha: true,
-                preferredFormat: "rgb",
-                showInput: true,
-                change: function (color) {
-                    recalculate();
-                }
-            });
-
-            recalculate();
+                recalculate();
+            }(jQuery));
         </script>
 
         <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://stackoverflow.com/a/21576659">source</a></p>

@@ -62,16 +62,18 @@
         </div>
 
         <script>
-            var el = document.querySelectorAll('td[title]');
-            for (var i = 0; i < el.length; i++) {
-                el[i].onclick = function () {
-                    if (this.textContent.trim() === '') {
-                        this.textContent = this.getAttribute('title').substring(0, 4);
-                    } else {
-                        this.textContent = '';
-                    }
+            (function() {
+                var tt = document.querySelectorAll('td[title]');
+                for (var i = 0; i < tt.length; i++) {
+                    tt[i].onclick = function () {
+                        if (this.textContent.trim() === '') {
+                            this.textContent = this.getAttribute('title').substring(0, 4);
+                        } else {
+                            this.textContent = '';
+                        }
+                    };
                 }
-            }
+            })();
         </script>
 
         <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://www.december.com/html/spec/color3hex1.html">source</a></p>

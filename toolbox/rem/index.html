@@ -34,17 +34,33 @@
             <label for="base">Base font size in px</label>
         </p>
         <p>
-            <input id="data" type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,24,26,28,30,32,34,36,38,40,50,60,70,80,90,100">
-            <label for="data">px sizes to convert</label>
+            <input id="list" type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,24,26,28,30,32,34,36,38,40,50,60,70,80,90,100">
+            <label for="list">px sizes to convert</label>
         </p>
         <p>
             <input id="calc" type="button" value="Calculate">
         </p>
         <ul id="result"></ul>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
         <script>
-            !function (i) { var a = i("#result"), l = i("#base"), c = i("#data"); i("#calc").click(function () { var t = l.val(), e = c.val().split(","), n = []; i.each(e, function (i, a) { var l = parseInt(a), c = parseFloat((l / parseInt(t, 10)).toPrecision(5)), e = 1 === c ? " <i>(base)</i>" : ""; n.push("<li>" + a + "px = " + c + "rem" + e + "</li>") }), a.html(n.join("")) }).click() }(jQuery);
+            (function($) {
+                var result = $('#result');
+                var base = $('#base');
+                var list = $('#list');
+                $('#calc').click(function() {
+                    var baseVal = base.val();
+                    var px = list.val().split(',');
+                    var html = [];
+                    $.each(px, function(i, v) {
+                        var px = parseInt(v);
+                        var rem = parseFloat((px / parseInt(baseVal, 10)).toPrecision(4));
+                        var isBase = (rem === 1) ? ' <i>(base)</i>' : '';
+                        html.push('<li>' + v + 'px = ' + rem + 'rem' + isBase + '</li>');
+                    });
+                    result.html(html.join(''));
+                }).click();
+            }(jQuery));
         </script>
 
         <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://gist.github.com/daniellmb/3c8003550ccff7dd72aa">source</a></p>

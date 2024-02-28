@@ -28,13 +28,15 @@
         <p><b id="xy">N/A</b></p>
 
         <script>
-            function calc() {
-                var x = document.documentElement.clientWidth;
-                var y = document.documentElement.clientHeight;
-                document.getElementById('xy').innerHTML = x + ' &times; ' + y;
-            }
-            calc();
-            window.addEventListener('resize', calc);
+            (function() {
+                function calc() {
+                    var x = document.documentElement.clientWidth;
+                    var y = document.documentElement.clientHeight;
+                    document.getElementById('xy').innerHTML = x + ' &times; ' + y;
+                }
+                window.addEventListener('resize', calc);
+                calc();
+            })();
         </script>
 
         <p><a href="/toolbox/">&lt; toolbox</a></p>
