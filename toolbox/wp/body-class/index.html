@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Body class (wordpress)</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=1.8.1">
+</head>
+
+<body>
+
+    <div class="wrapper tool">
+
+        <h1>Body class <span class="wp">(wordpress)</span></h1>
+
+        <p>Add custom classes to array of body classes.</p>
+
+        <pre><code>&lt;?php
+/**
+ * Add custom classes to array of body classes.
+ */
+add_filter(&apos;body_class&apos;, function($classes) {
+    if (!is_singular() &amp;&amp; !is_404()) {
+        $classes[] = &apos;hfeed&apos;;
+    }
+    if (is_page() &amp;&amp; !is_front_page()) {
+        if (!in_array(basename(get_permalink()), $classes)) {
+            $classes[] = get_post_type().&apos;-&apos;.basename(get_permalink());
+        }
+        if ($parents = get_post_ancestors(get_the_ID())) {
+            foreach ($parents as $parent) {
+                if ($page = get_post($parent)) {
+                    $classes[] = &quot;parent-{$page-&gt;post_type}-{$page-&gt;post_name}&quot;;
+                }
+            }
+        }
+    }
+    return $classes;
+});
+?&gt;</code></pre>
+
+        <p><code>functions.php</code></p>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>

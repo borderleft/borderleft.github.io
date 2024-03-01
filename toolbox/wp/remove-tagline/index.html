@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Remove tagline (wordpress)</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=1.8.1">
+</head>
+
+<body>
+
+    <div class="wrapper tool">
+
+        <h1>Remove tagline <span class="wp">(wordpress)</span></h1>
+
+        <p>Remove tagline from front page title.</p>
+
+        <pre><code>&lt;?php
+/**
+ * Remove tagline from front page title.
+ */
+add_filter(&apos;document_title_parts&apos;, function($title) {
+    if (is_front_page()) {
+        unset($title[&apos;tagline&apos;]);
+    }
+    return $title;
+});
+?&gt;</code></pre>
+
+        <p><code>functions.php</code></p>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>

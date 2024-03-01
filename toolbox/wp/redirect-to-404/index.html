@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirect to 404 (wordpress)</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=1.8.1">
+</head>
+
+<body>
+
+    <div class="wrapper tool">
+
+        <h1>Redirect to 404 <span class="wp">(wordpress)</span></h1>
+
+        <p>Redirect any template to 404 page.</p>
+
+        <pre><code>&lt;?php
+    global $wp_query;
+    $wp_query-&gt;set_404();
+    status_header(404);
+    exit();
+?&gt;</code></pre>
+
+        <p><code>template.php</code></p>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>

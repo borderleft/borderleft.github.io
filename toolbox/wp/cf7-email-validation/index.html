@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CF7 email validation (wordpress)</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=1.8.1">
+</head>
+
+<body>
+
+    <div class="wrapper tool">
+
+        <h1>CF7 email validation <span class="wp">(wordpress)</span></h1>
+
+        <p>Contact Form 7 confirm email validation.</p>
+
+        <pre><code>&lt;?php
+/**
+ * Contact Form 7 confirm email validation.
+ */
+add_filter(&apos;wpcf7_validate_email*&apos;, function($result, $tag) {
+    if (&apos;your-email-confirm&apos; == $tag-&gt;name) {
+        $your_email = isset($_POST[&apos;your-email&apos;]) ? trim($_POST[&apos;your-email&apos;]) : &apos;&apos;;
+        $your_email_confirm = isset($_POST[&apos;your-email-confirm&apos;]) ? trim($_POST[&apos;your-email-confirm&apos;]) : &apos;&apos;;
+        if ($your_email != $your_email_confirm) {
+            $result-&gt;invalidate($tag, &quot;Are you sure this is the correct address?&quot;);
+        }
+    }
+    return $result;
+}, 20, 2);
+?&gt;</code></pre>
+
+        <p><code>functions.php</code></p>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Header image (wordpress)</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=1.8.1">
+</head>
+
+<body>
+
+    <div class="wrapper tool">
+
+        <h1>Header image <span class="wp">(wordpress)</span></h1>
+
+        <p>Enabled custom header image.</p>
+
+        <pre><code>&lt;?php
+/**
+ * Enable custom header image.
+ */
+if (function_exists(&apos;add_theme_support&apos;)) {
+    add_theme_support(&apos;custom-header&apos;);
+}
+?&gt;</code></pre>
+
+        <p><code>functions.php</code></p>
+
+        <pre><code>&lt;?php
+    if (get_header_image()) {
+        printf(&apos;&lt;img src=&quot;%s&quot; alt=&quot;%s&quot;&gt;&apos;, get_header_image(), get_bloginfo(&apos;name&apos;));
+    } else {
+        bloginfo(&apos;name&apos;);
+    }
+?&gt;</code></pre>
+
+        <p><code>header.php</code></p>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>

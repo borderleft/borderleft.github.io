@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Query posts (wordpress)</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v=1.8.1">
+</head>
+
+<body>
+
+    <div class="wrapper tool">
+
+        <h1>Query posts <span class="wp">(wordpress)</span></h1>
+
+        <p>Get all pages under a parent page.</p>
+
+        <pre><code>&lt;?php
+    query_posts(array(
+        &apos;post_parent&apos; =&gt; $post-&gt;ID,
+        &apos;post_type&apos; =&gt; &apos;page&apos;,
+        &apos;posts_per_page&apos; =&gt; -1
+    ));
+
+    if (have_posts()) {
+        echo &apos;&lt;ul&gt;&apos;;
+        while (have_posts()) {
+            the_post();
+            printf(
+                &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
+                esc_url(get_permalink()),
+                esc_html(get_the_title())
+            );
+        }
+        echo &apos;&lt;/ul&gt;&apos;;
+        wp_reset_query();
+    }
+?&gt;</code></pre>
+
+        <p><code>template.php</code></p>
+
+        <p><a href="/toolbox/">&lt; toolbox</a></p>
+
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80K3VGWK1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-80K3VGWK1J');
+    </script>
+
+</body>
+
+</html>
