@@ -137,8 +137,13 @@ pre code {
     padding: 0;
 }
 
-pre:has(code[data-highlighted="yes"]) {
+pre:has(code[data-highlighted]) {
     padding: 0;
+}
+
+pre + p:has(> code) {
+    margin-top: -.625rem;
+    margin-bottom: 2.5rem;
 }
 
 small {
