@@ -60,7 +60,8 @@
         .select::-ms-expand {
             display: none;
         }
-        .caption {
+        .caption:has(~ .text),
+        .caption:has(~ .select) {
             position: absolute;
             top: .25rem;
             left: 0;
@@ -72,12 +73,6 @@
             border-radius: .5rem;
             transition: transform .2s;
         }
-        /*
-            To make labels usable again in IE 11, wrap above part into @supports.
-            @supports selector(:has(a, b)) {
-                .caption {...}
-            }
-        */
         .caption:has(~ .text:focus),
         .caption:has(~ .text:not(:placeholder-shown)),
         .caption:has(~ .select:valid) {
