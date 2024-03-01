@@ -128,7 +128,17 @@ code {
 }
 
 pre {
-    padding: .5rem;
+    padding: .75rem;
+}
+
+pre code {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+pre:has(code[data-highlighted="yes"]) {
+    padding: 0;
 }
 
 small {
@@ -320,8 +330,8 @@ ol ol, ol ul, ul ol, ul ul {
     padding: 0;
     margin: 0;
     border: 0;
+    box-shadow: none;
     overflow: hidden;
-    visibility: hidden;
 }
 
 @media (min-width: 1024px) {
