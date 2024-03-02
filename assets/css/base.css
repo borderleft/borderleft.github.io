@@ -384,16 +384,16 @@ ol ol, ol ul, ul ol, ul ul {
 
 @font-face {
     font-family: "Jost";
-    src: url("/assets/fonts/Jost-Regular.woff2") format("woff2"),
-         url("/assets/fonts/Jost-Regular.woff") format("woff");
+    src: url("/assets/font/Jost-Regular.woff2") format("woff2"),
+         url("/assets/font/Jost-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Jost";
-    src: url("/assets/fonts/Jost-SemiBold.woff2") format("woff2"),
-         url("/assets/fonts/Jost-SemiBold.woff") format("woff");
+    src: url("/assets/font/Jost-SemiBold.woff2") format("woff2"),
+         url("/assets/font/Jost-SemiBold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
 }
