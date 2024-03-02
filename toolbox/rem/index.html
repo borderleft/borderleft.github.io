@@ -44,23 +44,7 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
         <script>
-            (function($) {
-                var result = $('#result');
-                var base = $('#base');
-                var list = $('#list');
-                $('#calc').click(function() {
-                    var baseVal = base.val();
-                    var px = list.val().split(',');
-                    var html = [];
-                    $.each(px, function(i, v) {
-                        var px = parseInt(v);
-                        var rem = parseFloat((px / parseInt(baseVal, 10)).toPrecision(4));
-                        var isBase = (rem === 1) ? ' <i>(base)</i>' : '';
-                        html.push('<li>' + v + 'px = ' + rem + 'rem' + isBase + '</li>');
-                    });
-                    result.html(html.join(''));
-                }).click();
-            }(jQuery));
+            !function(i){var a=i("#result"),l=i("#base"),c=i("#list");i("#calc").click((function(){var t=l.val(),e=c.val().split(","),n=[];i.each(e,(function(i,a){var l=parseInt(a),c=parseFloat((l/parseInt(t,10)).toPrecision(4)),e=1===c?" <i>(base)</i>":"";n.push("<li>"+a+"px = "+c+"rem"+e+"</li>")})),a.html(n.join(""))})).click()}(jQuery);
         </script>
 
         <p><a href="/toolbox/">&lt; toolbox</a> / <a href="https://gist.github.com/daniellmb/3c8003550ccff7dd72aa">source</a></p>
