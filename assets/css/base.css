@@ -325,6 +325,17 @@ ol ol, ol ul, ul ol, ul ul {
     max-width: var(--layout-7);
 }
 
+.license {
+    max-width: var(--layout-5);
+    padding: 1rem;
+    margin-top: 2.5rem;
+    border: 1px solid var(--color-gray);
+}
+
+.license p {
+    margin-bottom: 0;
+}
+
 .tool > p:has(> a[href="/toolbox/"]) {
     margin-top: 2rem;
 }
