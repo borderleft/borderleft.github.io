@@ -322,13 +322,13 @@ body {
     background: transparent none !important;
     border-radius: 0;
 }
-.recaptcha-text {
+div.recaptcha-text {
     font: inherit;
     color: inherit;
     opacity: .6;
     padding: 20px 0 0;
 }
-.recaptcha-text a {
+div.recaptcha-text a {
     color: inherit;
 }
 .confirm .wufoo h2.freeHeading {
