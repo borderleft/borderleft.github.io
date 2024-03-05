@@ -1,0 +1,22 @@
+---
+layout: toolbox
+title: "Menu description (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Display menu description of menu items.</p>
+
+<pre><code>&lt;?php
+/**
+ * Display menu description of menu items.
+ */
+add_filter(&apos;walker_nav_menu_start_el&apos;, function($item_output, $item, $depth, $args) {
+    if (!empty($item-&gt;description)) {
+        $item_output = str_replace(&apos;&quot;&gt;&apos; . $args-&gt;link_before . $item-&gt;title, &apos;&quot;&gt;&apos; . $args-&gt;link_before . &apos;&lt;span class=&quot;menu-title&quot;&gt;&apos; . $item-&gt;title . &apos;&lt;/span&gt;&apos; . &apos;&lt;span class=&quot;menu-description&quot;&gt;&apos; . $item-&gt;description . &apos;&lt;/span&gt;&apos;, $item_output);
+    }
+    return $item_output;
+}, 10, 4);
+?&gt;</code></pre>
+
+<p><code>functions.php</code></p>

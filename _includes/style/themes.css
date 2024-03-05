@@ -1,0 +1,69 @@
+
+        :root {
+            --demo-bg: lavender;
+            --demo-text: navy;
+            color-scheme: light dark;
+        }
+        [data-theme="light"] {
+            color-scheme: light;
+        }
+        [data-theme="dark"] {
+            --demo-bg: navy;
+            --demo-text: lavender;
+            color-scheme: dark;
+        }
+        @media (prefers-color-scheme: dark) {
+            [data-theme="auto"] {
+                --demo-bg: navy;
+                --demo-text: lavender;
+            }
+        }
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--demo-bg);
+            color: var(--demo-text);
+            transition: background-color .2s, color .2s;
+        }
+        .switch {
+            display: inline-flex;
+            padding: 1px;
+            margin-bottom: 1.25rem;
+            border: 1px solid #06c;
+            border-radius: 1rem;
+        }
+        .switch label {
+            font-size: .875rem;
+            display: inline-flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            cursor: pointer;
+        }
+        .switch span {
+            display: inline-block;
+            vertical-align: middle;
+            padding: .125rem .5rem;
+            border-radius: 1rem;
+        }
+        .switch span:has(~ input:checked) {
+            background-color: #06c;
+            color: #fff;
+        }
+        .switch span:has(~ input:focus-visible) {
+            outline: 2px solid #0c6;
+            outline-offset: -1px;
+        }
+        .switch input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            border: 0;
+            clip: rect(0,0,0,0);
+            clip-path: inset(50%);
+            white-space: nowrap;
+            overflow: hidden;
+            appearance: none;
+        }

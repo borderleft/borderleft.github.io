@@ -1,0 +1,24 @@
+---
+layout: toolbox
+title: "Disable search (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Disable search function and redirect to home.</p>
+
+<pre><code>&lt;?php
+/**
+ * Disable search function and redirect to home.
+ */
+if (!is_admin()) {
+    add_filter(&apos;template_redirect&apos;, function() {
+        if (is_search()) {
+            wp_safe_redirect(home_url(), 301);
+            exit;
+        }
+    });
+}
+?&gt;</code></pre>
+
+<p><code>functions.php</code></p>

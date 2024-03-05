@@ -1,0 +1,24 @@
+---
+layout: toolbox
+title: "Image sizes (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Add custom image sizes and names.</p>
+
+<pre><code>&lt;?php
+/**
+ * Add custom image sizes and names.
+ */
+add_image_size(&apos;small&apos;, 400, 0, false); // name, width, height, crop
+
+add_filter(&apos;image_size_names_choose&apos;, function($sizes) {
+    $sizes = array_merge($sizes, array(
+        &apos;small&apos; =&gt; &apos;Small&apos;
+    ));
+    return $sizes;
+});
+?&gt;</code></pre>
+
+<p><code>functions.php</code></p>

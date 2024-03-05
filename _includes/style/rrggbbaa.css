@@ -1,0 +1,35 @@
+
+        .tool div {
+            max-width: var(--layout-6);
+        }
+        .tool pre {
+            max-width: var(--layout-5);
+        }
+        .tool table {
+            max-width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-size-xs);
+        }
+        .tool th,
+        .tool td {
+            width: 5rem;
+            padding: .25rem;
+            text-align: center;
+        }
+        .tool td {
+            border: 1px solid var(--color-gray);
+        }
+        .tool td:nth-child(1),
+        .tool td:nth-child(2) {
+            border-right: 0;
+        }
+        .tool td:nth-child(2),
+        .tool td:nth-child(3) {
+            border-left: 0;
+        }
+        .tool tr:nth-child(10n+1) td {
+            background-color: var(--color-silver);
+        }
+        .tool tr:focus {
+            outline: 2px dotted;
+        }

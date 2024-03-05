@@ -1,0 +1,133 @@
+
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        .modal-dialog {
+            position: fixed;
+            z-index: 100;
+            width: 480px;
+            max-width: 100%;
+            max-width: calc(100% - 2.5rem);
+            max-height: 100%;
+            max-height: calc(100% - 2.5rem);
+            background-color: #fff;
+            color: #333;
+            outline: none;
+            box-shadow: 0 0 2px rgba(0,0,0,.2);
+            border-radius: 1rem;
+            overflow: auto;
+        }
+        .modal-main {
+            padding: 1.5rem;
+        }
+        .modal-main > :first-child {
+            padding-top: 0;
+            margin-top: 0;
+        }
+        .modal-main > :last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .modal-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: transparent;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='%23333'%3E%3C/line%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2306c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='%2306c'%3E%3C/line%3E%3C/svg%3E");
+            background-position: center;
+            background-size: 1.5rem 1.5rem, 0 0;
+            background-repeat: no-repeat;
+            display: block;
+            width: 3rem;
+            height: 3rem;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            box-shadow: none;
+            text-decoration-line: none;
+            cursor: pointer;
+            outline-offset: -.5rem;
+            opacity: 1;
+            transition: background-image .2s;
+        }
+        .modal-close:hover {
+            background-size: 0 0, 1.5rem 1.5rem;
+        }
+        .modal-dialog {
+            left: 50%;
+            top: 10%;
+            transform: translate(-50%, 0);
+            display: none;
+        }
+        .modal-dialog.show,
+        .modal-dialog.hide {
+            display: block;
+        }
+        .modal-dialog.show {
+            animation: .5s forwards slidein;
+        }
+        .modal-dialog.hide {
+            animation: .25s forwards slideout;
+        }
+        @keyframes slidein {
+            0% {
+                transform: translate(-50%, -25%);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideout {
+            0% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -25%);
+                opacity: 0;
+            }
+        }
+        .modal-on {
+            overflow: hidden;
+        }
+        .modal-backdrop {
+            content: "";
+            position: fixed;
+            z-index: 90;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.4);
+        }
+        .modal-backdrop {
+            opacity: 0;
+            display: none;
+        }
+        :where(.modal-on, .modal-off) .modal-backdrop {
+            display: block;
+        }
+        .modal-on .modal-backdrop {
+            animation: .25s forwards fadein;
+        }
+        .modal-off .modal-backdrop {
+            animation: .5s forwards fadeout;
+        }
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }

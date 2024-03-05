@@ -1,0 +1,47 @@
+
+       .tool .intro {
+            max-width: var(--layout-7);
+        }
+        .tool table {
+            border-collapse: collapse;
+            font-size: var(--font-size-xs);
+        }
+        .tool .input td {
+            padding-right: .5rem;
+            padding-bottom: .25rem;
+        }
+        .tool .input code {
+            white-space: nowrap;
+        }
+        .tool .output p {
+            display: flex;
+            align-items: center;
+        }
+        .tool .output table {
+            max-width: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Crect width='10' height='10' fill='%23666'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23666'/%3E%3C/svg%3E");
+            color: white;
+            text-shadow: 1px 1px 1px black;
+            height: 9.375rem;
+        }
+        .tool .output td {
+            width: 18.75rem;
+            height: 9.375rem;
+            padding: 0;
+        }
+        .tool .output td div {
+            width: calc(100% - 1.25rem);
+            height: calc(100% - 1.25rem);
+            margin: .625rem;
+        }
+        .tool .output td div span {
+            display: block;
+            padding: .625rem;
+        }
+        .tool .sp-replacer {
+            min-width: 3.125rem;
+        }
+        .tool .sp-preview {
+            max-width: 1.5rem;
+            max-height: 1.125rem;
+        }

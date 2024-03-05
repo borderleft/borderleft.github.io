@@ -1,0 +1,72 @@
+---
+layout: toolbox
+title: "Related posts (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Get related posts from a category or tag.</p>
+
+<pre><code>&lt;?php
+    // Related posts (categories)
+    $categories = get_the_category($post-&gt;ID);
+    if ($categories) {
+        $category_ids = array();
+        foreach ($categories as $individual_category) {
+            $category_ids[] = $individual_category-&gt;term_id;
+        }
+        $q = new WP_Query(array(
+            &apos;category__in&apos; =&gt; $category_ids,
+            &apos;post__not_in&apos; =&gt; array($post-&gt;ID),
+            &apos;posts_per_page&apos;=&gt; 5,
+            &apos;ignore_sticky_posts&apos;=&gt; 1
+        ));
+        if ($q-&gt;have_posts()) {
+            echo &apos;&lt;h3&gt;Related Posts&lt;/h3&gt;&apos;;
+            echo &apos;&lt;ul&gt;&apos;;
+            while ($q-&gt;have_posts()) {
+                $q-&gt;the_post();
+                printf(
+                    &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
+                    esc_url(get_permalink()),
+                    esc_html(get_the_title())
+                );
+            }
+            echo &apos;&lt;/ul&gt;&apos;;
+            wp_reset_postdata();
+        }
+    }
+?&gt;
+
+&lt;?php
+    // Related posts (tags)
+    $tags = wp_get_post_tags($post-&gt;ID);
+    if ($tags) {
+        $tag_ids = array();
+        foreach($tags as $individual_tag) {
+            $tag_ids[] = $individual_tag-&gt;term_id;
+        }
+        $q = new WP_Query(array(
+            &apos;tag__in&apos; =&gt; $tag_ids,
+            &apos;post__not_in&apos; =&gt; array($post-&gt;ID),
+            &apos;posts_per_page&apos;=&gt; 5,
+            &apos;ignore_sticky_posts&apos;=&gt; 1
+        ));
+        if ($q-&gt;have_posts()) {
+            echo &apos;&lt;h3&gt;Related Posts&lt;/h3&gt;&apos;;
+            echo &apos;&lt;ul&gt;&apos;;
+            while ($q-&gt;have_posts()) {
+                $q-&gt;the_post();
+                printf(
+                    &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
+                    esc_url(get_permalink()),
+                    esc_html(get_the_title())
+                );
+            }
+            echo &apos;&lt;/ul&gt;&apos;;
+            wp_reset_postdata();
+        }
+    }
+?&gt;</code></pre>
+
+<p><code>template.php</code></p>

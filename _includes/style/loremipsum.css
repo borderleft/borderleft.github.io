@@ -1,0 +1,15 @@
+
+        .tool input:not(:checked) ~ .source {
+            display: none;
+        }
+        .tool input:checked ~ .plain {
+            display: none;
+        }
+        .tool label {
+            padding-left: .25rem;
+            user-select: none;
+        }
+        .tool .plain,
+        .tool .source {
+            margin: 2rem 0;
+        }

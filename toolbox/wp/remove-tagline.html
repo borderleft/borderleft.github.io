@@ -1,0 +1,22 @@
+---
+layout: toolbox
+title: "Remove tagline (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Remove tagline from front page title.</p>
+
+<pre><code>&lt;?php
+/**
+ * Remove tagline from front page title.
+ */
+add_filter(&apos;document_title_parts&apos;, function($title) {
+    if (is_front_page()) {
+        unset($title[&apos;tagline&apos;]);
+    }
+    return $title;
+});
+?&gt;</code></pre>
+
+<p><code>functions.php</code></p>

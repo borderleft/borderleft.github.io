@@ -1,0 +1,17 @@
+
+        .tool ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .tool li {
+            display: flex;
+            align-items: center;
+        }
+        .tool span {
+            width: 1rem;
+            height: 1rem;
+        }
+        .tool code {
+            background-color: transparent;
+            border-color: transparent;
+        }

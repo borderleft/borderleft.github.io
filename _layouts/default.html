@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if page.url == "/" %}
+    <meta name="description" content="{{ site.description }}">
+    <title>{{ site.name }}</title>
+{%- else %}
+    <title>{{ page.title }} - {{ site.name }}</title>
+{%- endif %}
+    <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<header class="header">
+    <p class="logo">
+        <a href="/"><b>Borderleft</b></a>
+    </p>
+    <nav class="nav">
+        <ul>
+        {%- for item in site.data.navigation %}
+            <li><a href="{{ item.url }}" {%- if item.url == page.url %} class="current" {%- endif %}>{{ item.text }}</a></li>
+        {%- endfor %}
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+
+{{ content }}
+</main>
+
+<footer class="footer">
+    <p>&copy; {{ site.time | date: '%Y' }} Rui Zhang
+    {%- if page.url != "/toolbox/" -%}
+            . Dev too? check out my <a href="/toolbox/">toolbox.</a></p>
+    {%- endif %}
+</footer>
+
+</div>
+
+{%- if page.url == "/work/" %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.3.1/lazyload.min.js"></script>
+<script>var lazyLoadInstance = new LazyLoad();</script>
+<script>
+    const offlines = document.querySelectorAll('.offline');
+    if (offlines) {
+        for (let i = 0; i < offlines.length; i++) {
+            offlines[i].dataset.title = 'This site is currently offline';
+            offlines[i].setAttribute('href', 'javascript:;');
+            offlines[i].addEventListener('click', function(e) {
+                offlines[i].classList.add('tooltip');
+                setTimeout(function() {
+                    offlines[i].classList.remove('tooltip');
+                }, 3000);
+                e.preventDefault();
+            });
+        }
+    }
+</script>
+{%- endif %}
+
+{% include markup/css-vars-ponyfill.html %}
+{% include markup/google-analytics.html %}
+</body>
+</html>

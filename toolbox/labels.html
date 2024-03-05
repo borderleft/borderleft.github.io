@@ -1,0 +1,46 @@
+---
+layout: toolbox
+title: "Floating labels (pure css)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>No JS, only CSS, with support of <code>&lt;select&gt;</code> elements.</p>
+
+<h2>Demos</h2>
+
+<form>
+    <p>
+        <label class="label">
+            <span class="caption">Name</span>
+            <input class="text" type="text" placeholder=" ">
+        </label>
+    </p>
+    <p>
+        <label class="label">
+            <span class="caption">Email</span>
+            <input class="text" type="email" placeholder=" ">
+        </label>
+    </p>
+    <p>
+        <label class="label">
+            <span class="caption">Number</span>
+            <!-- <select> must be set to required -->
+            <select class="select" required>
+                <option value="">Number</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </label>
+    </p>
+    <p>
+        <label class="label">
+            <span class="caption">Message</span>
+            <textarea class="text" rows="5" placeholder=" "></textarea>
+        </label>
+    </p>
+    <p>
+        <button class="button" type="button">Submit</button>
+    </p>
+</form>

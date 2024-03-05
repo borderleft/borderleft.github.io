@@ -1,0 +1,10 @@
+
+        .tool {
+            margin: 0;
+        }
+        .tool h1 {
+            font-size: inherit;
+        }
+        .tool h1 + p {
+            font-size: var(--font-size-xxl);
+        }

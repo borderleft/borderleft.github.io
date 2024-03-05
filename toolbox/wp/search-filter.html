@@ -1,0 +1,22 @@
+---
+layout: toolbox
+title: "Search filter (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Exclude pages from search results.</p>
+
+<pre><code>&lt;?php
+/**
+ * Exclude pages from search results.
+ */
+add_filter(&apos;pre_get_posts&apos;, function($query) {
+    if (!is_admin() &amp;&amp; ($query-&gt;is_search)) {
+        $query-&gt;set(&apos;post_type&apos;, &apos;post&apos;);
+    }
+    return $query;
+});
+?&gt;</code></pre>
+
+<p><code>functions.php</code></p>

@@ -1,0 +1,91 @@
+---
+layout: toolbox
+title: "Switch color schemes (vanilla js)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<ul>
+    <li>Select light or dark modes or auto (system settings).</li>
+    <li>Optimized keyboard access: tab + left + right arrows.</li>
+    <li>Persist selected option in local storage.</li>
+    <li>Free of js/css libraries, view source and grab the code.</li>
+    <li>Note, selected mode overrides system settings except auto.</li>
+    <li>Demos below toggle lavender/navy colors for bg/text.</li>
+</ul>
+
+<h2>Demos</h2>
+
+<div class="switch">
+    <label>
+        <span>Light</span>
+        <input type="radio" name="theme" value="light">
+    </label>
+    <label>
+        <span>Dark</span>
+        <input type="radio" name="theme" value="dark">
+    </label>
+    <label>
+        <span>Auto</span>
+        <input type="radio" name="theme" value="auto">
+    </label>
+</div>
+
+<p>
+    <small id="system"></small>
+    <script>
+        (function() {
+            function systemColorScheme(data) {
+                document.getElementById('system').textContent = 'System setting: ' + data;
+            }
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                systemColorScheme('dark');
+            } else {
+                systemColorScheme('light');
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                e.matches ? systemColorScheme('dark') : systemColorScheme('light');
+            });
+        })();
+    </script>
+</p>
+
+<script>
+    (function() {
+        const light = document.querySelector('[name="theme"][value="light"]');
+        const dark = document.querySelector('[name="theme"][value="dark"]');
+        const auto = document.querySelector('[name="theme"][value="auto"]');
+        const radios = [light, dark, auto];
+        const theme = localStorage.getItem('color-scheme');
+
+        function setTheme(value) {
+            localStorage.setItem('color-scheme', value);
+            document.documentElement.setAttribute('data-theme', value);
+        }
+
+        function setState(input) {
+            input.checked = true;
+        }
+
+        for (const radio of radios) {
+            radio.setAttribute('autocomplete', 'off');
+            radio.addEventListener('change', function() {
+                setTheme(radio.value);
+            });
+        }
+
+        switch (theme) {
+            case 'light':
+                setState(light);
+                setTheme(light.value);
+                break;
+            case 'dark':
+                setState(dark);
+                setTheme(dark.value);
+                break;
+            default:
+                setState(auto);
+                setTheme(auto.value);
+        }
+    })();
+</script>

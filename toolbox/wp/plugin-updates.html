@@ -1,0 +1,20 @@
+---
+layout: toolbox
+title: "Plugin updates (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Disable update notifications for an individual plugin.</p>
+
+<pre><code>&lt;?php
+/**
+ * Disable update notifications for an individual plugin.
+ */
+add_filter(&apos;site_transient_update_plugins&apos;, function($value) {
+    unset($value-&gt;response[&apos;akismet/akismet.php&apos;]);
+    return $value;
+});
+?&gt;</code></pre>
+
+<p><code>functions.php</code></p>

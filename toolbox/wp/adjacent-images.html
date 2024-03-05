@@ -1,0 +1,51 @@
+---
+layout: toolbox
+title: "Adjacent images (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Retrieve the adjacent image links.</p>
+
+<pre><code>function __adjacent_image($prev = true, $text = &apos;&apos;) {
+    global $post;
+    $post = get_post();
+    $attachments = array_values(get_children(array(
+        &apos;post_parent&apos; =&gt; $post-&gt;post_parent,
+        &apos;post_status&apos; =&gt; &apos;inherit&apos;,
+        &apos;post_type&apos; =&gt; &apos;attachment&apos;,
+        &apos;post_mime_type&apos; =&gt; &apos;image&apos;,
+        &apos;order&apos; =&gt; &apos;ASC&apos;,
+        &apos;orderby&apos; =&gt; &apos;menu_order ID&apos;
+    )));
+    foreach ($attachments as $k =&gt; $attachment) {
+        if ($attachment-&gt;ID == $post-&gt;ID) {
+            break;
+        }
+    }
+    $attachment_id = 0;
+    if ($attachments) {
+        $k = $prev ? $k - 1 : $k + 1;
+        if (isset($attachments[$k])) {
+            $attachment_id = $attachments[$k]-&gt;ID;
+            if ($attachment_id != 0) {
+                return wp_get_attachment_link($attachment_id, &apos;&apos;, true, false, $text);
+            }
+        }
+    }
+}
+function __previous_image_link() {
+    return __adjacent_image(true, &apos;&amp;larr; Previous image&apos;);
+}
+function __next_image_link() {
+    return __adjacent_image(false, &apos;Next image &amp;rarr;&apos;);
+}</code></pre>
+
+<p><code>functions.php</code></p>
+
+<pre><code>&lt;?php
+    echo __previous_image_link();
+    echo __next_image_link();
+?&gt;</code></pre>
+
+<p><code>template.php</code></p>

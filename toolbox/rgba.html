@@ -1,0 +1,52 @@
+---
+layout: toolbox
+title: "RGBA to RGB converter"
+---
+
+<h1>{{ page.title }}</h1>
+
+<div class="intro">
+    <p>Convert a RGBA color like <code>rgba(0,0,255,0.5)</code> to a RGB hex value that takes the alpha channel into account.</p>
+</div>
+
+<div class="input">
+    <table>
+        <tbody>
+            <tr>
+                <td>RGB background</td>
+                <td><input id="bg_colorpicker"></td>
+                <td><code id="bg_value">N/A</code></td>
+            </tr>
+            <tr>
+                <td>RGBA foreground</td>
+                <td><input id="rgba_colorpicker"></td>
+                <td><code id="rgba_value">N/A</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="output">
+    <h2>Output</h2>
+    <p>
+        <span id="output_block"></span>
+        <code id="output_value">N/A</code>
+    </p>
+    <table>
+        <tr>
+            <td>
+                <div id="rgba_view"><span>RGBA color</span></div>
+            </td>
+            <td>
+                <div id="join_view"><span>RGBA foreground on RGB background</span></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
+
+<script>
+    !function(r){function t(r,t,o,g){this.r=r,this.b=o,this.g=t,this.a="number"==typeof g?g:1}function o(){var o=r("#rgba_colorpicker").spectrum("get"),g=r("#bg_colorpicker").spectrum("get"),e=new t(o.toRgb().r,o.toRgb().g,o.toRgb().b,o.toRgb().a),b=new t(g.toRgb().r,g.toRgb().g,g.toRgb().b).rgba2rgb(e),n="rgb("+Math.round(b.r)+","+Math.round(b.g)+","+Math.round(b.b)+")";r("#bg_value").text(g.toHexString()+" "+g.toRgbString().replace(/\s/g,"")),r("#rgba_value").text(o.toHexString()+" "+o.toRgbString().replace(/\s/g,"")),r("#output_block").css({"background-color":n,display:"inline-block","vertical-align":"middle","margin-right":".5rem",width:"1.71875rem",height:"1.25rem"}),r("#output_value").text(new tinycolor(n).toHexString()+" "+n),r("#rgba_view").css("background-color","rgba("+o.toRgb().r+","+o.toRgb().g+","+o.toRgb().b+","+o.toRgb().a+")"),r("#join_view").css("background-color",n)}t.prototype.rgba2rgb=function(r){var o=r.a;return new t((1-o)*this.r+o*r.r,(1-o)*this.g+o*r.g,(1-o)*this.b+o*r.b)},r("#bg_colorpicker").spectrum({color:"rgb(0,0,0)",showAlpha:!1,preferredFormat:"rgb",showInput:!0,change:function(r){o()}}),r("#rgba_colorpicker").spectrum({color:"rgba(0,0,255,.5)",showAlpha:!0,preferredFormat:"rgb",showInput:!0,change:function(r){o()}}),o()}(jQuery);
+</script>

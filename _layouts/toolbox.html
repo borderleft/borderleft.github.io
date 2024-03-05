@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
+
+    <link rel="stylesheet" href="/assets/lib/theme-light.min.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/assets/lib/theme-dark.min.css" media="(prefers-color-scheme: dark)">
+    <script src="/assets/lib/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+{%- assign slug = page.name | replace: ".html", "" %}
+{% case slug %}
+{% when 'farfaraway' %}
+    <style>
+        {%- include style/farfaraway.css %}    </style>
+{% when 'gray' %}
+    <style>
+        {%- include style/gray.css %}    </style>
+{% when 'hex' %}
+    <style>
+        {%- include style/hex.css %}    </style>
+{% when 'labels' %}
+    <style>
+        {%- include style/labels.css %}    </style>
+{% when 'loremipsum' %}
+    <style>
+        {%- include style/loremipsum.css %}    </style>
+{% when 'modals' %}
+    <style>
+        {%- include style/modals.css %}    </style>
+{% when 'quotes' %}
+    <style>
+        {%- include style/quotes.css %}    </style>
+{% when 'rem' %}
+    <style>
+        {%- include style/rem.css %}    </style>
+{% when 'rgba' %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
+    <style>
+        {%- include style/rgba.css %}    </style>
+{% when 'rrggbbaa' %}
+    <style>
+        {%- include style/rrggbbaa.css %}    </style>
+{% when 'slider' %}
+    <style>
+        {%- include style/slider.css %}    </style>
+{% when 'themes' %}
+    <style>
+        {%- include style/themes.css %}    </style>
+{% when 'viewport' %}
+    <style>
+        {%- include style/viewport.css %}    </style>
+{% endcase %}
+</head>
+
+<body>
+
+<div class="wrapper tool">
+
+{{ content }}
+<p><a href="/toolbox/">&lt; toolbox</a>
+{%- case slug -%}
+    {%- when 'rem' -%}
+        <span> / </span><a href="https://gist.github.com/daniellmb/3c8003550ccff7dd72aa">source</a>
+    {%- when 'rgba' -%}
+        <span> / </span><a href="https://stackoverflow.com/a/21576659">source</a>
+    {%- when 'rrggbbaa' -%}
+        <span> / </span><a href="https://stackoverflow.com/a/25170174">source</a>
+{%- endcase %}</p>
+
+</div>
+
+{% include markup/google-analytics.html %}
+</body>
+</html>

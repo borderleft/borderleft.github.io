@@ -1,0 +1,24 @@
+---
+layout: toolbox
+title: "Parent or child (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Check if a page is parent or child.</p>
+
+<pre><code>&lt;?php
+/**
+ * Check if a page is parent or child.
+ */
+function is_tree($pid) {
+    global $post;
+    if (is_page() &amp;&amp; ($post-&gt;post_parent==$pid || is_page($pid))) {
+        return true;
+    } else {
+        return false;
+    }
+};
+?&gt;</code></pre>
+
+<p><code>functions.php</code></p>

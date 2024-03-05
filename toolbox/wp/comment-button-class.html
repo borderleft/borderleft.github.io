@@ -1,0 +1,20 @@
+---
+layout: toolbox
+title: "Comment button class (wordpress)"
+---
+
+<h1>{{ page.title }}</h1>
+
+<p>Add one or more classes to comment submit button.</p>
+
+<pre><code>&lt;?php
+/**
+ * Add one or more classes to comment submit button.
+ */
+add_filter(&apos;comment_form_defaults&apos;, function($classes) {
+    $classes[&apos;class_submit&apos;] = &apos;button submit&apos;;
+    return $classes;
+});
+?&gt;</code></pre>
+
+<p><code>functions.php</code></p>

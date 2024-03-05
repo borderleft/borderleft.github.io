@@ -325,17 +325,36 @@ ol ol, ol ul, ul ol, ul ul {
     max-width: var(--layout-7);
 }
 
+.category {
+    font-size: var(--font-size-lg);
+}
+
+.license {
+    max-width: var(--layout-5);
+    padding: 1rem;
+    margin-top: 2.5rem;
+    font-size: var(--font-size-sm);
+    border: 1px solid var(--color-gray);
+}
+
+.license p {
+    margin-bottom: 0;
+}
+
 .tool > p:has(> a[href="/toolbox/"]) {
     margin-top: 2rem;
 }
 
 .hidden {
-    width: 0;
-    height: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
     padding: 0;
-    margin: 0;
+    margin: -1px;
     border: 0;
-    box-shadow: none;
+    clip: rect(0,0,0,0);
+    clip-path: inset(50%);
+    white-space: nowrap;
     overflow: hidden;
 }
 
