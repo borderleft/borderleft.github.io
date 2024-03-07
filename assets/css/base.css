@@ -376,6 +376,10 @@ ol ol, ol ul, ul ol, ul ul {
     margin-bottom: 0;
 }
 
+.footer a[href="/toolbox/"] svg {
+    margin-top: -2px;
+}
+
 .tool > p:has(> a[href="/toolbox/"]) {
     margin-top: 2rem;
 }
