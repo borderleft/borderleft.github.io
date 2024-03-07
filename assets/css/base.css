@@ -25,6 +25,7 @@
     --color-background: rgb(255,255,255);
     --color-gray: rgba(0,0,68,.15);
     --color-silver: rgba(0,0,68,.05);
+    --image-filter: none;
     --image-logo: url("/assets/img/common/logo.png");
 }
 
@@ -35,6 +36,7 @@
         --color-background: rgb(13,17,23);
         --color-gray: rgba(255,255,255,.15);
         --color-silver: rgba(255,255,255,.05);
+        --image-filter: grayscale(50%);
         --image-logo: url("/assets/img/common/logo-dark.png");
     }
 }
@@ -67,19 +69,33 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: var(--font-size-xxl);
-}
-
-h2 {
     font-size: var(--font-size-xl);
 }
 
-h3 {
+h2 {
     font-size: var(--font-size-lg);
 }
 
+h3 {
+    font-size: var(--font-size-md);
+}
+
+@media (min-width: 1024px) {
+    h1 {
+        font-size: var(--font-size-xxl);
+    }
+
+    h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-lg);
+    }
+}
+
 h1:not(:first-child), h2:not(:first-child), h3:not(:first-child) {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 }
 
 a {
@@ -212,9 +228,15 @@ ol ol, ol ul, ul ol, ul ul {
 .logo a {
     position: relative;
     display: block;
-    width: 11.25rem;
+    width: 10rem;
     text-decoration-line: none;
     background: transparent var(--image-logo) 0 0 / contain no-repeat;
+}
+
+@media (min-width: 1024px) {
+    .logo a {
+        width: 11.25rem;
+    }
 }
 
 .logo a:before {
@@ -245,8 +267,14 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 .tagline {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     margin-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+    .tagline {
+        font-size: var(--font-size-xl);
+    }
 }
 
 .card {
@@ -275,6 +303,7 @@ ol ol, ol ul, ul ol, ul ul {
 
 .card-image img {
     width: 100%;
+    filter: var(--image-filter);
 }
 
 .offline {
