@@ -5,11 +5,15 @@ title: "Floating labels (pure css)"
 
 <h1>{{ page.title }}</h1>
 
-<p>No JS, only CSS, with support of <code>&lt;select&gt;</code> elements.</p>
+<ul>
+    <li>No JS, only CSS.</li>
+    <li>Supports &lt;select&gt; element.</li>
+    <li>Supports dark mode.</li>
+</ul>
 
 <h2>Demos</h2>
 
-<form>
+<form class="form">
     <p>
         <label class="label">
             <span class="caption">Name</span>
@@ -37,7 +41,7 @@ title: "Floating labels (pure css)"
     <p>
         <label class="label">
             <span class="caption">Message</span>
-            <textarea class="text" rows="5" placeholder=" "></textarea>
+            <textarea class="textarea" rows="5" placeholder=" "></textarea>
         </label>
     </p>
     <p>
