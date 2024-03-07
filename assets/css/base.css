@@ -266,6 +266,12 @@ ol ol, ol ul, ul ol, ul ul {
     color: inherit;
 }
 
+.gradient {
+    background: linear-gradient(90deg, #e84b3c, #f39c19, #f2c511, #27af60, #2980b9, #8e43ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .tagline {
     font-size: var(--font-size-lg);
     margin-bottom: 2.5rem;
