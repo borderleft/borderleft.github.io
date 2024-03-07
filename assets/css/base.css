@@ -272,6 +272,10 @@ ol ol, ol ul, ul ol, ul ul {
     -webkit-text-fill-color: transparent;
 }
 
+.heading {
+    font-size: var(--font-size-xxl);
+}
+
 .tagline {
     font-size: var(--font-size-lg);
     margin-bottom: 2.5rem;
