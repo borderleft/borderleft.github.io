@@ -256,7 +256,7 @@ ol ol, ol ul, ul ol, ul ul {
 
 @supports (background-clip: text) {
     .gradient {
-        background: linear-gradient(90deg, #e84b3c, #f39c19, #f2c511, #27af60, #2980b9, #8e43ad);
+        background: linear-gradient(90deg, #fa5252, #12b886, #228be6);
         background-clip: text;
         color: transparent;
     }
