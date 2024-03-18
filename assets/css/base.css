@@ -302,11 +302,8 @@ ol ol, ol ul, ul ol, ul ul {
 
 .offline {
     position: relative;
-    cursor: not-allowed;
-}
-
-.offline.tooltip {
     text-decoration-line: none;
+    cursor: default;
 }
 
 .offline:after {
