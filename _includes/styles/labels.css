@@ -6,7 +6,7 @@
             --floating-text: #333;
             --floating-focus: #06c;
             --floating-disabled: #eee;
-            --floating-border: #ccc;
+            --floating-border: #999;
             --floating-caption: #999;
             --button-default: #06c;
             --button-hover: #05b;
@@ -78,6 +78,7 @@
         .textarea:focus,
         .select:focus {
             outline: 0;
+            box-shadow: inset 0 0 0 .5px var(--floating-focus);
             border-color: var(--floating-focus);
         }
         .select:focus {
