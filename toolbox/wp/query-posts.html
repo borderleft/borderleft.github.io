@@ -11,7 +11,7 @@ title: "Query posts (wordpress)"
     query_posts(array(
         &apos;post_parent&apos; =&gt; $post-&gt;ID,
         &apos;post_type&apos; =&gt; &apos;page&apos;,
-        &apos;posts_per_page&apos; =&gt; -1
+        &apos;posts_per_page&apos; =&gt; -1,
     ));
 
     if (have_posts()) {

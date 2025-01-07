@@ -19,7 +19,7 @@ title: "Related posts (wordpress)"
             &apos;category__in&apos; =&gt; $category_ids,
             &apos;post__not_in&apos; =&gt; array($post-&gt;ID),
             &apos;posts_per_page&apos;=&gt; 5,
-            &apos;ignore_sticky_posts&apos;=&gt; 1
+            &apos;ignore_sticky_posts&apos;=&gt; 1,
         ));
         if ($q-&gt;have_posts()) {
             echo &apos;&lt;h3&gt;Related Posts&lt;/h3&gt;&apos;;
@@ -50,7 +50,7 @@ title: "Related posts (wordpress)"
             &apos;tag__in&apos; =&gt; $tag_ids,
             &apos;post__not_in&apos; =&gt; array($post-&gt;ID),
             &apos;posts_per_page&apos;=&gt; 5,
-            &apos;ignore_sticky_posts&apos;=&gt; 1
+            &apos;ignore_sticky_posts&apos;=&gt; 1,
         ));
         if ($q-&gt;have_posts()) {
             echo &apos;&lt;h3&gt;Related Posts&lt;/h3&gt;&apos;;

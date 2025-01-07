@@ -23,7 +23,7 @@ add_action(&apos;init&apos;, function() {
         &apos;search_items&apos; =&gt; __(&apos;Search Events&apos;),
         &apos;not_found&apos; =&gt; __(&apos;Nothing found&apos;),
         &apos;not_found_in_trash&apos; =&gt; __(&apos;Nothing found in Trash&apos;),
-        &apos;parent_item_colon&apos; =&gt; &apos;&apos;
+        &apos;parent_item_colon&apos; =&gt; &apos;&apos;,
     );
     $args = array(
         &apos;labels&apos; =&gt; $labels,
@@ -36,7 +36,7 @@ add_action(&apos;init&apos;, function() {
         &apos;menu_position&apos; =&gt; null,
         &apos;supports&apos; =&gt; array(&apos;title&apos;, &apos;editor&apos;, &apos;thumbnail&apos;),
         &apos;rewrite&apos; =&gt; true,
-        &apos;show_in_nav_menus&apos; =&gt; true
+        &apos;show_in_nav_menus&apos; =&gt; true,
     );
     register_post_type(&apos;events&apos;, $args);
 });
@@ -74,7 +74,7 @@ add_action(&apos;init&apos;, function() {
                         &apos;key&apos; =&gt; &apos;event_date&apos;,
                         &apos;value&apos; =&gt; array($present, $future),
                         &apos;type&apos; =&gt; &apos;numeric&apos;,
-                        &apos;compare&apos; =&gt; &apos;BETWEEN&apos;
+                        &apos;compare&apos; =&gt; &apos;BETWEEN&apos;,
                     )
                 )
             )
@@ -89,7 +89,7 @@ add_action(&apos;init&apos;, function() {
                         &apos;key&apos; =&gt; &apos;event_date&apos;,
                         &apos;value&apos; =&gt; array($past, $present),
                         &apos;type&apos; =&gt; &apos;numeric&apos;,
-                        &apos;compare&apos; =&gt; &apos;BETWEEN&apos;
+                        &apos;compare&apos; =&gt; &apos;BETWEEN&apos;,
                     )
                 )
             )

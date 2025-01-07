@@ -26,7 +26,7 @@ if (class_exists(&apos;Classic_Editor&apos;)) {
                 &apos;https?://(www\.)?funnyordie\.com/videos/&apos;,
                 &apos;https?://vine.co/v/&apos;,
                 &apos;https?://(www\.)?collegehumor\.com/video/&apos;,
-                &apos;https?://(www\.|embed\.)?ted\.com/talks/&apos;
+                &apos;https?://(www\.|embed\.)?ted\.com/talks/&apos;,
             );
             $video_patterns = &apos;[&apos;.implode(&apos;|&apos;, $video_patterns).&apos;]&apos;;
             if (1 === preg_match($video_patterns, $url)) {

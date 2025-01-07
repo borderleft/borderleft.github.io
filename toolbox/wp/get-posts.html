@@ -10,7 +10,7 @@ title: "Get posts (wordpress)"
 <pre><code>&lt;?php
     $postslist = get_posts(array(
         &apos;category&apos; =&gt; 1,
-        &apos;posts_per_page&apos; =&gt; -1
+        &apos;posts_per_page&apos; =&gt; -1,
     ));
 
     if ($postslist) {
@@ -44,7 +44,7 @@ title: "Get posts (wordpress)"
         &apos;post_mime_type&apos; =&gt; &apos;&apos;,
         &apos;post_parent&apos; =&gt; &apos;&apos;,
         &apos;post_status&apos; =&gt; &apos;publish&apos;,
-        &apos;suppress_filters&apos; =&gt; true
+        &apos;suppress_filters&apos; =&gt; true,
     ));
     */
 ?&gt;</code></pre>

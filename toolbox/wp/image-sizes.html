@@ -15,7 +15,7 @@ add_image_size(&apos;small&apos;, 400, 0, false); // name, width, height, crop
 
 add_filter(&apos;image_size_names_choose&apos;, function($sizes) {
     $sizes = array_merge($sizes, array(
-        &apos;small&apos; =&gt; &apos;Small&apos;
+        &apos;small&apos; =&gt; &apos;Small&apos;,
     ));
     return $sizes;
 });

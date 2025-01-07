@@ -13,7 +13,7 @@ title: "WP query (wordpress)"
         &apos;post_type&apos; =&gt; &apos;page&apos;,
         &apos;posts_per_page&apos; =&gt; -1,
         &apos;orderby&apos; =&gt; &apos;name&apos;,
-        &apos;order&apos; =&gt; &apos;ASC&apos;
+        &apos;order&apos; =&gt; &apos;ASC&apos;,
     ));
     if ($q-&gt;have_posts()) {
         echo &apos;&lt;ul&gt;&apos;;
@@ -35,7 +35,7 @@ $paged = (get_query_var(&apos;page&apos;)) ? get_query_var(&apos;page&apos;) : 1
     $q = new WP_Query(array(
         &apos;post_type&apos; =&gt; &apos;post&apos;,
         &apos;posts_per_page&apos; =&gt; get_option(&apos;posts_per_page&apos;),
-        &apos;paged&apos; =&gt; $paged
+        &apos;paged&apos; =&gt; $paged,
     ));
     if ($q-&gt;have_posts()) {
         echo &apos;&lt;ul&gt;&apos;;
@@ -51,7 +51,7 @@ $paged = (get_query_var(&apos;page&apos;)) ? get_query_var(&apos;page&apos;) : 1
                 &apos;current&apos; =&gt; max(1, get_query_var(&apos;page&apos;)),
                 &apos;total&apos; =&gt; $q-&gt;max_num_pages,
                 &apos;prev_text&apos; =&gt; &apos;&amp;lt;&apos;,
-                &apos;next_text&apos; =&gt; &apos;&amp;gt;&apos;
+                &apos;next_text&apos; =&gt; &apos;&amp;gt;&apos;,
             ));
             printf(&apos;&lt;div class=&quot;nav-links&quot;&gt;%s&lt;/div&gt;&apos;, $links);
         }
@@ -69,7 +69,7 @@ $paged = (get_query_var(&apos;page&apos;)) ? get_query_var(&apos;page&apos;) : 1
     $q = new WP_Query(array(
         &apos;post_type&apos; =&gt; &apos;post&apos;,
         &apos;posts_per_page&apos; =&gt; get_option(&apos;posts_per_page&apos;),
-        &apos;paged&apos; =&gt; $paged
+        &apos;paged&apos; =&gt; $paged,
     ));
     if ($q-&gt;have_posts()) {
         echo &apos;&lt;ul&gt;&apos;;
@@ -85,7 +85,7 @@ $paged = (get_query_var(&apos;page&apos;)) ? get_query_var(&apos;page&apos;) : 1
                 &apos;current&apos; =&gt; max(1, get_query_var(&apos;paged&apos;)),
                 &apos;total&apos; =&gt; $q-&gt;max_num_pages,
                 &apos;prev_text&apos; =&gt; &apos;&amp;lt;&apos;,
-                &apos;next_text&apos; =&gt; &apos;&amp;gt;&apos;
+                &apos;next_text&apos; =&gt; &apos;&amp;gt;&apos;,
             ));
             printf(&apos;&lt;div class=&quot;nav-links&quot;&gt;%s&lt;/div&gt;&apos;, $links);
         }
