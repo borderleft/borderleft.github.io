@@ -303,6 +303,13 @@ ol ol, ol ul, ul ol, ul ul {
 .offline {
     position: relative;
     text-decoration-line: none;
+}
+
+.card-body .offline {
+    cursor: text;
+}
+
+.card-image .offline {
     cursor: default;
 }
 
