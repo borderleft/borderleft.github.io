@@ -12,13 +12,13 @@ title: "Month class (wordpress)"
  * Add a current month class to the archive widget.
  */
 add_filter(&apos;get_archives_link&apos;, function($link_html) {
-    if (is_month()) {
-        $current_month = get_the_date(&quot;F Y&quot;);
-        if (preg_match(&apos;/&apos;.$current_month.&apos;/i&apos;, $link_html)) {
-            $link_html = preg_replace(&apos;/&lt;li&gt;/i&apos;, &apos;&lt;li class=&quot;current-month&quot;&gt;&apos;, $link_html);
-        }
+  if (is_month()) {
+    $current_month = get_the_date(&quot;F Y&quot;);
+    if (preg_match(&apos;/&apos;.$current_month.&apos;/i&apos;, $link_html)) {
+      $link_html = preg_replace(&apos;/&lt;li&gt;/i&apos;, &apos;&lt;li class=&quot;current-month&quot;&gt;&apos;, $link_html);
     }
-    return $link_html;
+  }
+  return $link_html;
 });
 ?&gt;</code></pre>
 

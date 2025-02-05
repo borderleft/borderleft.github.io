@@ -12,33 +12,33 @@ title: "Events without plugin (wordpress)"
 * Register events post type.
 */
 add_action(&apos;init&apos;, function() {
-    $labels = array(
-        &apos;name&apos; =&gt; _x(&apos;Events&apos;, &apos;post type general name&apos;),
-        &apos;singular_name&apos; =&gt; _x(&apos;Event&apos;, &apos;post type singular name&apos;),
-        &apos;add_new&apos; =&gt; _x(&apos;Add New&apos;, &apos;portfolio item&apos;),
-        &apos;add_new_item&apos; =&gt; __(&apos;Add New Event&apos;),
-        &apos;edit_item&apos; =&gt; __(&apos;Edit Event&apos;),
-        &apos;new_item&apos; =&gt; __(&apos;New Event&apos;),
-        &apos;view_item&apos; =&gt; __(&apos;View Event&apos;),
-        &apos;search_items&apos; =&gt; __(&apos;Search Events&apos;),
-        &apos;not_found&apos; =&gt; __(&apos;Nothing found&apos;),
-        &apos;not_found_in_trash&apos; =&gt; __(&apos;Nothing found in Trash&apos;),
-        &apos;parent_item_colon&apos; =&gt; &apos;&apos;,
-    );
-    $args = array(
-        &apos;labels&apos; =&gt; $labels,
-        &apos;public&apos; =&gt; true,
-        &apos;publicly_queryable&apos; =&gt; true,
-        &apos;show_ui&apos; =&gt; true,
-        &apos;query_var&apos; =&gt; true,
-        &apos;capability_type&apos; =&gt; &apos;post&apos;,
-        &apos;hierarchical&apos; =&gt; false,
-        &apos;menu_position&apos; =&gt; null,
-        &apos;supports&apos; =&gt; array(&apos;title&apos;, &apos;editor&apos;, &apos;thumbnail&apos;),
-        &apos;rewrite&apos; =&gt; true,
-        &apos;show_in_nav_menus&apos; =&gt; true,
-    );
-    register_post_type(&apos;events&apos;, $args);
+  $labels = array(
+    &apos;name&apos; =&gt; _x(&apos;Events&apos;, &apos;post type general name&apos;),
+    &apos;singular_name&apos; =&gt; _x(&apos;Event&apos;, &apos;post type singular name&apos;),
+    &apos;add_new&apos; =&gt; _x(&apos;Add New&apos;, &apos;portfolio item&apos;),
+    &apos;add_new_item&apos; =&gt; __(&apos;Add New Event&apos;),
+    &apos;edit_item&apos; =&gt; __(&apos;Edit Event&apos;),
+    &apos;new_item&apos; =&gt; __(&apos;New Event&apos;),
+    &apos;view_item&apos; =&gt; __(&apos;View Event&apos;),
+    &apos;search_items&apos; =&gt; __(&apos;Search Events&apos;),
+    &apos;not_found&apos; =&gt; __(&apos;Nothing found&apos;),
+    &apos;not_found_in_trash&apos; =&gt; __(&apos;Nothing found in Trash&apos;),
+    &apos;parent_item_colon&apos; =&gt; &apos;&apos;,
+  );
+  $args = array(
+    &apos;labels&apos; =&gt; $labels,
+    &apos;public&apos; =&gt; true,
+    &apos;publicly_queryable&apos; =&gt; true,
+    &apos;show_ui&apos; =&gt; true,
+    &apos;query_var&apos; =&gt; true,
+    &apos;capability_type&apos; =&gt; &apos;post&apos;,
+    &apos;hierarchical&apos; =&gt; false,
+    &apos;menu_position&apos; =&gt; null,
+    &apos;supports&apos; =&gt; array(&apos;title&apos;, &apos;editor&apos;, &apos;thumbnail&apos;),
+    &apos;rewrite&apos; =&gt; true,
+    &apos;show_in_nav_menus&apos; =&gt; true,
+  );
+  register_post_type(&apos;events&apos;, $args);
 });
 ?&gt;</code></pre>
 
@@ -47,11 +47,11 @@ add_action(&apos;init&apos;, function() {
 <p>Event template.</p>
 
 <pre><code>&lt;?php
-    $event_date = get_post_meta(get_the_ID(), &apos;event_date&apos;, true);
-    if ($event_date) {
-        $event_date = date(&apos;M d, Y&apos;, strtotime($event_date));
-        echo $event_date;
-    }
+  $event_date = get_post_meta(get_the_ID(), &apos;event_date&apos;, true);
+  if ($event_date) {
+    $event_date = date(&apos;M d, Y&apos;, strtotime($event_date));
+    echo $event_date;
+  }
 ?&gt;</code></pre>
 
 <p><code>event.php</code></p>
@@ -59,62 +59,62 @@ add_action(&apos;init&apos;, function() {
 <p>Events template.</p>
 
 <pre><code>&lt;?php
-    $future = date(&apos;Ymd&apos;, strtotime(&quot;+1 year&quot;));
-    $past = date(&apos;Ymd&apos;, strtotime(&quot;-1 year&quot;));
-    $present = date(&apos;Ymd&apos;, strtotime(&quot;now&quot;));
+  $future = date(&apos;Ymd&apos;, strtotime(&quot;+1 year&quot;));
+  $past = date(&apos;Ymd&apos;, strtotime(&quot;-1 year&quot;));
+  $present = date(&apos;Ymd&apos;, strtotime(&quot;now&quot;));
 
-    $args = array(
-        &apos;future&apos; =&gt; array(
-            &apos;label&apos; =&gt; &apos;Future Events&apos;,
-            &apos;query_args&apos;=&gt;array(
-                &apos;post_type&apos; =&gt; &apos;events&apos;,
-                &apos;posts_per_page&apos; =&gt; -1,
-                &apos;meta_query&apos; =&gt; array(
-                    array(
-                        &apos;key&apos; =&gt; &apos;event_date&apos;,
-                        &apos;value&apos; =&gt; array($present, $future),
-                        &apos;type&apos; =&gt; &apos;numeric&apos;,
-                        &apos;compare&apos; =&gt; &apos;BETWEEN&apos;,
-                    )
-                )
-            )
-        ),
-        &apos;past&apos; =&gt; array(
-            &apos;label&apos; =&gt; &apos;Past Events&apos;,
-            &apos;query_args&apos; =&gt; array(
-                &apos;post_type&apos; =&gt; &apos;events&apos;,
-                &apos;posts_per_page&apos; =&gt; -1,
-                &apos;meta_query&apos; =&gt; array(
-                    array(
-                        &apos;key&apos; =&gt; &apos;event_date&apos;,
-                        &apos;value&apos; =&gt; array($past, $present),
-                        &apos;type&apos; =&gt; &apos;numeric&apos;,
-                        &apos;compare&apos; =&gt; &apos;BETWEEN&apos;,
-                    )
-                )
-            )
+  $args = array(
+    &apos;future&apos; =&gt; array(
+      &apos;label&apos; =&gt; &apos;Future Events&apos;,
+      &apos;query_args&apos;=&gt;array(
+        &apos;post_type&apos; =&gt; &apos;events&apos;,
+        &apos;posts_per_page&apos; =&gt; -1,
+        &apos;meta_query&apos; =&gt; array(
+          array(
+            &apos;key&apos; =&gt; &apos;event_date&apos;,
+            &apos;value&apos; =&gt; array($present, $future),
+            &apos;type&apos; =&gt; &apos;numeric&apos;,
+            &apos;compare&apos; =&gt; &apos;BETWEEN&apos;,
+          )
         )
-    );
+      )
+    ),
+    &apos;past&apos; =&gt; array(
+      &apos;label&apos; =&gt; &apos;Past Events&apos;,
+      &apos;query_args&apos; =&gt; array(
+        &apos;post_type&apos; =&gt; &apos;events&apos;,
+        &apos;posts_per_page&apos; =&gt; -1,
+        &apos;meta_query&apos; =&gt; array(
+          array(
+            &apos;key&apos; =&gt; &apos;event_date&apos;,
+            &apos;value&apos; =&gt; array($past, $present),
+            &apos;type&apos; =&gt; &apos;numeric&apos;,
+            &apos;compare&apos; =&gt; &apos;BETWEEN&apos;,
+          )
+        )
+      )
+    )
+  );
 
-    foreach($args as $arg){
-        $q = new WP_Query($arg[&apos;query_args&apos;]);
-        printf(&apos;&lt;h2&gt;%s&lt;/h2&gt;&apos;, $arg[&apos;label&apos;]);
-        if ($q-&gt;have_posts()) {
-            echo &apos;&lt;ul&gt;&apos;;
-            while ($q-&gt;have_posts()) {
-                $q-&gt;the_post();
-                printf(
-                    &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
-                    esc_url(get_permalink()),
-                    esc_html(get_the_title())
-                );
-            }
-            echo &apos;&lt;/ul&gt;&apos;;
-        } else {
-            echo &apos;&lt;p&gt;There are no events at the moment.&lt;/p&gt;&apos;;
-        }
+  foreach($args as $arg){
+    $q = new WP_Query($arg[&apos;query_args&apos;]);
+    printf(&apos;&lt;h2&gt;%s&lt;/h2&gt;&apos;, $arg[&apos;label&apos;]);
+    if ($q-&gt;have_posts()) {
+      echo &apos;&lt;ul&gt;&apos;;
+      while ($q-&gt;have_posts()) {
+        $q-&gt;the_post();
+        printf(
+          &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
+          esc_url(get_permalink()),
+          esc_html(get_the_title())
+        );
+      }
+      echo &apos;&lt;/ul&gt;&apos;;
+    } else {
+      echo &apos;&lt;p&gt;There are no events at the moment.&lt;/p&gt;&apos;;
     }
-    wp_reset_postdata();
+  }
+  wp_reset_postdata();
 ?&gt;</code></pre>
 
 <p><code>events.php</code></p>

@@ -8,21 +8,21 @@ title: "Sibling pages (wordpress)"
 <p>List of sibling pages.</p>
 
 <pre><code>&lt;?php
-    if ($post-&gt;post_parent) {
-        $page = $post-&gt;post_parent;
-    } else {
-        $page = $post-&gt;ID;
-    }
+  if ($post-&gt;post_parent) {
+    $page = $post-&gt;post_parent;
+  } else {
+    $page = $post-&gt;ID;
+  }
 
-    $children = wp_list_pages(array(
-        &apos;child_of&apos; =&gt; $page,
-        &apos;echo&apos; =&gt; &apos;0&apos;,
-        &apos;title_li&apos; =&gt; &apos;&apos;,
-    ));
+  $children = wp_list_pages(array(
+    &apos;child_of&apos; =&gt; $page,
+    &apos;echo&apos; =&gt; &apos;0&apos;,
+    &apos;title_li&apos; =&gt; &apos;&apos;,
+  ));
 
-    if ($children) {
-        echo &quot;&lt;ul&gt;\n&quot;.$children.&quot;&lt;/ul&gt;\n&quot;;
-    }
+  if ($children) {
+    echo &quot;&lt;ul&gt;\n&quot;.$children.&quot;&lt;/ul&gt;\n&quot;;
+  }
 ?&gt;</code></pre>
 
 <p><code>template.php</code></p>

@@ -6,43 +6,43 @@ title: "Autoplay slider (vanilla js)"
 <h1>{{ page.title }}</h1>
 
 <ul>
-    <li>Minimal style with autoplay, no controls.</li>
-    <li>Animated fade in/out while playing.</li>
-    <li>Free of js/css libraries. View source and see the code.</li>
+  <li>Minimal style with autoplay, no controls.</li>
+  <li>Animated fade in/out while playing.</li>
+  <li>Free of js/css libraries. View source and see the code.</li>
 </ul>
 
 <h2>Demos</h2>
 
 <div class="slider">
-    <div class="slide show" style="background-image: url('https://picsum.photos/id/1/800/400');"></div>
-    <div class="slide" style="background-image: url('https://picsum.photos/id/2/800/400');"></div>
-    <div class="slide" style="background-image: url('https://picsum.photos/id/3/800/400');"></div>
+  <div class="slide show" style="background-image: url('https://picsum.photos/id/1/800/400');"></div>
+  <div class="slide" style="background-image: url('https://picsum.photos/id/2/800/400');"></div>
+  <div class="slide" style="background-image: url('https://picsum.photos/id/3/800/400');"></div>
 </div>
 
 <!--
-    CSS aspect ratio:
-    1. https://stackoverflow.com/a/10441480
-    2. https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+  CSS aspect ratio:
+  1. https://stackoverflow.com/a/10441480
+  2. https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
 -->
 
 <script>
-    (function() {
-        let i = 0;
-        const slides = document.querySelectorAll('.slide');
-        const timer = 5000;
-        function start() {
-            setTimeout(play, timer);
-        }
-        function play() {
-            slides[i].classList.remove('show');
-            if (i < slides.length - 1) {
-                i++;
-            } else {
-                 i = 0;
-            }
-            slides[i].classList.add('show');
-            start();
-        }
-        start();
-    })();
+  (function() {
+    let i = 0;
+    const slides = document.querySelectorAll('.slide');
+    const timer = 5000;
+    function start() {
+      setTimeout(play, timer);
+    }
+    function play() {
+      slides[i].classList.remove('show');
+      if (i < slides.length - 1) {
+        i++;
+      } else {
+         i = 0;
+      }
+      slides[i].classList.add('show');
+      start();
+    }
+    start();
+  })();
 </script>

@@ -8,45 +8,45 @@ title: "Get posts (wordpress)"
 <p>Get all posts from a category.</p>
 
 <pre><code>&lt;?php
-    $postslist = get_posts(array(
-        &apos;category&apos; =&gt; 1,
-        &apos;posts_per_page&apos; =&gt; -1,
-    ));
+  $postslist = get_posts(array(
+    &apos;category&apos; =&gt; 1,
+    &apos;posts_per_page&apos; =&gt; -1,
+  ));
 
-    if ($postslist) {
-        echo &apos;&lt;ul&gt;&apos;;
-        foreach ($postslist as $post) {
-            printf(
-                &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
-                esc_url(get_permalink()),
-                esc_html(get_the_title())
-            );
-        }
-        echo &apos;&lt;/ul&gt;&apos;;
-        wp_reset_postdata();
+  if ($postslist) {
+    echo &apos;&lt;ul&gt;&apos;;
+    foreach ($postslist as $post) {
+      printf(
+        &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
+        esc_url(get_permalink()),
+        esc_html(get_the_title())
+      );
     }
+    echo &apos;&lt;/ul&gt;&apos;;
+    wp_reset_postdata();
+  }
 ?&gt;
 
 &lt;?php
-    /*
-    $posts_array = get_posts(array(
-        &apos;posts_per_page&apos; =&gt; 5,
-        &apos;offset&apos; =&gt; 0,
-        &apos;category&apos; =&gt; &apos;&apos;,
-        &apos;category_name&apos; =&gt; &apos;&apos;,
-        &apos;orderby&apos; =&gt; &apos;post_date&apos;,
-        &apos;order&apos; =&gt; &apos;DESC&apos;,
-        &apos;include&apos; =&gt; &apos;&apos;,
-        &apos;exclude&apos; =&gt; &apos;&apos;,
-        &apos;meta_key&apos; =&gt; &apos;&apos;,
-        &apos;meta_value&apos; =&gt; &apos;&apos;,
-        &apos;post_type&apos; =&gt; &apos;post&apos;,
-        &apos;post_mime_type&apos; =&gt; &apos;&apos;,
-        &apos;post_parent&apos; =&gt; &apos;&apos;,
-        &apos;post_status&apos; =&gt; &apos;publish&apos;,
-        &apos;suppress_filters&apos; =&gt; true,
-    ));
-    */
+  /*
+  $posts_array = get_posts(array(
+    &apos;posts_per_page&apos; =&gt; 5,
+    &apos;offset&apos; =&gt; 0,
+    &apos;category&apos; =&gt; &apos;&apos;,
+    &apos;category_name&apos; =&gt; &apos;&apos;,
+    &apos;orderby&apos; =&gt; &apos;post_date&apos;,
+    &apos;order&apos; =&gt; &apos;DESC&apos;,
+    &apos;include&apos; =&gt; &apos;&apos;,
+    &apos;exclude&apos; =&gt; &apos;&apos;,
+    &apos;meta_key&apos; =&gt; &apos;&apos;,
+    &apos;meta_value&apos; =&gt; &apos;&apos;,
+    &apos;post_type&apos; =&gt; &apos;post&apos;,
+    &apos;post_mime_type&apos; =&gt; &apos;&apos;,
+    &apos;post_parent&apos; =&gt; &apos;&apos;,
+    &apos;post_status&apos; =&gt; &apos;publish&apos;,
+    &apos;suppress_filters&apos; =&gt; true,
+  ));
+  */
 ?&gt;</code></pre>
 
 <p><code>template.php</code></p>

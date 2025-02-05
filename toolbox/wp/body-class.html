@@ -12,22 +12,22 @@ title: "Body class (wordpress)"
  * Add custom classes to array of body classes.
  */
 add_filter(&apos;body_class&apos;, function($classes) {
-    if (!is_singular() &amp;&amp; !is_404()) {
-        $classes[] = &apos;hfeed&apos;;
+  if (!is_singular() &amp;&amp; !is_404()) {
+    $classes[] = &apos;hfeed&apos;;
+  }
+  if (is_page() &amp;&amp; !is_front_page()) {
+    if (!in_array(basename(get_permalink()), $classes)) {
+      $classes[] = get_post_type().&apos;-&apos;.basename(get_permalink());
     }
-    if (is_page() &amp;&amp; !is_front_page()) {
-        if (!in_array(basename(get_permalink()), $classes)) {
-            $classes[] = get_post_type().&apos;-&apos;.basename(get_permalink());
+    if ($parents = get_post_ancestors(get_the_ID())) {
+      foreach ($parents as $parent) {
+        if ($page = get_post($parent)) {
+          $classes[] = &quot;parent-{$page-&gt;post_type}-{$page-&gt;post_name}&quot;;
         }
-        if ($parents = get_post_ancestors(get_the_ID())) {
-            foreach ($parents as $parent) {
-                if ($page = get_post($parent)) {
-                    $classes[] = &quot;parent-{$page-&gt;post_type}-{$page-&gt;post_name}&quot;;
-                }
-            }
-        }
+      }
     }
-    return $classes;
+  }
+  return $classes;
 });
 ?&gt;</code></pre>
 

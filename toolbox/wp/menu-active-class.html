@@ -12,10 +12,10 @@ title: "Menu active class (wordpress)"
  * Add a custom class to active menu item.
  */
 add_filter(&apos;nav_menu_css_class&apos;, function($classes) {
-    if (in_array(&apos;current-menu-item&apos;, $classes) || in_array(&apos;current-menu-parent&apos;, $classes) || in_array(&apos;current-menu-ancestor&apos;, $classes)) {
-        $classes[] = &apos;active&apos;;
-    }
-    return $classes;
+  if (in_array(&apos;current-menu-item&apos;, $classes) || in_array(&apos;current-menu-parent&apos;, $classes) || in_array(&apos;current-menu-ancestor&apos;, $classes)) {
+    $classes[] = &apos;active&apos;;
+  }
+  return $classes;
 });
 ?&gt;</code></pre>
 

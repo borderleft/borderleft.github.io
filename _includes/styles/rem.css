@@ -1,14 +1,14 @@
 
-        .tool p:not(:last-child) {
-            margin-bottom: .5rem;
-        }
-        .tool input[type="text"] {
-            resize: horizontal;
-        }
-        .tool label {
-            display: inline-block;
-            font-size: var(--font-size-sm);
-        }
-        .tool ul {
-            font-size: var(--font-size-sm);
-        }
+    .tool p:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+    .tool input[type="text"] {
+      resize: horizontal;
+    }
+    .tool label {
+      display: inline-block;
+      font-size: var(--font-size-sm);
+    }
+    .tool ul {
+      font-size: var(--font-size-sm);
+    }

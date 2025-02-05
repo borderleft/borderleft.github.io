@@ -12,15 +12,15 @@ title: "Menu link class (wordpress)"
  * Add classes to menu link tags.
  */
 add_filter(&apos;nav_menu_link_attributes&apos;, function($atts, $menu_item) {
-    if (empty($atts[&apos;class&apos;])) {
-        $atts[&apos;class&apos;] = &apos;menu-link&apos;;
-    } else {
-        $atts[&apos;class&apos;] .= &apos; menu-link&apos;;
-    }
-    if (in_array(&apos;menu-item-has-children&apos;, $menu_item-&gt;classes)) {
-        $atts[&apos;class&apos;] .= &apos; menu-popup&apos;;
-    }
-    return $atts;
+  if (empty($atts[&apos;class&apos;])) {
+    $atts[&apos;class&apos;] = &apos;menu-link&apos;;
+  } else {
+    $atts[&apos;class&apos;] .= &apos; menu-link&apos;;
+  }
+  if (in_array(&apos;menu-item-has-children&apos;, $menu_item-&gt;classes)) {
+    $atts[&apos;class&apos;] .= &apos; menu-popup&apos;;
+  }
+  return $atts;
 }, 10, 2);
 ?&gt;</code></pre>
 

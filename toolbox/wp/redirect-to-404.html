@@ -8,10 +8,10 @@ title: "Redirect to 404 (wordpress)"
 <p>Redirect any template to 404 page.</p>
 
 <pre><code>&lt;?php
-    global $wp_query;
-    $wp_query-&gt;set_404();
-    status_header(404);
-    exit();
+  global $wp_query;
+  $wp_query-&gt;set_404();
+  status_header(404);
+  exit();
 ?&gt;</code></pre>
 
 <p><code>template.php</code></p>

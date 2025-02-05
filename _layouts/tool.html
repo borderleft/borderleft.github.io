@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
 
-    <link rel="stylesheet" href="/assets/lib/theme-light.min.css" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="/assets/lib/theme-dark.min.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/assets/lib/theme-light.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/assets/lib/theme-dark.min.css" media="(prefers-color-scheme: dark)">
 
 {%- assign slug = page.name | replace: ".html", "" %}
 {% case slug %}
 {% when 'farfaraway' %}
-    <style>{% include styles/farfaraway.css %}    </style>
+  <style>{% include styles/farfaraway.css %}  </style>
 {% when 'gray' %}
-    <style>{% include styles/gray.css %}    </style>
+  <style>{% include styles/gray.css %}  </style>
 {% when 'hex' %}
-    <style>{% include styles/hex.css %}    </style>
+  <style>{% include styles/hex.css %}  </style>
 {% when 'labels' %}
-    <style>{% include styles/labels.css %}    </style>
+  <style>{% include styles/labels.css %}  </style>
 {% when 'loremipsum' %}
-    <style>{% include styles/loremipsum.css %}    </style>
+  <style>{% include styles/loremipsum.css %}  </style>
 {% when 'modals' %}
-    <style>{% include styles/modals.css %}    </style>
+  <style>{% include styles/modals.css %}  </style>
 {% when 'quotes' %}
-    <style>{% include styles/quotes.css %}    </style>
+  <style>{% include styles/quotes.css %}  </style>
 {% when 'rem' %}
-    <style>{% include styles/rem.css %}    </style>
+  <style>{% include styles/rem.css %}  </style>
 {% when 'rgba' %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
-    <style>{% include styles/rgba.css %}    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
+  <style>{% include styles/rgba.css %}  </style>
 {% when 'rrggbbaa' %}
-    <style>{% include styles/rrggbbaa.css %}    </style>
+  <style>{% include styles/rrggbbaa.css %}  </style>
 {% when 'slider' %}
-    <style>{% include styles/slider.css %}    </style>
+  <style>{% include styles/slider.css %}  </style>
 {% when 'themes' %}
-    <style>{% include styles/themes.css %}    </style>
+  <style>{% include styles/themes.css %}  </style>
 {% when 'viewport' %}
-    <style>{% include styles/viewport.css %}    </style>
+  <style>{% include styles/viewport.css %}  </style>
 {% endcase -%}
 </head>
 
@@ -48,12 +48,12 @@
 {{ content }}
 <p><a href="/toolbox/">&lt; toolbox</a>
 {%- case slug -%}
-    {%- when 'rem' -%}
-        <span> / </span><a href="https://gist.github.com/daniellmb/3c8003550ccff7dd72aa">source</a>
-    {%- when 'rgba' -%}
-        <span> / </span><a href="https://stackoverflow.com/a/21576659">source</a>
-    {%- when 'rrggbbaa' -%}
-        <span> / </span><a href="https://stackoverflow.com/a/25170174">source</a>
+  {%- when 'rem' -%}
+    <span> / </span><a href="https://gist.github.com/daniellmb/3c8003550ccff7dd72aa">source</a>
+  {%- when 'rgba' -%}
+    <span> / </span><a href="https://stackoverflow.com/a/21576659">source</a>
+  {%- when 'rrggbbaa' -%}
+    <span> / </span><a href="https://stackoverflow.com/a/25170174">source</a>
 {%- endcase -%}</p>
 
 </div>

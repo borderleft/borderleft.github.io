@@ -12,18 +12,18 @@ title: "Header image (wordpress)"
  * Enable custom header image.
  */
 if (function_exists(&apos;add_theme_support&apos;)) {
-    add_theme_support(&apos;custom-header&apos;);
+  add_theme_support(&apos;custom-header&apos;);
 }
 ?&gt;</code></pre>
 
 <p><code>functions.php</code></p>
 
 <pre><code>&lt;?php
-    if (get_header_image()) {
-        printf(&apos;&lt;img src=&quot;%s&quot; alt=&quot;%s&quot;&gt;&apos;, get_header_image(), get_bloginfo(&apos;name&apos;));
-    } else {
-        bloginfo(&apos;name&apos;);
-    }
+  if (get_header_image()) {
+    printf(&apos;&lt;img src=&quot;%s&quot; alt=&quot;%s&quot;&gt;&apos;, get_header_image(), get_bloginfo(&apos;name&apos;));
+  } else {
+    bloginfo(&apos;name&apos;);
+  }
 ?&gt;</code></pre>
 
 <p><code>header.php</code></p>

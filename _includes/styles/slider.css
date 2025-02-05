@@ -1,26 +1,26 @@
 
-        .slider {
-            position: relative;
-            width: 400px;
-            max-width: 100%;
-        }
-        .slider:before {
-            content: "";
-            display: block;
-            padding-bottom: 50%;
-        }
-        .slide {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .slide.show {
-            opacity: 1;
-        }
+    .slider {
+      position: relative;
+      width: 400px;
+      max-width: 100%;
+    }
+    .slider:before {
+      content: "";
+      display: block;
+      padding-bottom: 50%;
+    }
+    .slide {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide.show {
+      opacity: 1;
+    }

@@ -12,114 +12,114 @@ title: "Open graph (wordpress)"
  * Add open graph metadata.
  */
 add_action(&apos;wp_head&apos;, function() {
-    if (is_search() || is_404() || post_password_required()) {
-        return;
+  if (is_search() || is_404() || post_password_required()) {
+    return;
+  }
+  $og_title = &apos;&apos;;
+  $og_type = &apos;website&apos;;
+  $og_url = &apos;&apos;;
+  $og_image = &apos;&apos;;
+  if (file_exists(get_theme_file_path(&apos;/assets/img/generic.jpg&apos;))) {
+    $og_image = get_theme_file_uri(&apos;/assets/img/generic.jpg&apos;);
+  }
+  $og_description = &apos;Visit the page for more.&apos;;
+  $og_site_name = get_bloginfo(&apos;name&apos;);
+  $og_locale = get_bloginfo(&apos;language&apos;);
+  if (is_singular()) {
+    $og_title = get_the_title();
+    $og_type = &apos;article&apos;;
+    $og_url = get_permalink();
+    if (has_post_thumbnail()) {
+      $og_image = get_the_post_thumbnail_url();
+    } else {
+      preg_match(&apos;/&lt;img.+src=[\&apos;&quot;]([^\&apos;&quot;]+)[\&apos;&quot;].*&gt;/i&apos;, get_the_content(), $matches);
+      if (!empty($matches)) {
+        $og_image = $matches[1];
+      }
     }
-    $og_title = &apos;&apos;;
+    if (get_the_excerpt()) {
+      $og_description = get_the_excerpt();
+    } elseif (get_the_content()) {
+      $og_description = get_the_content();
+    }
+  }
+  if (is_attachment()) {
+    $attachment = wp_prepare_attachment_for_js(get_the_ID());
+    if (&apos;image&apos; === $attachment[&apos;type&apos;]) {
+      $sizes = $attachment[&apos;sizes&apos;];
+      if (array_key_exists(&apos;large&apos;, $sizes)) {
+        $size = &apos;large&apos;;
+      } elseif (array_key_exists(&apos;medium&apos;, $sizes)) {
+        $size = &apos;medium&apos;;
+      } elseif (array_key_exists(&apos;thumbnail&apos;, $sizes)) {
+        $size = &apos;thumbnail&apos;;
+      } else {
+        $size = &apos;full&apos;;
+      }
+      if ($size) {
+        $og_image = $attachment[&apos;sizes&apos;][$size][&apos;url&apos;];
+      }
+    }
+    if ($attachment[&apos;caption&apos;]) {
+      $og_description = $attachment[&apos;caption&apos;];
+    } elseif ($attachment[&apos;description&apos;]) {
+      $og_description = $attachment[&apos;description&apos;];
+    } elseif ($attachment[&apos;alt&apos;]) {
+      $og_description = $attachment[&apos;alt&apos;];
+    }
+  }
+  if (is_front_page()) {
+    $og_title = get_bloginfo(&apos;name&apos;);
     $og_type = &apos;website&apos;;
-    $og_url = &apos;&apos;;
-    $og_image = &apos;&apos;;
-    if (file_exists(get_theme_file_path(&apos;/assets/img/generic.jpg&apos;))) {
-        $og_image = get_theme_file_uri(&apos;/assets/img/generic.jpg&apos;);
+    $og_url = home_url(&apos;/&apos;);
+    if (!empty(get_bloginfo(&apos;description&apos;)) &amp;&amp; &apos;Just another WordPress site&apos; !== get_bloginfo(&apos;description&apos;)) {
+      $og_description = get_bloginfo(&apos;description&apos;);
     }
-    $og_description = &apos;Visit the page for more.&apos;;
-    $og_site_name = get_bloginfo(&apos;name&apos;);
-    $og_locale = get_bloginfo(&apos;language&apos;);
-    if (is_singular()) {
-        $og_title = get_the_title();
-        $og_type = &apos;article&apos;;
-        $og_url = get_permalink();
-        if (has_post_thumbnail()) {
-            $og_image = get_the_post_thumbnail_url();
-        } else {
-            preg_match(&apos;/&lt;img.+src=[\&apos;&quot;]([^\&apos;&quot;]+)[\&apos;&quot;].*&gt;/i&apos;, get_the_content(), $matches);
-            if (!empty($matches)) {
-                $og_image = $matches[1];
-            }
-        }
-        if (get_the_excerpt()) {
-            $og_description = get_the_excerpt();
-        } elseif (get_the_content()) {
-            $og_description = get_the_content();
-        }
+  }
+  if (is_home() &amp;&amp; !is_front_page()) {
+    $og_title = get_the_title(get_option(&apos;page_for_posts&apos;));
+    $og_url = get_permalink(get_option(&apos;page_for_posts&apos;));
+    if (!empty(get_bloginfo(&apos;description&apos;)) &amp;&amp; &apos;Just another WordPress site&apos; !== get_bloginfo(&apos;description&apos;)) {
+      $og_description = get_bloginfo(&apos;description&apos;);
     }
-    if (is_attachment()) {
-        $attachment = wp_prepare_attachment_for_js(get_the_ID());
-        if (&apos;image&apos; === $attachment[&apos;type&apos;]) {
-            $sizes = $attachment[&apos;sizes&apos;];
-            if (array_key_exists(&apos;large&apos;, $sizes)) {
-                $size = &apos;large&apos;;
-            } elseif (array_key_exists(&apos;medium&apos;, $sizes)) {
-                $size = &apos;medium&apos;;
-            } elseif (array_key_exists(&apos;thumbnail&apos;, $sizes)) {
-                $size = &apos;thumbnail&apos;;
-            } else {
-                $size = &apos;full&apos;;
-            }
-            if ($size) {
-                $og_image = $attachment[&apos;sizes&apos;][$size][&apos;url&apos;];
-            }
-        }
-        if ($attachment[&apos;caption&apos;]) {
-            $og_description = $attachment[&apos;caption&apos;];
-        } elseif ($attachment[&apos;description&apos;]) {
-            $og_description = $attachment[&apos;description&apos;];
-        } elseif ($attachment[&apos;alt&apos;]) {
-            $og_description = $attachment[&apos;alt&apos;];
-        }
+  }
+  if (is_archive()) {
+    $og_title = get_the_archive_title();
+    $og_url = get_category_link(get_queried_object_id());
+    if (!empty(get_the_archive_description())) {
+      $og_description = get_the_archive_description();
     }
-    if (is_front_page()) {
-        $og_title = get_bloginfo(&apos;name&apos;);
-        $og_type = &apos;website&apos;;
-        $og_url = home_url(&apos;/&apos;);
-        if (!empty(get_bloginfo(&apos;description&apos;)) &amp;&amp; &apos;Just another WordPress site&apos; !== get_bloginfo(&apos;description&apos;)) {
-            $og_description = get_bloginfo(&apos;description&apos;);
-        }
+    if (is_author()) {
+      $og_url = get_author_posts_url(get_the_author_meta(&apos;ID&apos;));
     }
-    if (is_home() &amp;&amp; !is_front_page()) {
-        $og_title = get_the_title(get_option(&apos;page_for_posts&apos;));
-        $og_url = get_permalink(get_option(&apos;page_for_posts&apos;));
-        if (!empty(get_bloginfo(&apos;description&apos;)) &amp;&amp; &apos;Just another WordPress site&apos; !== get_bloginfo(&apos;description&apos;)) {
-            $og_description = get_bloginfo(&apos;description&apos;);
-        }
+    if (is_date()) {
+      if (is_day()) {
+        $og_url = get_day_link(get_query_var(&apos;year&apos;), get_query_var(&apos;monthnum&apos;), get_query_var(&apos;day&apos;));
+      } elseif (is_month()) {
+        $og_url = get_month_link(get_query_var(&apos;year&apos;), get_query_var(&apos;monthnum&apos;));
+      } elseif (is_year()) {
+        $og_url = get_year_link(get_query_var(&apos;year&apos;));
+      }
     }
-    if (is_archive()) {
-        $og_title = get_the_archive_title();
-        $og_url = get_category_link(get_queried_object_id());
-        if (!empty(get_the_archive_description())) {
-            $og_description = get_the_archive_description();
-        }
-        if (is_author()) {
-            $og_url = get_author_posts_url(get_the_author_meta(&apos;ID&apos;));
-        }
-        if (is_date()) {
-            if (is_day()) {
-                $og_url = get_day_link(get_query_var(&apos;year&apos;), get_query_var(&apos;monthnum&apos;), get_query_var(&apos;day&apos;));
-            } elseif (is_month()) {
-                $og_url = get_month_link(get_query_var(&apos;year&apos;), get_query_var(&apos;monthnum&apos;));
-            } elseif (is_year()) {
-                $og_url = get_year_link(get_query_var(&apos;year&apos;));
-            }
-        }
-        if (is_post_type_archive()) {
-            $og_url = get_post_type_archive_link(get_post_type());
-        }
+    if (is_post_type_archive()) {
+      $og_url = get_post_type_archive_link(get_post_type());
     }
-    function sanitize($input = &apos;&apos;) {
-        $input = wp_trim_words(
-            preg_replace(&apos;@https?://[\S]+@&apos;, &apos;&apos;, str_replace(&apos;&quot;&apos;, &quot;&apos;&quot;, strip_shortcodes(wp_strip_all_tags($input))))
-        );
-        return $input;
-    }
-    $og_title = sanitize($og_title);
-    $og_description = sanitize($og_description);
-    if (!empty($og_title)) echo &quot;\n&quot;, &apos;&lt;meta property=&quot;og:title&quot; content=&quot;&apos;, esc_html($og_title), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
-    if (!empty($og_type)) echo &apos;&lt;meta property=&quot;og:type&quot; content=&quot;&apos;, esc_html($og_type), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
-    if (!empty($og_url)) echo &apos;&lt;meta property=&quot;og:url&quot; content=&quot;&apos;, esc_url($og_url), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
-    if (!empty($og_image)) echo &apos;&lt;meta property=&quot;og:image&quot; content=&quot;&apos;, esc_url($og_image), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
-    if (!empty($og_description)) echo &apos;&lt;meta property=&quot;og:description&quot; content=&quot;&apos;, esc_html($og_description), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
-    if (!empty($og_site_name)) echo &apos;&lt;meta property=&quot;og:site_name&quot; content=&quot;&apos;, esc_html($og_site_name), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
-    if (!empty($og_locale)) echo &apos;&lt;meta property=&quot;og:locale&quot; content=&quot;&apos;, esc_html($og_locale), &apos;&quot;&gt;&apos;, &quot;\n\n&quot;;
+  }
+  function sanitize($input = &apos;&apos;) {
+    $input = wp_trim_words(
+      preg_replace(&apos;@https?://[\S]+@&apos;, &apos;&apos;, str_replace(&apos;&quot;&apos;, &quot;&apos;&quot;, strip_shortcodes(wp_strip_all_tags($input))))
+    );
+    return $input;
+  }
+  $og_title = sanitize($og_title);
+  $og_description = sanitize($og_description);
+  if (!empty($og_title)) echo &quot;\n&quot;, &apos;&lt;meta property=&quot;og:title&quot; content=&quot;&apos;, esc_html($og_title), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
+  if (!empty($og_type)) echo &apos;&lt;meta property=&quot;og:type&quot; content=&quot;&apos;, esc_html($og_type), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
+  if (!empty($og_url)) echo &apos;&lt;meta property=&quot;og:url&quot; content=&quot;&apos;, esc_url($og_url), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
+  if (!empty($og_image)) echo &apos;&lt;meta property=&quot;og:image&quot; content=&quot;&apos;, esc_url($og_image), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
+  if (!empty($og_description)) echo &apos;&lt;meta property=&quot;og:description&quot; content=&quot;&apos;, esc_html($og_description), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
+  if (!empty($og_site_name)) echo &apos;&lt;meta property=&quot;og:site_name&quot; content=&quot;&apos;, esc_html($og_site_name), &apos;&quot;&gt;&apos;, &quot;\n&quot;;
+  if (!empty($og_locale)) echo &apos;&lt;meta property=&quot;og:locale&quot; content=&quot;&apos;, esc_html($og_locale), &apos;&quot;&gt;&apos;, &quot;\n\n&quot;;
 });
 ?&gt;</code></pre>
 

@@ -8,13 +8,13 @@ title: "Viewport size"
 <p><b id="xy">N/A</b></p>
 
 <script>
-    (function() {
-        function calc() {
-            var x = document.documentElement.clientWidth;
-            var y = document.documentElement.clientHeight;
-            document.getElementById('xy').innerHTML = x + ' &times; ' + y;
-        }
-        window.addEventListener('resize', calc);
-        calc();
-    })();
+  (function() {
+    function calc() {
+      var x = document.documentElement.clientWidth;
+      var y = document.documentElement.clientHeight;
+      document.getElementById('xy').innerHTML = x + ' &times; ' + y;
+    }
+    window.addEventListener('resize', calc);
+    calc();
+  })();
 </script>

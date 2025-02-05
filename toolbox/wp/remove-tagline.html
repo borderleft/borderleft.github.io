@@ -12,10 +12,10 @@ title: "Remove tagline (wordpress)"
  * Remove tagline from front page title.
  */
 add_filter(&apos;document_title_parts&apos;, function($title) {
-    if (is_front_page()) {
-        unset($title[&apos;tagline&apos;]);
-    }
-    return $title;
+  if (is_front_page()) {
+    unset($title[&apos;tagline&apos;]);
+  }
+  return $title;
 });
 ?&gt;</code></pre>
 

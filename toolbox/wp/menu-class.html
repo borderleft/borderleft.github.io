@@ -12,7 +12,7 @@ title: "Menu class (wordpress)"
  * Remove unnecessary nav menu css classes.
  */
 add_filter(&apos;nav_menu_css_class&apos;, function($classes) {
-    return is_array($classes) ? array_intersect($classes, array(&apos;current-menu-item&apos;, &apos;menu-item-has-children&apos;)) : &apos;&apos;;
+  return is_array($classes) ? array_intersect($classes, array(&apos;current-menu-item&apos;, &apos;menu-item-has-children&apos;)) : &apos;&apos;;
 }, 100, 1);
 ?&gt;</code></pre>
 

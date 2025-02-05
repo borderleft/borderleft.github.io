@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 {%- if page.url == "/" %}
-    <meta name="description" content="{{ site.description }}">
-    <title>{{ site.name }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <title>{{ site.name }}</title>
 {%- else %}
-    <title>{{ page.title }} - {{ site.name }}</title>
+  <title>{{ page.title }} - {{ site.name }}</title>
 {%- endif %}
-    <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
+  <link rel="stylesheet" href="/assets/css/base.css?v={{ site.build }}">
 </head>
 
 <body>
@@ -17,16 +17,16 @@
 <div class="wrapper">
 
 <header class="header">
-    <p class="logo">
-        <a href="/"><b>Borderleft</b></a>
-    </p>
-    <nav class="nav">
-        <ul>
-        {%- for item in site.data.navigation %}
-            <li><a href="{{ item.url }}" {%- if item.url == page.url %} class="current" {%- endif %}>{{ item.text }}</a></li>
-        {%- endfor %}
-        </ul>
-    </nav>
+  <p class="logo">
+    <a href="/"><b>Borderleft</b></a>
+  </p>
+  <nav class="nav">
+    <ul>
+    {%- for item in site.data.navigation %}
+      <li><a href="{{ item.url }}" {%- if item.url == page.url %} class="current" {%- endif %}>{{ item.text }}</a></li>
+    {%- endfor %}
+    </ul>
+  </nav>
 </header>
 
 <main class="main">
@@ -35,10 +35,10 @@
 </main>
 
 <footer class="footer">
-    <p>&copy; {{ site.time | date: '%Y' }} Rui Zhang
-    {%- if page.url != "/toolbox/" -%}
-        . Dev too? See my <a href="/toolbox/">toolbox.</a>
-    {%- endif -%}</p>
+  <p>&copy; {{ site.time | date: '%Y' }} Rui Zhang
+  {%- if page.url != "/toolbox/" -%}
+    . Dev too? See my <a href="/toolbox/">toolbox.</a>
+  {%- endif -%}</p>
 </footer>
 
 </div>

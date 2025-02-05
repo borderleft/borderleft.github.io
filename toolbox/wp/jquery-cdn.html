@@ -12,14 +12,14 @@ title: "jQuery CDN (wordpress)"
  * Enqueue jQuery from CDN.
  */
 add_action(&apos;wp_enqueue_scripts&apos;, function() {
-    if (!is_admin()) {
-        wp_deregister_script(&apos;jquery&apos;);
-        wp_register_script(&apos;jquery&apos;, &apos;//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js&apos;, false, null);
-        wp_enqueue_script(&apos;jquery&apos;);
-        wp_deregister_script(&apos;jquery-mig&apos;);
-        wp_register_script(&apos;jquery-mig&apos;, &apos;//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js&apos;, false, null);
-        wp_enqueue_script(&apos;jquery-mig&apos;);
-    }
+  if (!is_admin()) {
+    wp_deregister_script(&apos;jquery&apos;);
+    wp_register_script(&apos;jquery&apos;, &apos;//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js&apos;, false, null);
+    wp_enqueue_script(&apos;jquery&apos;);
+    wp_deregister_script(&apos;jquery-mig&apos;);
+    wp_register_script(&apos;jquery-mig&apos;, &apos;//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js&apos;, false, null);
+    wp_enqueue_script(&apos;jquery-mig&apos;);
+  }
 });
 ?&gt;</code></pre>
 

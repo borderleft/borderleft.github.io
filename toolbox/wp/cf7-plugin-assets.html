@@ -12,23 +12,23 @@ title: "CF7 plugin assets (wordpress)"
  * Selectively enqueue Contact Form 7 plugin assets.
  */
 if (class_exists(&apos;WPCF7&apos;)) {
-    add_action(&apos;wp_enqueue_scripts&apos;, function() {
-        $load_scripts = false;
-        if (is_singular()) {
-            $post = get_post();
-            if (has_shortcode($post-&gt;post_content, &apos;contact-form-7&apos;)) {
-                $load_scripts = true;
-            }
-            if (!empty(get_post_meta($post-&gt;ID, &apos;contact_form&apos;, true))) {
-                $load_scripts = true;
-            }
-        }
-        if (!$load_scripts) {
-            wp_dequeue_style(&apos;contact-form-7&apos;);
-            wp_dequeue_script(&apos;contact-form-7&apos;);
-            wp_dequeue_script(&apos;google-recaptcha&apos;);
-        }
-    });
+  add_action(&apos;wp_enqueue_scripts&apos;, function() {
+    $load_scripts = false;
+    if (is_singular()) {
+      $post = get_post();
+      if (has_shortcode($post-&gt;post_content, &apos;contact-form-7&apos;)) {
+        $load_scripts = true;
+      }
+      if (!empty(get_post_meta($post-&gt;ID, &apos;contact_form&apos;, true))) {
+        $load_scripts = true;
+      }
+    }
+    if (!$load_scripts) {
+      wp_dequeue_style(&apos;contact-form-7&apos;);
+      wp_dequeue_script(&apos;contact-form-7&apos;);
+      wp_dequeue_script(&apos;google-recaptcha&apos;);
+    }
+  });
 }
 ?&gt;</code></pre>
 
