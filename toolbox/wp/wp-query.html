@@ -31,7 +31,7 @@ title: "WP query (wordpress)"
 <p>Get all posts (paginated, on front page template only).</p>
 
 <pre><code>&lt;?php
-$paged = (get_query_var(&apos;page&apos;)) ? get_query_var(&apos;page&apos;) : 1;
+  $paged = (get_query_var(&apos;page&apos;)) ? get_query_var(&apos;page&apos;) : 1;
   $q = new WP_Query(array(
     &apos;post_type&apos; =&gt; &apos;post&apos;,
     &apos;posts_per_page&apos; =&gt; get_option(&apos;posts_per_page&apos;),

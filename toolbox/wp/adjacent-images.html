@@ -7,7 +7,8 @@ title: "Adjacent images (wordpress)"
 
 <p>Retrieve the adjacent image links.</p>
 
-<pre><code>function __adjacent_image($prev = true, $text = &apos;&apos;) {
+<pre><code>&lt;?php
+function __adjacent_image($prev = true, $text = &apos;&apos;) {
   global $post;
   $post = get_post();
   $attachments = array_values(get_children(array(
@@ -39,7 +40,8 @@ function __previous_image_link() {
 }
 function __next_image_link() {
   return __adjacent_image(false, &apos;Next image &amp;rarr;&apos;);
-}</code></pre>
+}
+?&gt;</code></pre>
 
 <p><code>functions.php</code></p>
 
