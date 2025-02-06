@@ -90,7 +90,7 @@ title: "Animated modals (vanilla js)"
     }
 
     document.addEventListener('keyup', function(e) {
-      if (e.keyCode === 27) {
+      if (e.key === 'Escape') {
         const modal = document.querySelector('.modal-dialog.show');
         if (modal) {
           dismiss(modal);
