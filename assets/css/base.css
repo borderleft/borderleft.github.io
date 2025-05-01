@@ -264,6 +264,7 @@ ol ol, ol ul, ul ol, ul ul {
 
 .heading {
   font-size: var(--font-size-xxl);
+  font-size: calc(var(--font-size-xxl) + .25rem);
 }
 
 .tagline {
