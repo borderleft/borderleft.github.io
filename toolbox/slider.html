@@ -6,17 +6,18 @@ title: "Autoplay slider (vanilla js)"
 <h1>{{ page.title }}</h1>
 
 <ul>
-  <li>Minimal style with autoplay, no controls.</li>
-  <li>Animated fade in/out while playing.</li>
-  <li>Free of js/css libraries. View source and see the code.</li>
+  <li>Slides fading in/out smoothly.</li>
+  <li>Automatically cycling every 3 seconds.</li>
+  <li>No controls or buttons.</li>
+  <li>Minimal and clean code.</li>
 </ul>
 
 <h2>Demos</h2>
 
 <div class="slider">
-  <div class="slide show" style="background-image: url('https://picsum.photos/id/1/800/400');"></div>
-  <div class="slide" style="background-image: url('https://picsum.photos/id/2/800/400');"></div>
-  <div class="slide" style="background-image: url('https://picsum.photos/id/3/800/400');"></div>
+  <div class="slide" style="background-image: url('https://picsum.photos/id/55/1000/500');"></div>
+  <div class="slide" style="background-image: url('https://picsum.photos/id/82/1000/500');"></div>
+  <div class="slide" style="background-image: url('https://picsum.photos/id/93/1000/500');"></div>
 </div>
 
 <!--
@@ -29,17 +30,15 @@ title: "Autoplay slider (vanilla js)"
   (function() {
     let i = 0;
     const slides = document.querySelectorAll('.slide');
-    const timer = 5000;
+    const timer = 3000;
+    if (!slides.length) return;
+    slides[0].classList.add('show');
     function start() {
       setTimeout(play, timer);
     }
     function play() {
       slides[i].classList.remove('show');
-      if (i < slides.length - 1) {
-        i++;
-      } else {
-         i = 0;
-      }
+      i = (i + 1) % slides.length;
       slides[i].classList.add('show');
       start();
     }
