@@ -6,12 +6,12 @@ title: "Switch color schemes (vanilla js)"
 <h1>{{ page.title }}</h1>
 
 <ul>
-  <li>Selection of light, dark or auto mode (system settings).</li>
-  <li>Optimized keyboard access: tab + left + right arrows.</li>
-  <li>Persist selected option in local storage.</li>
-  <li>Free of js/css libraries, view source and copy the code.</li>
-  <li>Note, selected mode overrides system settings except auto.</li>
-  <li>Demos below toggle lavender/navy colors for bg/text.</li>
+  <li>Light, dark, and auto (system) modes.</li>
+  <li>Keyboard accessible: Tab to focus radios, Left/Right arrows to toggle options.</li>
+  <li>Saves choice in localStorage.</li>
+  <li>When "auto" is selected, system preference applies.</li>
+  <li>Background/text color toggles between lavender (light) and navy (dark).</li>
+  <li>No external libs, easy to copy and customize.</li>
 </ul>
 
 <h2>Demos</h2>
@@ -36,15 +36,16 @@ title: "Switch color schemes (vanilla js)"
   <script>
     (function() {
       function systemColorScheme(data) {
-        document.getElementById('system').textContent = 'System setting: ' + data;
+        const systemInfo = document.getElementById('system');
+        if (!systemInfo) return;
+        systemInfo.textContent = 'System setting: ' + data;
       }
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        systemColorScheme('dark');
-      } else {
-        systemColorScheme('light');
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        e.matches ? systemColorScheme('dark') : systemColorScheme('light');
+
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      systemColorScheme(mediaQuery.matches ? 'dark' : 'light');
+
+      mediaQuery.addEventListener('change', function(e) {
+        systemColorScheme(e.matches ? 'dark' : 'light');
       });
     })();
   </script>
@@ -56,6 +57,8 @@ title: "Switch color schemes (vanilla js)"
     const dark = document.querySelector('[name="theme"][value="dark"]');
     const auto = document.querySelector('[name="theme"][value="auto"]');
     const radios = [light, dark, auto];
+    if (radios.some(r => !r)) return;
+
     const theme = localStorage.getItem('color-scheme');
 
     function setTheme(value) {

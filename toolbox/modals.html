@@ -6,12 +6,12 @@ title: "Animated modals (vanilla js)"
 <h1>{{ page.title }}</h1>
 
 <ul>
-  <li>Use data attributes to pair a modal toggle and dialog.</li>
-  <li>Support multiple modals on the same page.</li>
+  <li>Uses data attributes to pair a modal toggle button and dialog.</li>
+  <li>Supports multiple modals simultaneously on a single page.</li>
   <li>Optimized keyboard accessibility.</li>
   <li>3 ways to close a modal: click &times; icon, press Esc, or click anywhere outside modal.</li>
-  <li>Smooth animations: fade in/out and slide down/up.</li>
-  <li>Free of js/css libraries, simply view the source code and copy it.</li>
+  <li>Smooth fade in/out and slide down/up animations.</li>
+  <li>Dependency free - easy to copy, customize, and integrate.</li>
 </ul>
 
 <h2>Demos</h2>
@@ -48,71 +48,55 @@ title: "Animated modals (vanilla js)"
     const toggles = document.querySelectorAll('.modal-toggle');
     const closes = document.querySelectorAll('.modal-close');
 
-    body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop"></div>');
-    const backdrop = document.querySelector('.modal-backdrop');
-
-    if (toggles) {
-      for (const toggle of toggles) {
-        toggle.addEventListener('click', function(e) {
-          const modal = document.querySelector(
-            `[data-modal-dialog="${this.getAttribute('data-modal-toggle')}"]`
-          );
-          if (modal) {
-            modal.classList.add('show');
-            modal.focus();
-            body.classList.add('modal-on');
-          }
-          e.preventDefault();
-        });
-      }
-    }
-
-    if (closes) {
-      for (const close of closes) {
-        close.addEventListener('click', function(e) {
-          const modal = this.closest('.modal-dialog');
-          if (modal) {
-            dismiss(modal);
-          }
-          e.preventDefault();
-        });
-      }
-    }
-
-    if (backdrop) {
-      backdrop.addEventListener('click', function(e) {
-        const modal = document.querySelector('.modal-dialog.show');
-        if (modal) {
-          dismiss(modal);
-        }
-        e.preventDefault();
-      });
-    }
-
-    document.addEventListener('keyup', function(e) {
-      if (e.key === 'Escape' || e.key === 'Esc') {
-        const modal = document.querySelector('.modal-dialog.show');
-        if (modal) {
-          dismiss(modal);
-        }
-      }
-    });
+    body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop" aria-hidden="true"></div>');
+    const backdrop = document.querySelector('.modal-backdrop[aria-hidden="true"]');
 
     const dismiss = function(modal) {
       const toggle = document.querySelector(
         `[data-modal-toggle="${modal.getAttribute('data-modal-dialog')}"]`
       );
-      toggle.focus();
+      if (toggle) toggle.focus();
       modal.classList.remove('show');
       modal.classList.add('hide');
       body.classList.remove('modal-on');
       body.classList.add('modal-off');
-      setTimeout(function() {
-        modal.classList.remove('hide');
-      }, 500);
-      setTimeout(function() {
-        body.classList.remove('modal-off');
-      }, 500);
+      setTimeout(() => modal.classList.remove('hide'), 500);
+      setTimeout(() => body.classList.remove('modal-off'), 500);
     };
+
+    for (const toggle of toggles) {
+      toggle.addEventListener('click', function(e) {
+        const modal = document.querySelector(
+          `[data-modal-dialog="${this.getAttribute('data-modal-toggle')}"]`
+        );
+        if (modal) {
+          modal.classList.add('show');
+          modal.focus();
+          body.classList.add('modal-on');
+        }
+        e.preventDefault();
+      });
+    }
+
+    for (const close of closes) {
+      close.addEventListener('click', function(e) {
+        const modal = this.closest('.modal-dialog');
+        if (modal) dismiss(modal);
+        e.preventDefault();
+      });
+    }
+
+    backdrop.addEventListener('click', function(e) {
+      const modal = document.querySelector('.modal-dialog.show');
+      if (modal) dismiss(modal);
+      e.preventDefault();
+    });
+
+    document.addEventListener('keyup', function(e) {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        const modal = document.querySelector('.modal-dialog.show');
+        if (modal) dismiss(modal);
+      }
+    });
   })();
 </script>
