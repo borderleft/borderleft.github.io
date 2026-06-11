@@ -8,6 +8,8 @@ title: "Related posts (wordpress)"
 <p>Get related posts from a category or tag.</p>
 
 <pre><code>&lt;?php
+  $related_shown = false;
+
   // Related posts (categories)
   $categories = get_the_category($post-&gt;ID);
   if ($categories) {
@@ -33,13 +35,13 @@ title: "Related posts (wordpress)"
         );
       }
       echo &apos;&lt;/ul&gt;&apos;;
-      wp_reset_postdata();
+      $related_shown = true;
     }
+    wp_reset_postdata();
   }
 
   // Related posts (tags)
-  $tags = wp_get_post_tags($post-&gt;ID);
-  if ($tags) {
+  if (!$related_shown &amp;&amp; ($tags = get_the_tags($post-&gt;ID))) {
     $tag_ids = array();
     foreach($tags as $individual_tag) {
       $tag_ids[] = $individual_tag-&gt;term_id;
@@ -62,8 +64,8 @@ title: "Related posts (wordpress)"
         );
       }
       echo &apos;&lt;/ul&gt;&apos;;
-      wp_reset_postdata();
     }
+    wp_reset_postdata();
   }
 ?&gt;</code></pre>
 

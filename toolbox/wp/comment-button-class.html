@@ -11,9 +11,9 @@ title: "Comment button class (wordpress)"
 /**
  * Add one or more classes to comment submit button.
  */
-add_filter(&apos;comment_form_defaults&apos;, function($classes) {
-  $classes[&apos;class_submit&apos;] = &apos;button submit&apos;;
-  return $classes;
+add_filter(&apos;comment_form_defaults&apos;, function($defaults) {
+  $defaults[&apos;class_submit&apos;] = &apos;button submit&apos;;
+  return $defaults;
 });
 ?&gt;</code></pre>
 

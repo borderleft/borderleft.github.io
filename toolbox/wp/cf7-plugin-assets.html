@@ -10,23 +10,31 @@ title: "CF7 plugin assets (wordpress)"
 <pre><code>&lt;?php
 /**
  * Selectively enqueue Contact Form 7 plugin assets.
+ * Disables global CF7 loading; enqueues only when a form is detected.
+ * Checks singular post content only; does not detect forms in widgets or sidebars.
  */
 if (class_exists(&apos;WPCF7&apos;)) {
+  add_filter(&apos;wpcf7_load_js&apos;, &apos;__return_false&apos;);
+  add_filter(&apos;wpcf7_load_css&apos;, &apos;__return_false&apos;);
+
   add_action(&apos;wp_enqueue_scripts&apos;, function() {
-    $load_scripts = false;
-    if (is_singular()) {
-      $post = get_post();
-      if (has_shortcode($post-&gt;post_content, &apos;contact-form-7&apos;)) {
-        $load_scripts = true;
-      }
-      if (!empty(get_post_meta($post-&gt;ID, &apos;contact_form&apos;, true))) {
-        $load_scripts = true;
-      }
+    if (!is_singular()) {
+      return;
     }
-    if (!$load_scripts) {
-      wp_dequeue_style(&apos;contact-form-7&apos;);
-      wp_dequeue_script(&apos;contact-form-7&apos;);
-      wp_dequeue_script(&apos;google-recaptcha&apos;);
+    $post = get_post();
+    if (!$post) {
+      return;
+    }
+    $has_form = has_shortcode($post-&gt;post_content, &apos;contact-form-7&apos;)
+      || (function_exists(&apos;has_block&apos;) &amp;&amp; has_block(&apos;contact-form-7/contact-form-selector&apos;, $post))
+      || !empty(get_post_meta($post-&gt;ID, &apos;contact_form&apos;, true));
+    if ($has_form) {
+      if (function_exists(&apos;wpcf7_enqueue_scripts&apos;)) {
+        wpcf7_enqueue_scripts();
+      }
+      if (function_exists(&apos;wpcf7_enqueue_styles&apos;)) {
+        wpcf7_enqueue_styles();
+      }
     }
   });
 }

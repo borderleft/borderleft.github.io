@@ -10,6 +10,7 @@ title: "Adjacent images (wordpress)"
 <pre><code>&lt;?php
 function __adjacent_image($prev = true, $text = &apos;&apos;) {
   global $post;
+  $original_post = $post;
   $post = get_post();
   $attachments = array_values(get_children(array(
     &apos;post_parent&apos; =&gt; $post-&gt;post_parent,
@@ -19,21 +20,22 @@ function __adjacent_image($prev = true, $text = &apos;&apos;) {
     &apos;order&apos; =&gt; &apos;ASC&apos;,
     &apos;orderby&apos; =&gt; &apos;menu_order ID&apos;,
   )));
-  foreach ($attachments as $k =&gt; $attachment) {
+  $k = -1;
+  foreach ($attachments as $i =&gt; $attachment) {
     if ($attachment-&gt;ID == $post-&gt;ID) {
+      $k = $i;
       break;
     }
   }
-  $attachment_id = 0;
-  if ($attachments) {
-    $k = $prev ? $k - 1 : $k + 1;
-    if (isset($attachments[$k])) {
-      $attachment_id = $attachments[$k]-&gt;ID;
-      if ($attachment_id != 0) {
-        return wp_get_attachment_link($attachment_id, &apos;&apos;, true, false, $text);
-      }
+  $link = &apos;&apos;;
+  if ($k &gt;= 0) {
+    $adjacent = $prev ? $k - 1 : $k + 1;
+    if (isset($attachments[$adjacent])) {
+      $link = wp_get_attachment_link($attachments[$adjacent]-&gt;ID, &apos;&apos;, true, false, $text);
     }
   }
+  $post = $original_post;
+  return $link;
 }
 function __previous_image_link() {
   return __adjacent_image(true, &apos;&amp;larr; Previous image&apos;);

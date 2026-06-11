@@ -15,7 +15,8 @@ title: "Get posts (wordpress)"
 
   if ($postslist) {
     echo &apos;&lt;ul&gt;&apos;;
-    foreach ($postslist as $post) {
+    foreach ($postslist as $post_item) {
+      setup_postdata($post_item);
       printf(
         &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
         esc_url(get_permalink()),

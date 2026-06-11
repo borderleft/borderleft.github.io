@@ -33,13 +33,13 @@ title: "Custom fields order (wordpress)"
       printf(
         &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;FN: %s LN: %s&lt;/a&gt;&lt;/li&gt;&apos;,
         esc_url(get_permalink()),
-        $fn,
-        $ln
+        esc_html($fn),
+        esc_html($ln)
       );
     }
     echo &apos;&lt;/ul&gt;&apos;;
-    wp_reset_postdata();
   }
+  wp_reset_postdata();
 ?&gt;</code></pre>
 
 <p><code>template.php</code></p>

@@ -5,7 +5,7 @@ title: "WP query (wordpress)"
 
 <h1>{{ page.title }}</h1>
 
-<p>Get all pages under a parent page, unpaginated).</p>
+<p>Get all pages under a parent page (unpaginated).</p>
 
 <pre><code>&lt;?php
   $q = new WP_Query(array(
@@ -22,8 +22,8 @@ title: "WP query (wordpress)"
       printf(&apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;, esc_url(get_permalink()), esc_html(get_the_title()));
     }
     echo &apos;&lt;/ul&gt;&apos;;
-    wp_reset_postdata();
   }
+  wp_reset_postdata();
 ?&gt;</code></pre>
 
 <p><code>template.php</code></p>
@@ -55,8 +55,8 @@ title: "WP query (wordpress)"
       ));
       printf(&apos;&lt;div class=&quot;nav-links&quot;&gt;%s&lt;/div&gt;&apos;, $links);
     }
-    wp_reset_postdata();
   }
+  wp_reset_postdata();
 ?&gt;
 </code></pre>
 
@@ -89,8 +89,8 @@ title: "WP query (wordpress)"
       ));
       printf(&apos;&lt;div class=&quot;nav-links&quot;&gt;%s&lt;/div&gt;&apos;, $links);
     }
-    wp_reset_postdata();
   }
+  wp_reset_postdata();
 ?&gt;</code></pre>
 
 <p><code>template.php</code></p>

@@ -16,8 +16,9 @@ add_filter(&apos;body_class&apos;, function($classes) {
     $classes[] = &apos;hfeed&apos;;
   }
   if (is_page() &amp;&amp; !is_front_page()) {
-    if (!in_array(basename(get_permalink()), $classes)) {
-      $classes[] = get_post_type().&apos;-&apos;.basename(get_permalink());
+    $page_slug = get_post_field(&apos;post_name&apos;, get_the_ID());
+    if (!in_array($page_slug, $classes)) {
+      $classes[] = get_post_type().&apos;-&apos;.$page_slug;
     }
     if ($parents = get_post_ancestors(get_the_ID())) {
       foreach ($parents as $parent) {
