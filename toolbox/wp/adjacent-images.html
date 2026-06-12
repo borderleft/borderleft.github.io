@@ -8,6 +8,9 @@ title: "Adjacent images (wordpress)"
 <p>Retrieve the adjacent image links.</p>
 
 <pre><code>&lt;?php
+/**
+ * Retrieve the adjacent image links.
+ */
 function __adjacent_image($prev = true, $text = &apos;&apos;) {
   global $post;
   $original_post = $post;
@@ -46,6 +49,8 @@ function __next_image_link() {
 ?&gt;</code></pre>
 
 <p><code>functions.php</code></p>
+
+<p>Output previous and next image links.</p>
 
 <pre><code>&lt;?php
   echo __previous_image_link();

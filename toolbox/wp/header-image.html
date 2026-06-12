@@ -18,6 +18,8 @@ if (function_exists(&apos;add_theme_support&apos;)) {
 
 <p><code>functions.php</code></p>
 
+<p>Output header image or site name.</p>
+
 <pre><code>&lt;?php
   if (get_header_image()) {
     printf(&apos;&lt;img src=&quot;%s&quot; alt=&quot;%s&quot;&gt;&apos;, esc_url(get_header_image()), esc_attr(get_bloginfo(&apos;name&apos;)));
