@@ -44,7 +44,7 @@
 /* Elements
 ---------------------------------------- */
 
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -227,7 +227,7 @@ ol ol, ol ul, ul ol, ul ul {
   background: transparent var(--image-logo) 0 0 / contain no-repeat;
 }
 
-.logo a:before {
+.logo a::before {
   content: "";
   display: block;
   padding-bottom: 25%;
@@ -254,9 +254,10 @@ ol ol, ol ul, ul ol, ul ul {
   color: inherit;
 }
 
-@supports (background-clip: text) {
+@supports (background-clip: text) or (-webkit-background-clip: text) {
   .gradient {
     background: linear-gradient(90deg, #fa5252, #12b886, #228be6);
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
@@ -314,7 +315,7 @@ ol ol, ol ul, ul ol, ul ul {
   cursor: default;
 }
 
-.offline:after {
+.offline::after {
   content: attr(data-title);
   display: block;
   position: absolute;
@@ -331,11 +332,11 @@ ol ol, ol ul, ul ol, ul ul {
   visibility: hidden;
 }
 
-.offline.tooltip:after {
+.offline.tooltip::after {
   visibility: visible;
 }
 
-.card-image .offline:after {
+.card-image .offline::after {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap');
 
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 html {
@@ -214,6 +214,7 @@ body {
 .wufoo textarea.textarea,
 .wufoo input.file {
   border-radius: 4px;
+  appearance: none;
   -webkit-appearance: none;
 }
 .wufoo span input[class*="fn"],
@@ -257,6 +258,7 @@ body {
   margin: 0;
   cursor: pointer;
   border-radius: 4px;
+  appearance: none;
   -webkit-appearance: none;
 }
 .wufoo span > input:not(.radio):not(.checkbox) + label,

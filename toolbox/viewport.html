@@ -12,7 +12,7 @@ title: "Viewport size"
     function calc() {
       var x = document.documentElement.clientWidth;
       var y = document.documentElement.clientHeight;
-      document.getElementById('xy').innerHTML = x + ' &times; ' + y;
+      document.getElementById('xy').textContent = x + ' \u00D7 ' + y;
     }
     window.addEventListener('resize', calc);
     calc();

@@ -4,7 +4,7 @@
       width: 500px;
       max-width: 100%;
     }
-    .slider:before {
+    .slider::before {
       content: "";
       display: block;
       padding-bottom: 50%;

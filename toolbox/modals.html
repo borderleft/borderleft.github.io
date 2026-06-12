@@ -60,36 +60,40 @@ title: "Animated modals (vanilla js)"
       modal.classList.add('hide');
       body.classList.remove('modal-on');
       body.classList.add('modal-off');
-      setTimeout(() => modal.classList.remove('hide'), 500);
+      setTimeout(() => {
+        modal.classList.remove('hide');
+        modal.setAttribute('hidden', '');
+      }, 500);
       setTimeout(() => body.classList.remove('modal-off'), 500);
     };
 
     for (const toggle of toggles) {
       toggle.addEventListener('click', function(e) {
+        e.preventDefault();
         const modal = document.querySelector(
           `[data-modal-dialog="${this.getAttribute('data-modal-toggle')}"]`
         );
         if (modal) {
+          modal.removeAttribute('hidden');
           modal.classList.add('show');
           modal.focus();
           body.classList.add('modal-on');
         }
-        e.preventDefault();
       });
     }
 
     for (const close of closes) {
       close.addEventListener('click', function(e) {
+        e.preventDefault();
         const modal = this.closest('.modal-dialog');
         if (modal) dismiss(modal);
-        e.preventDefault();
       });
     }
 
     backdrop.addEventListener('click', function(e) {
+      e.preventDefault();
       const modal = document.querySelector('.modal-dialog.show');
       if (modal) dismiss(modal);
-      e.preventDefault();
     });
 
     document.addEventListener('keyup', function(e) {

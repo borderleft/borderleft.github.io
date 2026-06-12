@@ -1,5 +1,5 @@
 
-    *, *:before, *:after {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
     .form {
@@ -47,6 +47,7 @@
       border: 1px solid var(--floating-border);
       box-shadow: none;
       border-radius: .5rem;
+      appearance: none;
       -webkit-appearance: none;
     }
     .select {

@@ -1,5 +1,5 @@
 
-    *, *:before, *:after {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
     .modal-dialog {
@@ -93,7 +93,6 @@
       overflow: hidden;
     }
     .modal-backdrop {
-      content: "";
       position: fixed;
       z-index: 90;
       left: 0;
