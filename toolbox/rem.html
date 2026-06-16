@@ -21,7 +21,7 @@ title: "PX to REM calculator"
 
 <ul id="result"></ul>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"></script>
 <script>
   !function(i){var c=i("#result"),a=i("#base"),e=i("#list"),n=function(){var l=parseInt(a.val(),10),s=e.val().split(",").filter(function(t){return""!==t.trim()}),t=[];i.each(s,function(i,e){var s=parseInt(e.trim(),10);if(isNaN(s)||isNaN(l)||0===l)return;var o=parseFloat((s/l).toPrecision(4)),r=1===o?" <i>(base)</i>":"";t.push("<li>"+e.trim()+"px = "+o+"rem"+r+"</li>")}),c.html(t.join(""))};i("#calc").click(n).click(),i("#base, #list").on("keydown",function(t){"Enter"===t.key&&n()})}(jQuery);
 </script>
