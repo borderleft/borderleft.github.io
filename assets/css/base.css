@@ -438,6 +438,10 @@ ol ol, ol ul, ul ol, ul ul {
   }
 }
 
+.hljs[data-highlighted] {
+  background-color: transparent;
+}
+
 /* Fonts
 ---------------------------------------- */
 
