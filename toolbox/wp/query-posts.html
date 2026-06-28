@@ -21,7 +21,7 @@ title: "Query posts (wordpress)"
       printf(
         &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
         esc_url(get_permalink()),
-        esc_html(get_the_title())
+        esc_html(get_the_title()),
       );
     }
     echo &apos;&lt;/ul&gt;&apos;;

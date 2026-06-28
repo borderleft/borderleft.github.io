@@ -34,7 +34,11 @@ add_action(&apos;init&apos;, function() {
     &apos;capability_type&apos; =&gt; &apos;post&apos;,
     &apos;hierarchical&apos; =&gt; false,
     &apos;menu_position&apos; =&gt; null,
-    &apos;supports&apos; =&gt; array(&apos;title&apos;, &apos;editor&apos;, &apos;thumbnail&apos;),
+    &apos;supports&apos; =&gt; array(
+      &apos;title&apos;,
+      &apos;editor&apos;,
+      &apos;thumbnail&apos;,
+    ),
     &apos;rewrite&apos; =&gt; true,
     &apos;show_in_nav_menus&apos; =&gt; true,
     &apos;show_in_rest&apos; =&gt; true,
@@ -76,9 +80,9 @@ add_action(&apos;init&apos;, function() {
             &apos;value&apos; =&gt; $present,
             &apos;type&apos; =&gt; &apos;numeric&apos;,
             &apos;compare&apos; =&gt; &apos;&gt;=&apos;,
-          )
-        )
-      )
+          ),
+        ),
+      ),
     ),
     &apos;past&apos; =&gt; array(
       &apos;label&apos; =&gt; &apos;Past Events&apos;,
@@ -94,10 +98,10 @@ add_action(&apos;init&apos;, function() {
             &apos;value&apos; =&gt; $present,
             &apos;type&apos; =&gt; &apos;numeric&apos;,
             &apos;compare&apos; =&gt; &apos;&lt;&apos;,
-          )
-        )
-      )
-    )
+          ),
+        ),
+      ),
+    ),
   );
 
   foreach($args as $arg){
@@ -110,7 +114,7 @@ add_action(&apos;init&apos;, function() {
         printf(
           &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
           esc_url(get_permalink()),
-          esc_html(get_the_title())
+          esc_html(get_the_title()),
         );
       }
       echo &apos;&lt;/ul&gt;&apos;;
