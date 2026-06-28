@@ -139,10 +139,6 @@ pre code {
   padding: 0;
 }
 
-pre:has(> code[data-highlighted]) {
-  padding: 0;
-}
-
 pre + p:has(> code) {
   margin-top: -.625rem;
   margin-bottom: 2.5rem;
@@ -438,7 +434,19 @@ ol ol, ol ul, ul ol, ul ul {
   }
 }
 
-.hljs[data-highlighted] {
+/* Plugins
+---------------------------------------- */
+pre:has(> code:not(.nohighlight)) {
+  padding: 0;
+}
+
+pre > code:not(.nohighlight) {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+pre > code.hljs {
   background-color: transparent;
 }
 
