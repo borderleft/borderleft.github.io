@@ -13,16 +13,16 @@ title: "Related posts (wordpress)"
   // Related posts (categories)
   $categories = get_the_category($post-&gt;ID);
   if ($categories) {
-    $category_ids = array();
+    $category_ids = [];
     foreach ($categories as $individual_category) {
       $category_ids[] = $individual_category-&gt;term_id;
     }
-    $q = new WP_Query(array(
+    $q = new WP_Query([
       &apos;category__in&apos; =&gt; $category_ids,
-      &apos;post__not_in&apos; =&gt; array($post-&gt;ID),
+      &apos;post__not_in&apos; =&gt; [$post-&gt;ID],
       &apos;posts_per_page&apos;=&gt; 5,
       &apos;ignore_sticky_posts&apos;=&gt; 1,
-    ));
+    ]);
     if ($q-&gt;have_posts()) {
       echo &apos;&lt;h3&gt;Related Posts&lt;/h3&gt;&apos;;
       echo &apos;&lt;ul&gt;&apos;;
@@ -42,16 +42,16 @@ title: "Related posts (wordpress)"
 
   // Related posts (tags)
   if (!$related_shown &amp;&amp; ($tags = get_the_tags($post-&gt;ID))) {
-    $tag_ids = array();
+    $tag_ids = [];
     foreach($tags as $individual_tag) {
       $tag_ids[] = $individual_tag-&gt;term_id;
     }
-    $q = new WP_Query(array(
+    $q = new WP_Query([
       &apos;tag__in&apos; =&gt; $tag_ids,
-      &apos;post__not_in&apos; =&gt; array($post-&gt;ID),
+      &apos;post__not_in&apos; =&gt; [$post-&gt;ID],
       &apos;posts_per_page&apos;=&gt; 5,
       &apos;ignore_sticky_posts&apos;=&gt; 1,
-    ));
+    ]);
     if ($q-&gt;have_posts()) {
       echo &apos;&lt;h3&gt;Related Posts&lt;/h3&gt;&apos;;
       echo &apos;&lt;ul&gt;&apos;;

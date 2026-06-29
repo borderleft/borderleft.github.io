@@ -14,11 +14,11 @@ title: "Sibling pages (wordpress)"
     $page = $post-&gt;ID;
   }
 
-  $children = wp_list_pages(array(
+  $children = wp_list_pages([
     &apos;parent&apos; =&gt; $page,
     &apos;echo&apos; =&gt; false,
     &apos;title_li&apos; =&gt; &apos;&apos;,
-  ));
+  ]);
 
   if ($children) {
     echo &quot;&lt;ul&gt;\n&quot;.$children.&quot;&lt;/ul&gt;\n&quot;;

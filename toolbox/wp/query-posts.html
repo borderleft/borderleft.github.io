@@ -8,11 +8,11 @@ title: "Query posts (wordpress)"
 <p>Get all pages under a parent page. Prefer <a href="/toolbox/wp/wp-query/">WP query</a>; <code>query_posts()</code> is deprecated.</p>
 
 <pre><code>&lt;?php
-  query_posts(array(
+  query_posts([
     &apos;post_parent&apos; =&gt; $post-&gt;ID,
     &apos;post_type&apos; =&gt; &apos;page&apos;,
     &apos;posts_per_page&apos; =&gt; -1,
-  ));
+  ]);
 
   if (have_posts()) {
     echo &apos;&lt;ul&gt;&apos;;

@@ -13,7 +13,7 @@ title: "Responsive video (wordpress)"
  */
 add_filter(&apos;embed_oembed_html&apos;, function($html, $url) {
   if (false === strpos($html, &apos;&lt;div class=&quot;jetpack-video-wrapper&quot;&gt;&apos;)) {
-    $video_patterns = array(
+    $video_patterns = [
       &apos;https?://((m|www)\.)?youtube\.com/watch&apos;,
       &apos;https?://((m|www)\.)?youtube\.com/playlist&apos;,
       &apos;https?://youtu\.be/&apos;,
@@ -26,7 +26,7 @@ add_filter(&apos;embed_oembed_html&apos;, function($html, $url) {
       &apos;https?://vine.co/v/&apos;,
       &apos;https?://(www\.)?collegehumor\.com/video/&apos;,
       &apos;https?://(www\.|embed\.)?ted\.com/talks/&apos;,
-    );
+    ];
     $pattern = &apos;#(?:&apos;.implode(&apos;|&apos;, $video_patterns).&apos;)#i&apos;;
     if (1 === preg_match($pattern, $url)) {
       $html = &apos;&lt;div class=&quot;video-wrapper&quot;&gt;&apos;.$html.&apos;&lt;/div&gt;&apos;;

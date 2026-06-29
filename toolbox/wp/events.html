@@ -12,7 +12,7 @@ title: "Events without plugin (wordpress)"
  * Register events post type.
  */
 add_action(&apos;init&apos;, function() {
-  $labels = array(
+  $labels = [
     &apos;name&apos; =&gt; _x(&apos;Events&apos;, &apos;post type general name&apos;),
     &apos;singular_name&apos; =&gt; _x(&apos;Event&apos;, &apos;post type singular name&apos;),
     &apos;add_new&apos; =&gt; _x(&apos;Add New&apos;, &apos;event&apos;),
@@ -24,8 +24,8 @@ add_action(&apos;init&apos;, function() {
     &apos;not_found&apos; =&gt; __(&apos;Nothing found&apos;),
     &apos;not_found_in_trash&apos; =&gt; __(&apos;Nothing found in Trash&apos;),
     &apos;parent_item_colon&apos; =&gt; &apos;&apos;,
-  );
-  $args = array(
+  ];
+  $args = [
     &apos;labels&apos; =&gt; $labels,
     &apos;public&apos; =&gt; true,
     &apos;publicly_queryable&apos; =&gt; true,
@@ -34,15 +34,15 @@ add_action(&apos;init&apos;, function() {
     &apos;capability_type&apos; =&gt; &apos;post&apos;,
     &apos;hierarchical&apos; =&gt; false,
     &apos;menu_position&apos; =&gt; null,
-    &apos;supports&apos; =&gt; array(
+    &apos;supports&apos; =&gt; [
       &apos;title&apos;,
       &apos;editor&apos;,
       &apos;thumbnail&apos;,
-    ),
+    ],
     &apos;rewrite&apos; =&gt; true,
     &apos;show_in_nav_menus&apos; =&gt; true,
     &apos;show_in_rest&apos; =&gt; true,
-  );
+  ];
   register_post_type(&apos;events&apos;, $args);
 });
 ?&gt;</code></pre>
@@ -65,44 +65,44 @@ add_action(&apos;init&apos;, function() {
 <pre><code>&lt;?php
   $present = date(&apos;Ymd&apos;);
 
-  $args = array(
-    &apos;future&apos; =&gt; array(
+  $args = [
+    &apos;future&apos; =&gt; [
       &apos;label&apos; =&gt; &apos;Future Events&apos;,
-      &apos;query_args&apos;=&gt;array(
+      &apos;query_args&apos;=&gt;[
         &apos;post_type&apos; =&gt; &apos;events&apos;,
         &apos;posts_per_page&apos; =&gt; -1,
         &apos;meta_key&apos; =&gt; &apos;event_date&apos;,
         &apos;orderby&apos; =&gt; &apos;meta_value&apos;,
         &apos;order&apos; =&gt; &apos;ASC&apos;,
-        &apos;meta_query&apos; =&gt; array(
-          array(
+        &apos;meta_query&apos; =&gt; [
+          [
             &apos;key&apos; =&gt; &apos;event_date&apos;,
             &apos;value&apos; =&gt; $present,
             &apos;type&apos; =&gt; &apos;numeric&apos;,
             &apos;compare&apos; =&gt; &apos;&gt;=&apos;,
-          ),
-        ),
-      ),
-    ),
-    &apos;past&apos; =&gt; array(
+          ],
+        ],
+      ],
+    ],
+    &apos;past&apos; =&gt; [
       &apos;label&apos; =&gt; &apos;Past Events&apos;,
-      &apos;query_args&apos; =&gt; array(
+      &apos;query_args&apos; =&gt; [
         &apos;post_type&apos; =&gt; &apos;events&apos;,
         &apos;posts_per_page&apos; =&gt; -1,
         &apos;meta_key&apos; =&gt; &apos;event_date&apos;,
         &apos;orderby&apos; =&gt; &apos;meta_value&apos;,
         &apos;order&apos; =&gt; &apos;DESC&apos;,
-        &apos;meta_query&apos; =&gt; array(
-          array(
+        &apos;meta_query&apos; =&gt; [
+          [
             &apos;key&apos; =&gt; &apos;event_date&apos;,
             &apos;value&apos; =&gt; $present,
             &apos;type&apos; =&gt; &apos;numeric&apos;,
             &apos;compare&apos; =&gt; &apos;&lt;&apos;,
-          ),
-        ),
-      ),
-    ),
-  );
+          ],
+        ],
+      ],
+    ],
+  ];
 
   foreach($args as $arg){
     $q = new WP_Query($arg[&apos;query_args&apos;]);
