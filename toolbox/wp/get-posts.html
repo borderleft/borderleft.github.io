@@ -8,23 +8,21 @@ title: "Get posts (wordpress)"
 <p>Get all posts from a category.</p>
 
 <pre><code>&lt;?php
-  $postslist = get_posts([
+  $post_list = get_posts([
     &apos;category&apos; =&gt; 1,
     &apos;posts_per_page&apos; =&gt; -1,
   ]);
 
-  if ($postslist) {
+  if ($post_list) {
     echo &apos;&lt;ul&gt;&apos;;
-    foreach ($postslist as $post_item) {
-      setup_postdata($post_item);
+    foreach ($post_list as $post_item) {
       printf(
         &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
-        esc_url(get_permalink()),
-        esc_html(get_the_title()),
+        esc_url(get_permalink($post_item)),
+        esc_html(get_the_title($post_item)),
       );
     }
     echo &apos;&lt;/ul&gt;&apos;;
-    wp_reset_postdata();
   }
 ?&gt;
 
