@@ -61,8 +61,8 @@ title: "Animated modals (vanilla js)"
       setTimeout(() => {
         modal.classList.remove('hide');
         modal.setAttribute('hidden', '');
+        body.classList.remove('modal-off');
       }, 500);
-      setTimeout(() => body.classList.remove('modal-off'), 500);
     };
 
     for (const toggle of toggles) {
