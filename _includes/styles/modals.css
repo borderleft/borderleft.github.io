@@ -1,20 +1,34 @@
 
-    *, *:before, *:after {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
-    .modal-dialog {
+    :root {
+      --modal-bg: #fff;
+      --modal-color: #004;
+      --modal-close-color: var(--modal-color);
+      --modal-close-hover-color: #06f;
+      --modal-transition-duration: .5s;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --modal-bg: #0d1117;
+        --modal-color: #e6edf3;
+        --modal-close-hover-color: #39f;
+      }
+    }
+    .modal-body {
       position: fixed;
       z-index: 100;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 480px;
-      max-width: 100%;
-      max-width: calc(100% - 2.5rem);
-      max-height: 100%;
-      max-height: calc(100% - 2.5rem);
-      background-color: #fff;
-      color: #333;
-      outline: none;
+      max-width: calc(100% - 48px);
+      max-height: calc(100% - 48px);
+      background-color: var(--modal-bg);
+      color: var(--modal-color);
       box-shadow: 0 0 2px rgba(0,0,0,.2);
-      border-radius: 1rem;
+      border-radius: 16px;
       overflow: auto;
     }
     .modal-main {
@@ -32,60 +46,69 @@
       position: absolute;
       top: 0;
       right: 0;
-      background-color: transparent;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='%23333'%3E%3C/line%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2306c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='%2306c'%3E%3C/line%3E%3C/svg%3E");
-      background-position: center;
-      background-size: 1.5rem 1.5rem, 0 0;
-      background-repeat: no-repeat;
-      display: block;
       width: 3rem;
       height: 3rem;
       padding: 0;
       margin: 0;
-      border: 0;
+      background-color: transparent;
       box-shadow: none;
-      text-decoration-line: none;
-      cursor: pointer;
+      border: 0;
+      border-radius: 8px;
       outline-offset: -.5rem;
-      opacity: 1;
-      transition: background-image .2s;
+      cursor: pointer;
+      transition: none;
+    }
+    .modal-close::before,
+    .modal-close::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      background-color: var(--modal-close-color);
+      border-radius: 1px;
+      transition: background-color .2s;
+    }
+    .modal-close::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .modal-close::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    .modal-close:hover::before,
+    .modal-close:hover::after {
+      background-color: var(--modal-close-hover-color);
     }
     .modal-close:hover {
-      background-size: 0 0, 1.5rem 1.5rem;
+      background-color: transparent;
     }
     .modal-dialog {
-      left: 50%;
-      top: 10%;
-      transform: translate(-50%, 0);
       display: none;
     }
     .modal-dialog.show,
     .modal-dialog.hide {
       display: block;
     }
-    .modal-dialog.show {
-      animation: .5s forwards slidein;
+    .modal-dialog.show .modal-body {
+      animation: var(--modal-transition-duration) forwards slidein;
     }
-    .modal-dialog.hide {
-      animation: .25s forwards slideout;
+    .modal-dialog.hide .modal-body {
+      animation: calc(var(--modal-transition-duration) / 2) forwards slideout;
     }
     @keyframes slidein {
       0% {
-        transform: translate(-50%, -25%);
+        transform: translate(-50%, -70%);
         opacity: 0;
       }
       100% {
-        transform: translate(-50%, 0);
+        transform: translate(-50%, -50%);
         opacity: 1;
       }
     }
     @keyframes slideout {
-      0% {
-        transform: translate(-50%, 0);
-        opacity: 1;
-      }
       100% {
-        transform: translate(-50%, -25%);
+        transform: translate(-50%, -30%);
         opacity: 0;
       }
     }
@@ -93,7 +116,6 @@
       overflow: hidden;
     }
     .modal-backdrop {
-      content: "";
       position: fixed;
       z-index: 90;
       left: 0;
@@ -107,13 +129,14 @@
       display: none;
     }
     :where(.modal-on, .modal-off) .modal-backdrop {
+      opacity: 1;
       display: block;
     }
     .modal-on .modal-backdrop {
-      animation: .25s forwards fadein;
+      animation: calc(var(--modal-transition-duration) / 2) forwards fadein;
     }
     .modal-off .modal-backdrop {
-      animation: .5s forwards fadeout;
+      animation: var(--modal-transition-duration) forwards fadeout;
     }
     @keyframes fadein {
       0% {

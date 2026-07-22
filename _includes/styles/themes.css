@@ -18,7 +18,7 @@
         --demo-text: lavender;
       }
     }
-    *, *:before, *:after {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
@@ -31,7 +31,7 @@
       padding: 1px;
       margin-bottom: 1.25rem;
       border: 1px solid #06c;
-      border-radius: 1rem;
+      border-radius: 99px;
     }
     .switch label {
       font-size: .875rem;
@@ -44,7 +44,7 @@
       display: inline-block;
       vertical-align: middle;
       padding: .125rem .5rem;
-      border-radius: 1rem;
+      border-radius: 99px;
     }
     .switch span:has(~ input:checked) {
       background-color: #06c;

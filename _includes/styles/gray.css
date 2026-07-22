@@ -8,8 +8,10 @@
       align-items: center;
     }
     .tool span {
-      width: 1rem;
-      height: 1rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 1px solid var(--color-gray);
+      border-radius: var(--radius-2);
     }
     .tool code {
       background-color: transparent;

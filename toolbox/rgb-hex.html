@@ -1,0 +1,151 @@
+---
+layout: tool
+title: "RGB/hex converter"
+---
+
+<h1>{{ page.title }}</h1>
+
+<div class="intro">
+  <p>Convert colors between RGB and hex formats. Supports 6-digit <code>#RRGGBB</code> and 3-digit shorthand <code>#RGB</code> hex input.</p>
+</div>
+
+<div class="converter">
+  <section>
+    <h2>RGB → Hex</h2>
+    <div class="field-row">
+      <div>
+        <label for="r">R</label>
+        <input id="r" type="number" min="0" max="255" value="0">
+      </div>
+      <div>
+        <label for="g">G</label>
+        <input id="g" type="number" min="0" max="255" value="255">
+      </div>
+      <div>
+        <label for="b">B</label>
+        <input id="b" type="number" min="0" max="255" value="255">
+      </div>
+    </div>
+    <div class="result-row">
+      <div class="color-preview" id="rgb-preview" style="background:#00ffff"></div>
+      <input class="color-output" type="text" id="rgb-result" value="#00ffff" readonly>
+    </div>
+  </section>
+
+  <section>
+    <h2>Hex → RGB</h2>
+    <div class="field-row">
+      <div>
+        <label for="hex-input">Hex</label>
+        <input id="hex-input" type="text" value="#00ffff" placeholder="#RRGGBB or #RGB" maxlength="7">
+      </div>
+    </div>
+    <div class="result-row">
+      <div class="color-preview" id="hex-preview" style="background:#00ffff"></div>
+      <input class="color-output" type="text" id="hex-result" value="rgb(0, 255, 255)" readonly>
+    </div>
+    <p id="hex-error" class="error-text"></p>
+  </section>
+</div>
+
+<script>
+  (function() {
+    const rgb_use_spaces = false; // true = rgb(255, 102, 0), false = rgb(255,102,0)
+
+    const clamp_channel = value => {
+      value = Math.round(Number(value));
+      return isNaN(value) ? 0 : Math.max(0, Math.min(255, value));
+    };
+
+    const rgb_to_hex = (r, g, b) =>
+      '#' + [r, g, b].map(c => clamp_channel(c).toString(16).padStart(2, '0')).join('');
+
+    const sanitize_channel_input = el => {
+      let digits = el.value.replace(/[^0-9]/g, '').slice(0, 3);
+      const num = digits === '' ? '' : String(clamp_channel(digits));
+      if (el.value !== num) el.value = num;
+    };
+
+    const sanitize_hex_input = el => {
+      const prefixed = el.value.startsWith('#');
+      const cleaned = el.value.replace(/#/g, '').replace(/[^0-9a-fA-F]/g, '').slice(0, 6);
+      const sanitized = (prefixed ? '#' : '') + cleaned;
+      if (el.value !== sanitized) el.value = sanitized;
+    };
+
+    const parse_hex = str => {
+      str = str.trim();
+
+      let match = str.match(/^#?([0-9a-fA-F]{3})$/);
+      if (match) {
+        const [r, g, b] = match[1].split('').map(c => parseInt(c + c, 16));
+        return { r, g, b };
+      }
+
+      match = str.match(/^#?([0-9a-fA-F]{6})$/);
+      if (match) {
+        const hex = match[1];
+        return {
+          r: parseInt(hex.slice(0, 2), 16),
+          g: parseInt(hex.slice(2, 4), 16),
+          b: parseInt(hex.slice(4, 6), 16)
+        };
+      }
+
+      return null;
+    };
+
+    const r_input = document.getElementById('r');
+    const g_input = document.getElementById('g');
+    const b_input = document.getElementById('b');
+    const rgb_preview = document.getElementById('rgb-preview');
+    const rgb_result = document.getElementById('rgb-result');
+    const hex_input = document.getElementById('hex-input');
+    const hex_error = document.getElementById('hex-error');
+    const hex_preview = document.getElementById('hex-preview');
+    const hex_result = document.getElementById('hex-result');
+
+    function update_from_rgb() {
+      const hex = rgb_to_hex(r_input.value, g_input.value, b_input.value);
+      rgb_preview.style.background = hex;
+      rgb_result.value = hex;
+    }
+
+    function update_from_hex() {
+      const parsed = parse_hex(hex_input.value);
+
+      if (!parsed) {
+        hex_error.textContent = 'Enter a valid hex value: #RGB or #RRGGBB.';
+        return;
+      }
+
+      hex_error.textContent = '';
+      hex_preview.style.background = rgb_to_hex(parsed.r, parsed.g, parsed.b);
+
+      const sep = rgb_use_spaces ? ', ' : ',';
+      hex_result.value = `rgb(${parsed.r}${sep}${parsed.g}${sep}${parsed.b})`;
+    }
+
+    [r_input, g_input, b_input].forEach(el => {
+      el.addEventListener('input', () => {
+        sanitize_channel_input(el);
+        update_from_rgb();
+      });
+
+      el.addEventListener('keydown', e => {
+        if (['e', 'E', '+', '-', '.'].includes(e.key)) e.preventDefault();
+      });
+    });
+
+    hex_input.addEventListener('input', () => {
+      sanitize_hex_input(hex_input);
+      update_from_hex();
+    });
+
+    update_from_rgb();
+    update_from_hex();
+
+    rgb_preview.addEventListener('click', () => rgb_result.select());
+    hex_preview.addEventListener('click', () => hex_result.select());
+  })();
+</script>

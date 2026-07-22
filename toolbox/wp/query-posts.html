@@ -5,14 +5,14 @@ title: "Query posts (wordpress)"
 
 <h1>{{ page.title }}</h1>
 
-<p>Get all pages under a parent page.</p>
+<p>Get all pages under a parent page. Prefer <a href="/toolbox/wp/wp-query/">WP query</a>; <code>query_posts()</code> is deprecated.</p>
 
 <pre><code>&lt;?php
-  query_posts(array(
+  query_posts([
     &apos;post_parent&apos; =&gt; $post-&gt;ID,
     &apos;post_type&apos; =&gt; &apos;page&apos;,
     &apos;posts_per_page&apos; =&gt; -1,
-  ));
+  ]);
 
   if (have_posts()) {
     echo &apos;&lt;ul&gt;&apos;;
@@ -21,12 +21,12 @@ title: "Query posts (wordpress)"
       printf(
         &apos;&lt;li&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,
         esc_url(get_permalink()),
-        esc_html(get_the_title())
+        esc_html(get_the_title()),
       );
     }
     echo &apos;&lt;/ul&gt;&apos;;
-    wp_reset_query();
   }
+  wp_reset_query();
 ?&gt;</code></pre>
 
 <p><code>template.php</code></p>

@@ -5,20 +5,18 @@ title: "Parent or child (wordpress)"
 
 <h1>{{ page.title }}</h1>
 
-<p>Check if a page is parent or child.</p>
+<p>Check if a page is a parent or any descendant of a parent.</p>
 
 <pre><code>&lt;?php
 /**
  * Check if a page is parent or child.
  */
 function is_tree($pid) {
-  global $post;
-  if (is_page() &amp;&amp; ($post-&gt;post_parent==$pid || is_page($pid))) {
-    return true;
-  } else {
+  if (!is_page()) {
     return false;
   }
-};
+  return is_page($pid) || in_array($pid, get_post_ancestors(get_the_ID()));
+}
 ?&gt;</code></pre>
 
 <p><code>functions.php</code></p>

@@ -1,5 +1,5 @@
 
-    *, *:before, *:after {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
     .form {
@@ -11,6 +11,7 @@
       --button-default: #06c;
       --button-hover: #05b;
       --button-active: #04a;
+      --round-corners: 12px;
     }
     @media (prefers-color-scheme: dark) {
       .form {
@@ -23,7 +24,7 @@
     .form {
       font-family: system-ui, sans-serif;
     }
-    .label {
+    .form .label {
       position: relative;
       display: block;
       width: 400px;
@@ -31,9 +32,9 @@
       font-family: inherit;
       line-height: 1.25rem;
     }
-    .text,
-    .textarea,
-    .select {
+    .form .text,
+    .form .textarea,
+    .form .select {
       font: inherit;
       font-size: .9375rem;
       display: block;
@@ -46,23 +47,25 @@
       color: var(--floating-text);
       border: 1px solid var(--floating-border);
       box-shadow: none;
-      border-radius: .5rem;
+      border-radius: var(--round-corners);
+      transition: border-color .2s;
+      appearance: none;
       -webkit-appearance: none;
     }
-    .select {
+    .form .select {
       padding-top: .875rem;
       padding-bottom: .875rem;
     }
-    .text:disabled,
-    .textarea:disabled,
-    .select:disabled,
-    .text[readonly],
-    .textarea[readonly],
-    .select[readonly] {
+    .form .text:disabled,
+    .form .textarea:disabled,
+    .form .select:disabled,
+    .form .text[readonly],
+    .form .textarea[readonly],
+    .form .select[readonly] {
       background-color: var(--floating-disabled);
       opacity: .5;
     }
-    .select {
+    .form .select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2306c' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
       background-position: right .5rem center;
       background-size: 1.25rem 1.25rem, 0 0;
@@ -70,31 +73,31 @@
       padding-right: 2rem;
       color: var(--floating-caption);
     }
-    .select[multiple] {
+    .form .select[multiple] {
       background: transparent none;
       padding-right: .5rem;
     }
-    .text:focus,
-    .textarea:focus,
-    .select:focus {
+    .form .text:focus,
+    .form .textarea:focus,
+    .form .select:focus {
       outline: 0;
-      box-shadow: inset 0 0 0 .5px var(--floating-focus);
+      box-shadow: inset 0 0 0 1px var(--floating-focus);
       border-color: var(--floating-focus);
     }
-    .select:focus {
+    .form .select:focus {
       background-size: 0 0, 1.25rem 1.25rem;
     }
-    .select:valid {
+    .form .select:valid {
       padding-top: 1.25rem;
       padding-bottom: .5rem;
       color: var(--floating-text);
     }
-    .select::-ms-expand {
+    .form .select::-ms-expand {
       display: none;
     }
-    .caption:has(~ .text),
-    .caption:has(~ .textarea),
-    .caption:has(~ .select) {
+    .form .caption:has(~ .text),
+    .form .caption:has(~ .textarea),
+    .form .caption:has(~ .select) {
       position: absolute;
       top: 0;
       left: 0;
@@ -108,30 +111,31 @@
       border: 1px solid transparent;
       background-color: transparent;
       color: var(--floating-caption);
-      border-radius: .5rem;
+      border-radius: var(--round-corners);
       transform-origin: left bottom;
       transition: font-size .2s, transform .2s;
     }
-    .caption:has(~ .text:focus),
-    .caption:has(~ .textarea:focus),
-    .caption:has(~ .text:not(:placeholder-shown)),
-    .caption:has(~ .textarea:not(:placeholder-shown)),
-    .caption:has(~ .select:valid) {
+    .form .caption:has(~ .text:focus),
+    .form .caption:has(~ .textarea:focus),
+    .form .caption:has(~ .text:not(:placeholder-shown)),
+    .form .caption:has(~ .textarea:not(:placeholder-shown)),
+    .form .caption:has(~ .select:valid) {
       font-size: .6875rem;
       transform: translateY(-.875rem);
     }
-    .caption:has(~ .text:focus),
-    .caption:has(~ .textarea:focus),
-    .caption:has(~ .select:focus) {
+    .form .caption:has(~ .text:focus),
+    .form .caption:has(~ .textarea:focus),
+    .form .caption:has(~ .select:focus) {
       color: var(--floating-focus);
     }
-    .caption:has(~ .select) {
+    .form .caption:has(~ .select) {
       opacity: 0;
     }
-    .caption:has(~ .select:valid) {
+    .form .caption:has(~ .select:valid) {
       opacity: 1;
     }
-    .button {
+    .form .button {
+      cursor: pointer;
       font: inherit;
       font-size: .9375rem;
       padding: .5rem 1rem;
@@ -139,22 +143,21 @@
       color: white;
       border: 0;
       box-shadow: none;
-      border-radius: .5rem;
+      border-radius: var(--round-corners);
       transition: background-color .2s;
     }
-    .button:hover {
+    .form .button:hover {
       background-color: var(--button-hover);
-      cursor: pointer;
     }
-    .button:focus-visible {
+    .form .button:focus-visible {
       outline: 0;
       box-shadow: var(--button-default) 0 0 0 1px inset,
             white 0 0 0 2px inset;
     }
-    .button:active {
+    .form .button:active {
       background-color: var(--button-active);
     }
-    .button:disabled {
+    .form .button:disabled {
       background-color: var(--button-default);
       cursor: default;
       opacity: .5;

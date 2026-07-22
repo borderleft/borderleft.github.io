@@ -6,12 +6,10 @@ title: "Animated modals (vanilla js)"
 <h1>{{ page.title }}</h1>
 
 <ul>
-  <li>Uses data attributes to pair a modal toggle button and dialog.</li>
-  <li>Supports multiple modals simultaneously on a single page.</li>
-  <li>Optimized keyboard accessibility.</li>
-  <li>3 ways to close a modal: click &times; icon, press Esc, or click anywhere outside modal.</li>
-  <li>Smooth fade in/out and slide down/up animations.</li>
-  <li>Dependency free - easy to copy, customize, and integrate.</li>
+  <li>Data attributes link toggles to dialogs.</li>
+  <li>Close with ×, Escape, or backdrop click.</li>
+  <li>Backdrop fade, dialog slide, scroll locked.</li>
+  <li>No external libs.</li>
 </ul>
 
 <h2>Demos</h2>
@@ -24,76 +22,92 @@ title: "Animated modals (vanilla js)"
 
 <!-- Modal dialog 1 -->
 <div class="modal-dialog" data-modal-dialog="m1" tabindex="-1" hidden>
-  <div class="modal-main">
-    <h2>Far far away</h2>
-    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+  <div class="modal-body">
+    <div class="modal-main">
+      <h2>Far far away</h2>
+      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+      <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+    </div>
+    <button class="modal-close" aria-label="Close"></button>
   </div>
-  <button class="modal-close" aria-label="Close"></button>
 </div>
 
 <!-- Modal dialog 2 -->
 <div class="modal-dialog" data-modal-dialog="m2" tabindex="-1" hidden>
-  <div class="modal-main">
-    <h2>Lorem ipsum</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+  <div class="modal-body">
+    <div class="modal-main">
+      <h2>Lorem ipsum</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+    </div>
+    <button class="modal-close" aria-label="Close"></button>
   </div>
-  <button class="modal-close" aria-label="Close"></button>
 </div>
 
 <script>
   (function() {
     const body = document.body;
     const toggles = document.querySelectorAll('.modal-toggle');
-    const closes = document.querySelectorAll('.modal-close');
+    const closers = document.querySelectorAll('.modal-close');
+
+    const css = getComputedStyle(document.documentElement)
+      .getPropertyValue('--modal-transition-duration').trim();
+    const duration = css.endsWith('ms') ? parseFloat(css) : (parseFloat(css) * 1000 || 0);
 
     body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop" aria-hidden="true"></div>');
     const backdrop = document.querySelector('.modal-backdrop[aria-hidden="true"]');
 
-    const dismiss = function(modal) {
-      const toggle = document.querySelector(
-        `[data-modal-toggle="${modal.getAttribute('data-modal-dialog')}"]`
-      );
+    const dismiss = modal => {
+      const toggle = document.querySelector(`[data-modal-toggle="${modal.getAttribute('data-modal-dialog')}"]`);
       if (toggle) toggle.focus();
-      modal.classList.remove('show');
-      modal.classList.add('hide');
-      body.classList.remove('modal-on');
-      body.classList.add('modal-off');
-      setTimeout(() => modal.classList.remove('hide'), 500);
-      setTimeout(() => body.classList.remove('modal-off'), 500);
+
+      modal.classList.replace('show', 'hide');
+      body.classList.replace('modal-on', 'modal-off');
+
+      setTimeout(() => {
+        modal.classList.remove('hide');
+        modal.setAttribute('hidden', '');
+        body.classList.remove('modal-off');
+        if (backdrop) backdrop.setAttribute('aria-hidden', 'true');
+      }, duration);
     };
 
-    for (const toggle of toggles) {
-      toggle.addEventListener('click', function(e) {
-        const modal = document.querySelector(
-          `[data-modal-dialog="${this.getAttribute('data-modal-toggle')}"]`
-        );
-        if (modal) {
-          modal.classList.add('show');
-          modal.focus();
-          body.classList.add('modal-on');
-        }
-        e.preventDefault();
-      });
-    }
+    const show = modal => {
+      if (document.querySelector('.modal-dialog.show')) return;
 
-    for (const close of closes) {
-      close.addEventListener('click', function(e) {
-        const modal = this.closest('.modal-dialog');
-        if (modal) dismiss(modal);
-        e.preventDefault();
-      });
-    }
+      modal.removeAttribute('hidden');
+      modal.classList.add('show');
+      modal.focus();
+      body.classList.add('modal-on');
+      if (backdrop) backdrop.removeAttribute('aria-hidden');
+    };
 
-    backdrop.addEventListener('click', function(e) {
-      const modal = document.querySelector('.modal-dialog.show');
-      if (modal) dismiss(modal);
-      e.preventDefault();
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', e => {
+        e.preventDefault();
+        const modal = document.querySelector(`[data-modal-dialog="${toggle.getAttribute('data-modal-toggle')}"]`);
+        if (modal) show(modal);
+      });
     });
 
-    document.addEventListener('keyup', function(e) {
-      if (e.key === 'Escape' || e.key === 'Esc') {
+    closers.forEach(closer => {
+      closer.addEventListener('click', e => {
+        e.preventDefault();
+        const modal = closer.closest('.modal-dialog');
+        if (modal) dismiss(modal);
+      });
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', e => {
+        e.preventDefault();
+        const modal = document.querySelector('.modal-dialog.show');
+        if (modal) dismiss(modal);
+      });
+    }
+
+    document.addEventListener('keyup', e => {
+      if (e.key === 'Escape') {
         const modal = document.querySelector('.modal-dialog.show');
         if (modal) dismiss(modal);
       }

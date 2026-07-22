@@ -527,21 +527,25 @@ title: Work
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.8.8/lazyload.min.js"></script>
-<script>var lazyLoadInstance = new LazyLoad();</script>
+<script src="/assets/lib/lazyload.min.js?v=19.1.3"></script>
 <script>
-  const offlines = document.querySelectorAll('[data-href]');
-  if (offlines) {
-    for (let i = 0; i < offlines.length; i++) {
-      offlines[i].dataset.title = 'This site is currently offline';
-      offlines[i].classList.add('offline');
-      offlines[i].addEventListener('click', function(e) {
-        offlines[i].classList.add('tooltip');
-        setTimeout(function() {
-          offlines[i].classList.remove('tooltip');
-        }, 3000);
-        e.preventDefault();
-      });
+  new LazyLoad();
+</script>
+<script>
+  (function() {
+    const offlines = document.querySelectorAll('[data-href]');
+    if (offlines.length) {
+      for (let i = 0; i < offlines.length; i++) {
+        offlines[i].dataset.title = 'This site is currently offline';
+        offlines[i].classList.add('offline');
+        offlines[i].addEventListener('click', function(e) {
+          e.preventDefault();
+          offlines[i].classList.add('tooltip');
+          setTimeout(function() {
+            offlines[i].classList.remove('tooltip');
+          }, 3000);
+        });
+      }
     }
-  }
+  })();
 </script>

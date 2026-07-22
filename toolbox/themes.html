@@ -6,12 +6,10 @@ title: "Switch color schemes (vanilla js)"
 <h1>{{ page.title }}</h1>
 
 <ul>
-  <li>Light, dark, and auto (system) modes.</li>
-  <li>Keyboard accessible: Tab to focus radios, Left/Right arrows to toggle options.</li>
-  <li>Saves choice in localStorage.</li>
-  <li>When "auto" is selected, system preference applies.</li>
-  <li>Background/text color toggles between lavender (light) and navy (dark).</li>
-  <li>No external libs, easy to copy and customize.</li>
+  <li>Light, dark, and auto modes.</li>
+  <li>Persists in localStorage.</li>
+  <li>Keyboard-accessible radios.</li>
+  <li>No external libs.</li>
 </ul>
 
 <h2>Demos</h2>
@@ -35,60 +33,42 @@ title: "Switch color schemes (vanilla js)"
   <small id="system"></small>
   <script>
     (function() {
-      function systemColorScheme(data) {
-        const systemInfo = document.getElementById('system');
-        if (!systemInfo) return;
-        systemInfo.textContent = 'System setting: ' + data;
-      }
+      const theme_el = document.getElementById('system');
+      if (!theme_el) return;
 
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      systemColorScheme(mediaQuery.matches ? 'dark' : 'light');
+      const update_theme = theme =>
+        theme_el.textContent = `System setting: ${theme}`;
 
-      mediaQuery.addEventListener('change', function(e) {
-        systemColorScheme(e.matches ? 'dark' : 'light');
-      });
+      const theme_query = window.matchMedia('(prefers-color-scheme: dark)');
+
+      update_theme(theme_query.matches ? 'dark' : 'light');
+      theme_query.addEventListener('change', event =>
+        update_theme(event.matches ? 'dark' : 'light')
+      );
     })();
   </script>
 </p>
 
 <script>
   (function() {
-    const light = document.querySelector('[name="theme"][value="light"]');
-    const dark = document.querySelector('[name="theme"][value="dark"]');
-    const auto = document.querySelector('[name="theme"][value="auto"]');
-    const radios = [light, dark, auto];
-    if (radios.some(r => !r)) return;
+    const theme_inputs = ['light', 'dark', 'auto'].map(theme_value =>
+      document.querySelector(`[name="theme"][value="${theme_value}"]`)
+    );
+    if (theme_inputs.some(input => !input)) return;
 
-    const theme = localStorage.getItem('color-scheme');
+    const apply_theme = theme_value => {
+      localStorage.setItem('color-scheme', theme_value);
+      document.documentElement.dataset.theme = theme_value;
+    };
 
-    function setTheme(value) {
-      localStorage.setItem('color-scheme', value);
-      document.documentElement.setAttribute('data-theme', value);
-    }
+    theme_inputs.forEach(input => {
+      input.autocomplete = 'off';
+      input.addEventListener('change', () => apply_theme(input.value));
+    });
 
-    function setState(input) {
-      input.checked = true;
-    }
-
-    for (const radio of radios) {
-      radio.setAttribute('autocomplete', 'off');
-      radio.addEventListener('change', function() {
-        setTheme(radio.value);
-      });
-    }
-
-    switch (theme) {
-      case 'light':
-        setState(light);
-        setTheme(light.value);
-        break;
-      case 'dark':
-        setState(dark);
-        setTheme(dark.value);
-        break;
-      default:
-        setState(auto);
-        setTheme(auto.value);
-    }
+    const stored = localStorage.getItem('color-scheme') || 'auto';
+    const active = theme_inputs.find(input => input.value === stored) || theme_inputs[2];
+    active.checked = true;
+    apply_theme(active.value);
   })();
 </script>

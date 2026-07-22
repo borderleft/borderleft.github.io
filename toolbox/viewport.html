@@ -10,9 +10,10 @@ title: "Viewport size"
 <script>
   (function() {
     function calc() {
-      var x = document.documentElement.clientWidth;
-      var y = document.documentElement.clientHeight;
-      document.getElementById('xy').innerHTML = x + ' &times; ' + y;
+      const x = document.documentElement.clientWidth;
+      const y = document.documentElement.clientHeight;
+      const el = document.getElementById('xy');
+      if (el) el.textContent = x + ' \u00D7 ' + y;
     }
     window.addEventListener('resize', calc);
     calc();

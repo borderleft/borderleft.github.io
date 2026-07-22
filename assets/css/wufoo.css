@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap');
 
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 html {
@@ -164,6 +164,15 @@ body {
   padding: 0;
   margin: 0;
 }
+.wufoo li:first-child {
+  margin-bottom: -10px;
+}
+.wufoo li:first-child span {
+  margin-bottom: 10px;
+}
+.wufoo li:first-child span + span {
+  margin-left: 2px;
+}
 .wufoo .icon {
   vertical-align: middle;
 }
@@ -205,7 +214,7 @@ body {
   color: inherit !important;
   background: transparent none;
   border: 1px solid #004;
-  padding: 3px 5px;
+  padding: 5px 8px;
   margin: 0;
 }
 .wufoo input.text,
@@ -213,16 +222,17 @@ body {
 .wufoo select.select,
 .wufoo textarea.textarea,
 .wufoo input.file {
-  border-radius: 4px;
+  border-radius: 8px;
+  appearance: none;
   -webkit-appearance: none;
 }
 .wufoo span input[class*="fn"],
 .wufoo span input[class*="ln"] {
-  width: 158px;
+  width: 150px;
   max-width: 100%;
 }
 .wufoo input.text[type="email"] {
-  width: 320px;
+  width: 307px;
   max-width: 100%;
 }
 .wufoo textarea.textarea {
@@ -256,7 +266,8 @@ body {
   padding: 5px 10px;
   margin: 0;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
+  appearance: none;
   -webkit-appearance: none;
 }
 .wufoo span > input:not(.radio):not(.checkbox) + label,
@@ -300,7 +311,7 @@ body {
 #errorLi {
   background: transparent none !important;
   border: 1px solid #e34;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 10px !important;
   margin: 10px 0;
   text-align: center;
@@ -320,7 +331,7 @@ body {
   font: inherit;
   padding: 0;
   background: transparent none !important;
-  border-radius: 0;
+  border-radius: 8px;
 }
 div.recaptcha-text {
   font: inherit;

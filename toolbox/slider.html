@@ -6,10 +6,9 @@ title: "Autoplay slider (vanilla js)"
 <h1>{{ page.title }}</h1>
 
 <ul>
-  <li>Slides fading in/out smoothly.</li>
-  <li>Automatically cycling every 3 seconds.</li>
-  <li>No controls or buttons.</li>
-  <li>Minimal and clean code.</li>
+  <li>Autoplay every 3s with fade transitions.</li>
+  <li>No controls.</li>
+  <li>No external libs.</li>
 </ul>
 
 <h2>Demos</h2>
@@ -28,20 +27,21 @@ title: "Autoplay slider (vanilla js)"
 
 <script>
   (function() {
-    let i = 0;
     const slides = document.querySelectorAll('.slide');
-    const timer = 3000;
     if (!slides.length) return;
+
+    const duration = 3000;
+    let index = 0;
     slides[0].classList.add('show');
-    function start() {
-      setTimeout(play, timer);
-    }
-    function play() {
-      slides[i].classList.remove('show');
-      i = (i + 1) % slides.length;
-      slides[i].classList.add('show');
-      start();
-    }
-    start();
+
+    const timer = setInterval(() => {
+      if (!document.body.contains(slides[0])) {
+        clearInterval(timer);
+        return;
+      }
+      slides[index].classList.remove('show');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('show');
+    }, duration);
   })();
 </script>

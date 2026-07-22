@@ -5,7 +5,7 @@ title: "Sibling pages (wordpress)"
 
 <h1>{{ page.title }}</h1>
 
-<p>List of sibling pages.</p>
+<p>List sibling pages.</p>
 
 <pre><code>&lt;?php
   if ($post-&gt;post_parent) {
@@ -14,11 +14,11 @@ title: "Sibling pages (wordpress)"
     $page = $post-&gt;ID;
   }
 
-  $children = wp_list_pages(array(
-    &apos;child_of&apos; =&gt; $page,
-    &apos;echo&apos; =&gt; &apos;0&apos;,
+  $children = wp_list_pages([
+    &apos;parent&apos; =&gt; $page,
+    &apos;echo&apos; =&gt; false,
     &apos;title_li&apos; =&gt; &apos;&apos;,
-  ));
+  ]);
 
   if ($children) {
     echo &quot;&lt;ul&gt;\n&quot;.$children.&quot;&lt;/ul&gt;\n&quot;;

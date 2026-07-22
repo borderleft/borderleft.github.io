@@ -1,0 +1,62 @@
+
+    .tool .intro {
+      max-width: var(--layout-7);
+    }
+    .tool .converter {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: var(--layout-4);
+    }
+    .tool section h2 {
+      font-size: var(--font-size-md);
+    }
+    .tool .field-row {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .tool .field-row label {
+      font-size: var(--font-size-xs);
+    }
+    .tool .field-row input[type="number"] {
+      width: 4.5em;
+    }
+    .tool .field-row input[type="text"] {
+      width: 5.75em;
+    }
+    .tool input {
+      font-family: var(--font-family-code);
+      font-variant-numeric: tabular-nums slashed-zero;
+    }
+    .tool input[readonly] {
+      border: 0;
+    }
+    .tool input[readonly]:focus {
+      outline: none;
+    }
+    .tool .result-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .tool .color-preview {
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+      border-radius: var(--radius-2);
+      border: 1px solid var(--color-gray);
+    }
+    .tool .color-output {
+      flex: 1;
+      background-color: transparent;
+    }
+    .tool .error-text {
+      font-size: var(--font-size-xs);
+      margin-top: 1rem;
+    }
+    .tool .error-text::before {
+      content: "\a0";
+    }

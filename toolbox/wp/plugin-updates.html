@@ -12,7 +12,9 @@ title: "Plugin updates (wordpress)"
  * Disable update notifications for an individual plugin.
  */
 add_filter(&apos;site_transient_update_plugins&apos;, function($value) {
-  unset($value-&gt;response[&apos;akismet/akismet.php&apos;]);
+  if (is_object($value) &amp;&amp; isset($value-&gt;response[&apos;akismet/akismet.php&apos;])) {
+    unset($value-&gt;response[&apos;akismet/akismet.php&apos;]);
+  }
   return $value;
 });
 ?&gt;</code></pre>

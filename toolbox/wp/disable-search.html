@@ -12,7 +12,7 @@ title: "Disable search (wordpress)"
  * Disable search function and redirect to home.
  */
 if (!is_admin()) {
-  add_filter(&apos;template_redirect&apos;, function() {
+  add_action(&apos;template_redirect&apos;, function() {
     if (is_search()) {
       wp_safe_redirect(home_url(), 301);
       exit;

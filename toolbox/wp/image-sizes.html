@@ -11,12 +11,14 @@ title: "Image sizes (wordpress)"
 /**
  * Add custom image sizes and names.
  */
-add_image_size(&apos;small&apos;, 400, 0, false); // name, width, height, crop
+add_action(&apos;after_setup_theme&apos;, function() {
+  add_image_size(&apos;small&apos;, 400, 0, false); // name, width, height, crop
+});
 
 add_filter(&apos;image_size_names_choose&apos;, function($sizes) {
-  $sizes = array_merge($sizes, array(
+  $sizes = array_merge($sizes, [
     &apos;small&apos; =&gt; &apos;Small&apos;,
-  ));
+  ]);
   return $sizes;
 });
 ?&gt;</code></pre>
