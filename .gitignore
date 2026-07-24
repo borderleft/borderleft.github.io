@@ -1,6 +1,10 @@
-*~
-.DS_Store
-.sass-cache
-.jekyll-cache
+# Jekyll build
+_site/
+
+# Jekyll caches
+.jekyll-cache/
 .jekyll-metadata
-_site
+.sass-cache/
+
+# macOS
+.DS_Store
