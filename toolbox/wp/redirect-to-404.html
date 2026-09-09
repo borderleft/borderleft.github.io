@@ -12,7 +12,7 @@ title: "Redirect to 404 (wordpress)"
   $wp_query-&gt;set_404();
   status_header(404);
   nocache_headers();
-  $template = get_query_template(&apos;404&apos;);
+  $template = get_404_template();
   if ($template) {
     include $template;
   }
